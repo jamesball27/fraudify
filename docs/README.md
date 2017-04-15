@@ -12,6 +12,7 @@
 * Continuous sitewide song playback
 * Following playlists and users
 
+
 ## Design Docs
 
 [Wireframes](wireframes)
@@ -26,3 +27,11 @@
 
 ## Implementation Timeline
 _TODO_
+
+### Bonus features
+
+* Browse page
+
+* Radio/shuffle mode
+
+* Log In using Facebook/Google
