@@ -53,6 +53,7 @@
     }
   }
 
+  // artists in the current user's playlists
   artists: {
     3: {
       id: 3,
@@ -65,6 +66,7 @@
     }
   },
 
+  // albums in the current user's playlists
   albums: {
     12: {
       id: 12
