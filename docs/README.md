@@ -10,7 +10,7 @@
 * Playlist CRUD
 * Song, artist, album, and playlist search
 * Continuous sitewide song playback
-* Following playlists and users
+* Following playlists and artists
 
 
 ## Design Docs
@@ -35,3 +35,5 @@ _TODO_
 * Radio/shuffle mode
 
 * Log In using Facebook/Google
+
+* Users can upload profile picture

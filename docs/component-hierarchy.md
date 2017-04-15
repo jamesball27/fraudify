@@ -21,39 +21,60 @@
 
 #### MyMusicContainer
   * PlaylistsIndex
-    * PlaylistsIndexItem
   * SongsIndex
-    * SongsIndexItem
   * AlbumsIndex
-    * AlbumsIndexItem
   * ArtistsIndex
-    * ArtistsIndexItem
+
+#### PlaylistsIndex
+  * PlaylistsIndexItem
+
+#### SongsIndex
+  * SongsIndexItem
+
+#### AlbumsIndex
+  * AlbumsIndexItem
+
+#### ArtistsIndex
+  * ArtistsIndexItem
+
+#### CollectionContainer
+  * CollectionDetail
+  * CollectionSongs
+
+#### Artist
+  * ArtistDetail
+  * ArtistAlbums
+  * ArtistSongs
+
+#### UserContainer
+  * UserDetail
+  * PlaylistsIndex
 
 #### SearchContainer
   * SearchBar
   * PlaylistsIndex
-    * PlaylistsIndexItem
   * SongsIndex
-    * SongsIndexItem
   * AlbumsIndex
-    * AlbumsIndexItem
   * ArtistsIndex
-    * ArtistsIndexItem
 
 # Routes
-| Path                 | Component         |
-|----------------------|-------------------|
-| "/"                  | App               |
-| "/signup"            | AuthFormContainer |
-| "/login"             | AuthFormContainer |
-| "/mymusic"           | MyMusicContainer  |
-| "/mymusic/playlists" | PlaylistsIndex    |
-| "/mymusic/songs"     | SongsIndex        |
-| "/mymusic/albums"    | AlbumsIndex       |
-| "/mymusic/artists"   | ArtistsIndex      |
-| "/search"            | SearchContainer   |
-| "/search/playlists"  | PlaylistsIndex    |
-| "/search/songs"      | SongsIndex        |
-| "/search/albums"     | AlbumIndex        |
-| "/search/artists"    | ArtistsIndex      |
-| "/account"           | AccountContainer  |
+| Path                     | Component           |
+|--------------------------|---------------------|
+| "/"                      | App                 |
+| "/signup"                | AuthFormContainer   |
+| "/login"                 | AuthFormContainer   |
+| "/mymusic"               | MyMusicContainer    |
+| "/mymusic/playlists"     | PlaylistsIndex      |
+| "/mymusic/songs"         | SongsIndex          |
+| "/mymusic/albums"        | AlbumsIndex         |
+| "/mymusic/artists"       | ArtistsIndex        |
+| "/mymusic/playlists/:id" | CollectionContainer |
+| "/albums/:id"            | CollectionContainer |
+| "/artists/:id"           | Artist              |
+| "/search"                | SearchContainer     |
+| "/search/playlists"      | PlaylistsIndex      |
+| "/search/songs"          | SongsIndex          |
+| "/search/albums"         | AlbumIndex          |
+| "/search/artists"        | ArtistsIndex        |
+| "/users/:id"             | UserContainer       |
+| "/account"               | AccountContainer    |
