@@ -21,13 +21,13 @@ link when live*
 
 [Wireframes](wireframes)
 
-[API Endpoints](api-endpoints)
+[API Endpoints](api-endpoints.md)
 
-[React Component Hierarchy](component-hierarchy)
+[React Component Hierarchy](component-hierarchy.md)
 
-[Redux Sample State](sample-state)
+[Redux Sample State](sample-state.md)
 
-[Database Schema](schema)
+[Database Schema](schema.md)
 
 ## Implementation Timeline
 #### Phase 1: Backend Configuration and Front End User Authentication (1.5 days)
