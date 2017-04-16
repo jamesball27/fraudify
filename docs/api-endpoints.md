@@ -15,8 +15,8 @@
 #### Playlists
   - `GET /api/playlists`
   - `POST /api/playlists`
-  - `PATCH /api/playlists`
-  - `DELETE /api/playlists`
+  - `PATCH /api/playlists/:id`
+  - `DELETE /api/playlists/:id`
 
 #### Songs/Artists/Albums
   - `GET /api/songs`
@@ -25,11 +25,11 @@
 
 #### PlaylistFollows
   - `POST /api/playlistfollows`
-  - `DELETE /api/playlistfollows`
+  - `DELETE /api/playlistfollows/:id`
 
 #### ArtistFollows
   - `POST /api/artistfollows`
-  - `DELETE /api/artistfollows`
+  - `DELETE /api/artistfollows/:id`
 
 #### Search
   - `POST /api/search`

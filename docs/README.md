@@ -1,6 +1,10 @@
 # Fraudify
 
-[Heroku Link](http://heroku.com) *__Note:__ update this link when live*
+[Heroku Link](http://heroku.com) *__Note:__ update this
+link when live*
+
+[Trello Link](http://trello.com) *__Note:__ update this
+link when live*
 
 ## Minimum Viable Product
 
@@ -8,9 +12,9 @@
 
 * New account creation and log-in (with guest demo account)
 * Playlist CRUD
-* Song, artist, album, and playlist search
 * Continuous sitewide song playback
-* Following playlists and artists
+* Song, artist, album, and playlist search
+* Playlist and artist following
 
 
 ## Design Docs
@@ -26,7 +30,20 @@
 [Database Schema](schema)
 
 ## Implementation Timeline
-_TODO_
+#### Phase 1: Backend Configuration and Front End User Authentication (1.5 days)
+  * User can: login and signup, with backend and frontend authentication
+
+#### Phase 2: Playlist CRUD and Songs/Albums/Artists views (3 days)
+  * User can: create, update, read, and destroy playlists, as well as view all songs, albums, and artists associated with playlists
+
+#### Phase 3: Song Playback (2 days)
+  * User can: playback songs continuously sitewide, with ability to play, pause, seek, adjust volume, and navigate through play queue
+
+#### Phase 4: Search (1.5 days)
+  * User can: search for playlists, artists, songs, and albums with dynamic search results
+
+#### Phase 5: Playlist and Artist Follows (1 day)
+  * User can: follow and unfollow playlists and artists
 
 ### Bonus features
 
@@ -36,4 +53,4 @@ _TODO_
 
 * Log In using Facebook/Google
 
-* Users can upload profile picture
+* User profile pictures

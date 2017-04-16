@@ -5,36 +5,19 @@
       id: 1,
       username: mozart1756
     },
-    errors: []
+    errors: {
+      username_errors: [],
+      password_errors: []
+    }
   },
 
   nowPlaying: {
     currentSong: 0, // references index in the queue
-    current_time: 245,
+    current_time: 245, // play time in the current song
     volume: .75,
     queue: [5, 10] // song_ids
   },
 
-  songs: {
-    10: {
-      id: 10,
-      title: 'Thriller',
-      audio_url: 'http://www.audioexample.com/10',
-      duration: 357,
-      artist_id: 4,
-      album_id: 12
-    },
-
-    5: {
-        id: 5,
-        title: 'Bohemian Rhapsody',
-        audio_url: 'http://www.audioexample.com/5',
-        duration: 357,
-        artist_id: 3,
-        album_id: 6
-      }
-    }  
-  },
 
   // playlists that the currentUser has created or follows
   playlists: {
@@ -42,7 +25,7 @@
       id: 1,
       name: 'Great Songs',
       creator: 'mary2',
-      songs: [10, 5]
+      songs: [10, 5] // in array to maintain correct order
     },
 
     1: {
@@ -51,7 +34,7 @@
       creator: 'mozart1756',
       songs: []
     }
-  }
+  },
 
   // artists in the current user's playlists
   artists: {
@@ -71,19 +54,42 @@
   // albums in the current user's playlists
   albums: {
     12: {
-      id: 12
-      name: 'Thriller',
+      id: 12,
+      title: 'Thriller',
       image_url: 'http://www.imageexample.com/12',
+      artist: 'Michael Jackson',
       songs: [10, 4, 5, 19]
     },
 
     6: {
-      id: 6
-      album: 'A Night at the Opera',
+      id: 6,
+      title: 'A Night at the Opera',
       image_url: 'http://www.imageexample.com/8',
+      artist: 'Queen',
       songs: [3, 13, 5, 6, 9]
     }
-  }
+  },
+
+  // songs in the current user's playlists
+  songs: {
+    10: {
+      id: 10,
+      title: 'Thriller',
+      audio_url: 'http://www.audioexample.com/10',
+      duration: 357,
+      artist: 'Michael Jackson',
+      album: 'Thriller'
+    },
+
+    5: {
+      id: 5,
+      title: 'Bohemian Rhapsody',
+      audio_url: 'http://www.audioexample.com/5',
+      duration: 357,
+      artist: 'Queen',
+      album: 'A Night at the Opera'
+    }  
+  },
 
   searchResults: {
     songs: {
@@ -96,9 +102,6 @@
       ...
     },
     artists: {
-      ...
-    },
-    users: {
       ...
     }
   }
