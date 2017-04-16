@@ -1,10 +1,10 @@
-# SpotifyClone (working title)
+# Fraudify
 
 [Heroku Link](http://heroku.com) *__Note:__ update this link when live*
 
 ## Minimum Viable Product
 
-*SpotifyClone* is a fullstack web application, based on the popular music streaming service Spotify, built using Ruby on Rails and React/Redux. When complete, it will be hosted live on Heroku with a full production README detailing its features and implementation. This app will, at a minimum, comprise of the following features (bug-free, styled, and with appropriate data seeds):  
+*Fraudify* is a fullstack web application, based on the popular music streaming service Spotify, built using Ruby on Rails and React/Redux. When complete, it will be hosted live on Heroku with a full production README detailing its features and implementation. This app will, at a minimum, comprise of the following features (bug-free, styled, and with appropriate data seeds):  
 
 * New account creation and log-in (with guest demo account)
 * Playlist CRUD

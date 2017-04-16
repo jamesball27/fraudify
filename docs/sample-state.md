@@ -80,5 +80,23 @@
       image_url: 'http://www.imageexample.com/8',
     }
   }
+
+  searchResults: {
+    songs: {
+      ...
+    },
+    playlists: {
+      ...
+    },
+    albums: {
+      ...
+    },
+    artists: {
+      ...
+    },
+    users: {
+      ...
+    }
+  }
 }
 ```
