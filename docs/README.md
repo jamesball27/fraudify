@@ -3,8 +3,7 @@
 [Heroku Link](http://heroku.com) *__Note:__ update this
 link when live*
 
-[Trello Link](https://trello.com/b/L9aRsajH/fraudify) *__Note:__ update this
-link when live*
+[Trello Link](https://trello.com/b/L9aRsajH/fraudify)
 
 ## Minimum Viable Product
 
