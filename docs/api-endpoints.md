@@ -7,7 +7,6 @@
 ## JSON API
 #### Users
   - `POST /api/users`
-  - `GET /api/users/:id`
 
 #### Session
   - `POST /api/session`
@@ -23,6 +22,14 @@
   - `GET /api/songs`
   - `GET /api/albums`
   - `GET /api/artists`
+
+#### PlaylistFollows
+  - `POST /api/playlistfollows`
+  - `DELETE /api/playlistfollows`
+
+#### ArtistFollows
+  - `POST /api/artistfollows`
+  - `DELETE /api/artistfollows`
 
 #### Search
   - `POST /api/search`

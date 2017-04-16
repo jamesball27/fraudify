@@ -19,9 +19,13 @@
         * ###### SongsIndexItem
       * ##### ArtistsIndex
         * ###### ArtistsIndexItem
-      * ##### CollectionContainer (playlist/album)
-        * ###### CollectionDetail
-        * ###### CollectionSongs
+    * #### CollectionContainer (playlist/album)
+      * ##### CollectionDetail
+      * ##### CollectionSongs
+    * #### ArtistContainer
+      * ##### ArtistDetail
+      * ##### CollectionsIndex (albums)
+      * ##### SongsIndex
     * #### SearchContainer
       * ##### SearchBar
       * ##### CollectionsIndex (playlists/albums)
@@ -30,9 +34,6 @@
         * ###### SongsIndexItem
       * ##### ArtistsIndex
         * ###### ArtistsIndexItem
-    * #### UserContainer
-      * ##### UserDetail
-      * ##### CollectionsIndex (playlists)
 
 # React Routes
 | Path                     | Component           |
@@ -44,12 +45,11 @@
 | "/mymusic/albums"        | CollectionsIndex    |
 | "/mymusic/songs"         | SongsIndex          |
 | "/mymusic/artists"       | ArtistsIndex        |
-| "/mymusic/playlists/:id" | CollectionContainer |
+| "/playlists/:id"         | CollectionContainer |
 | "/albums/:id"            | CollectionContainer |
-| "/artists/:id"           | Artist              |
+| "/artists/:id"           | ArtistContainer     |
 | "/search"                | SearchContainer     |
 | "/search/playlists"      | CollectionsIndex    |
 | "/search/albums"         | CollectionsIndex    |
 | "/search/songs"          | SongsIndex          |
 | "/search/artists"        | ArtistsIndex        |
-| "/users/:id"             | UserContainer       |

@@ -57,12 +57,14 @@
   artists: {
     3: {
       id: 3,
-      name: 'Queen'
+      name: 'Queen',
+      image_url: 'http://www.imageexample.com/3'
     },
 
     4: {
       id: 4,
-      name: 'Michael Jackson'
+      name: 'Michael Jackson',
+      image_url: 'http://www.imageexample.com/4'
     }
   },
 
@@ -72,12 +74,14 @@
       id: 12
       name: 'Thriller',
       image_url: 'http://www.imageexample.com/12',
+      songs: [10, 4, 5, 19]
     },
 
     6: {
       id: 6
       album: 'A Night at the Opera',
       image_url: 'http://www.imageexample.com/8',
+      songs: [3, 13, 5, 6, 9]
     }
   }
 
