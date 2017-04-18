@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import StaticPage from './static_page';
-// import Splash from './splash';
+import Splash from './splash';
 import { logIn, signUp } from '../../actions/session_actions';
 import { Link } from 'react-router';
 
@@ -39,25 +38,28 @@ class AuthForm extends React.Component {
     }
 
     return(
-      <section className="auth-form">
-        <h2>{ formText }</h2>
-        <form onSubmit={ this.handleSubmit }>
-          <input
-            type="text"
-            placeholder="Username"
-            value={ this.state.username }
-            onChange={ this.handleInput('username') }
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={ this.state.password }
-            onChange={ this.handleInput('password') }
-          />
-          <input type="submit" value={ buttonText } />
-        </form>
-        <Link to={ linkUrl }>{ linkText }</Link>
-      </section>
+      <main className="home">
+        <section className="auth-form">
+          <h2>{ formText }</h2>
+          <form onSubmit={ this.handleSubmit }>
+            <input
+              type="text"
+              placeholder="Username"
+              value={ this.state.username }
+              onChange={ this.handleInput('username') }
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={ this.state.password }
+              onChange={ this.handleInput('password') }
+            />
+            <input type="submit" value={ buttonText } />
+          </form>
+          <Link to={ linkUrl }>{ linkText }</Link>
+        </section>
+        <Splash />
+      </main>
     );
   }
 }
