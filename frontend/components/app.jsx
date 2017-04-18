@@ -4,7 +4,6 @@ import Splash from './auth/splash';
 
 const App = ({ children }) => (
   <div>
-    <h1>Welcome!</h1>
     { children }
     <Splash />
   </div>

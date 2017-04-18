@@ -1,4 +1,5 @@
 class Api::SessionsController < ApplicationController
+  before_action :redirect_if_logged_in, only: [:create]
 
   def create
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
@@ -13,7 +14,7 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     @user = current_user
-
+    
     if @user
       log_out
       render :show

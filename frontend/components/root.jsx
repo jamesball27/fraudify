@@ -1,21 +1,35 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { Router, Route, hashHistory, IndexRoute, IndexRedirect } from 'react-router';
 import App from './app';
 import AuthForm from './auth/auth_form';
 import StaticPage from './auth/static_page';
+import MyMusicContainer from './mymusic/mymusic';
+import CollectionsIndex from './mymusic/collections_index';
 
+const Root = ({ store }) => {
+  const _redirectIfLoggedIn = (nextState, replace) => {
 
-const Root = ({ store }) => (
-  <Provider store={ store }>
-    <Router history={ hashHistory }>
-      <Route path="/" components={ App }>
-        <IndexRoute component={ StaticPage } />
-        <Route path="/signup" components={ AuthForm } />
-        <Route path="/login" components={ AuthForm } />
-      </Route>
-    </Router>
-  </Provider>
-);
+    if (store.getState().session.currentUser) {
+      replace("/mymusic");
+    }
+  };
+
+  return(
+    <Provider store={ store }>
+      <Router history={ hashHistory }>
+        <Route path="/" component={ App }>
+          <IndexRoute component={ StaticPage } />
+          <Route path="signup" component={ AuthForm } onEnter={ _redirectIfLoggedIn } />
+          <Route path="login" component={ AuthForm } onEnter={ _redirectIfLoggedIn } />
+          <Route path="mymusic" component={ MyMusicContainer } >
+            <IndexRedirect to="playlists" />
+            <Route path="playlists" component={ CollectionsIndex } />
+          </Route>
+        </Route>
+      </Router>
+    </Provider>
+  );
+};
 
 export default Root;

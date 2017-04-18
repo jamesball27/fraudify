@@ -21,7 +21,7 @@ class AuthForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitAction(this.state);
-    this.props.router.push('/');
+    this.props.router.push('/mymusic/playlists');
   }
 
   render() {
@@ -63,16 +63,15 @@ class AuthForm extends React.Component {
 }
 
 const mapStateToProps = ({ session }, ownProps) => {
-  let formType = ownProps.route.path === '/login' ? 'login' : 'signup';
-
-  return { formType };
+  return { formType: ownProps.route.path };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   let submitAction;
-  if (ownProps.route.path === '/login') {
+  const currentPath = ownProps.route.path;
+  if (currentPath === 'login') {
     submitAction = (user) => dispatch(logIn(user));
-  } else {
+  } else if (currentPath === 'signup') {
     submitAction = (user) => dispatch(signUp(user));
   }
 
