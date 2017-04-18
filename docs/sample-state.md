@@ -5,10 +5,7 @@
       id: 1,
       username: mozart1756
     },
-    errors: {
-      username_errors: [],
-      password_errors: []
-    }
+    errors: []
   },
 
   nowPlaying: {
