@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { logIn } from '../actions/session_actions';
+import { logIn } from '../../actions/session_actions';
+import Splash from './splash';
 
 const StaticPage = ({ demoLogIn }) => (
   <div className="static-page">
     <Link to="/" onClick={ demoLogIn }>Demo Log In</Link>
     <Link to="/signup">Sign Up</Link>
     <Link to="/login">Already have an account? Log In here.</Link>
+    <Splash />
   </div>
 );
 

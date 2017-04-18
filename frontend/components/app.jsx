@@ -1,5 +1,5 @@
 import React from 'react';
-import StaticPage from './static_page';
+import StaticPage from './auth/static_page';
 
 const App = ({ children }) => (
   <div>
