@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Splash = props => (
-  <div>
+  <aside className="splash">
     <h2>Tagline</h2>
     <h3>Lorem ipsum dolor sit amet</h3>
     <ul>
@@ -9,7 +9,7 @@ const Splash = props => (
       <li>Feature 2</li>
       <li>Feature 3</li>
     </ul>
-  </div>
+  </aside>
 );
 
 export default Splash;

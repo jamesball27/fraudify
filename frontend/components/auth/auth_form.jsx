@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import StaticPage from './static_page';
-import Splash from './splash';
+// import Splash from './splash';
 import { logIn, signUp } from '../../actions/session_actions';
 import { Link } from 'react-router';
 
@@ -21,22 +21,25 @@ class AuthForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitAction(this.state);
+    this.props.router.push('/');
   }
 
   render() {
-    let formText, linkText, linkUrl;
+    let formText, buttonText, linkText, linkUrl;
     if (this.props.formType === 'login') {
-      formText = 'LOG IN';
+      formText = 'Log In';
+      buttonText = 'LOG IN';
       linkText = 'Don\'t have an account? Sign up here.';
       linkUrl = '/signup';
     } else {
-      formText = 'SIGN UP';
+      formText = 'Create a free Fraudify account';
+      buttonText = 'SIGN UP';
       linkText = '<< Go back';
       linkUrl = '/';
     }
 
     return(
-      <div className="auth-form">
+      <section className="auth-form">
         <h2>{ formText }</h2>
         <form onSubmit={ this.handleSubmit }>
           <input
@@ -51,11 +54,10 @@ class AuthForm extends React.Component {
             value={ this.state.password }
             onChange={ this.handleInput('password') }
           />
-          <input type="submit" value={ formText } />
+          <input type="submit" value={ buttonText } />
         </form>
         <Link to={ linkUrl }>{ linkText }</Link>
-        <Splash />
-      </div>
+      </section>
     );
   }
 }
