@@ -70,7 +70,6 @@
       text-decoration: none;
       color: white;
       font-size: 16px;
-      font-weight: lighter;
       border-radius: 10px;
       background: transparent;
       text-align: center;
@@ -78,8 +77,12 @@
       width: 80%;
       margin: 20px;
       text-transform: uppercase;
+      opacity: .7;
 
       &:hover {
+        text-decoration: none;
+        opacity: 1;
+        transition: opacity .25s;
         cursor: pointer;
       }
 
