@@ -1,9 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logOut } from '../../actions/session_actions';
-import { getAllPlaylists } from '../../reducers/selectors';
+import { fetchPlaylists } from '../../actions/playlist_actions';
 
 class MyMusic extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchPlaylists();
+  }
 
   componentDidUpdate() {
     if (!this.props.currentUser) {
@@ -22,13 +26,13 @@ class MyMusic extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  currentUser: state.session.currentUser,
-  playlists: getAllPlaylists(state)
+const mapStateToProps = state => ({
+  currentUser: state.session.currentUser
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  logOut: () => dispatch(logOut())
+const mapDispatchToProps = dispatch => ({
+  logOut: () => dispatch(logOut()),
+  fetchPlaylists: () => dispatch(fetchPlaylists())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyMusic);

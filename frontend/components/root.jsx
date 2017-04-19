@@ -4,7 +4,7 @@ import { Router, Route, hashHistory, IndexRoute, IndexRedirect } from 'react-rou
 import App from './app';
 import AuthForm from './home/auth_form';
 import HomePage from './home/home_page';
-import MyMusicContainer from './mymusic/mymusic';
+import MyMusic from './mymusic/mymusic';
 import CollectionsIndex from './mymusic/collections_index';
 
 const Root = ({ store }) => {
@@ -27,9 +27,10 @@ const Root = ({ store }) => {
           <IndexRoute component={ HomePage } onEnter={ _redirectIfLoggedIn } />
           <Route path="signup" component={ AuthForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="login" component={ AuthForm } onEnter={ _redirectIfLoggedIn } />
-          <Route path="mymusic" component={ MyMusicContainer } onEnter={ _ensureLoggedIn }>
+          <Route path="mymusic" component={ MyMusic } onEnter={ _ensureLoggedIn }>
             <IndexRedirect to="playlists" />
             <Route path="playlists" component={ CollectionsIndex } />
+            <Route path="albums" component={ CollectionsIndex } />
           </Route>
         </Route>
       </Router>

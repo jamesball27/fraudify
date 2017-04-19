@@ -14,11 +14,11 @@
       * ##### NextSong
   * ### MainContentContainer
     * #### MyMusicContainer
-      * ##### CollectionsIndex (playlists/albums)
+      * ##### CollectionsIndexContainer (playlists/albums)
         * ###### CollectionsIndexItem
-      * ##### SongsIndex
+      * ##### SongsIndexContainer
         * ###### SongsIndexItem
-      * ##### ArtistsIndex
+      * ##### ArtistsIndexContainer
         * ###### ArtistsIndexItem
     * #### CollectionContainer (playlist/album)
       * ##### CollectionDetail
