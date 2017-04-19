@@ -18,14 +18,14 @@
 
   // playlists that the currentUser has created or follows
   playlists: {
-    0: {
+    1: {
       id: 1,
       name: 'Great Songs',
       creator: 'mary2',
       songs: [10, 5] // in array to maintain correct order
     },
 
-    1: {
+    4: {
       id: 4,
       name: 'OK Songs',
       creator: 'mozart1756',
