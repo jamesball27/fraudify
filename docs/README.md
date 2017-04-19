@@ -1,7 +1,6 @@
 # Fraudify
 
-[Heroku Link](http://heroku.com) *__Note:__ update this
-link when live*
+[Heroku Link](http://fraudify.herokuapp.com)
 
 [Trello Link](https://trello.com/b/L9aRsajH/fraudify)
 

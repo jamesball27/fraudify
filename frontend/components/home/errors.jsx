@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Errors = props => (
-  <ul>
+  <ul className="errors">
     {
       props.errors.map((error, idx) => <li key={ idx }>{ error }</li>)
     }

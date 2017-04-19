@@ -3,6 +3,10 @@
     window.currentUser =
       <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
   <% end %>
+
+  window.images = {
+    logo: "<%= image_path("logo-white.png") %>"
+  }
 </script>
 
 <div id="root"></div>

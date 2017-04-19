@@ -49,16 +49,10 @@
 | name        | string    | not null                                |
 | image_url   | string    | not null, links to image file in AWS S3 |
 
-## playlist_follows
+## user_follows
 | Column name | Data type | Details                                               |
 |-------------|-----------|-------------------------------------------------------|
 | id          | integer   | not null, primary key                                 |
 | user_id     | integer   | not null, foreign_key (references users), indexed     |
-| playlist_id | integer   | not null, foreign_key (references playlists), indexed |
-
-## artist_follows
-| Column name | Data type | Details                                             |
-|-------------|-----------|-----------------------------------------------------|
-| id          | integer   | not null, primary key                               |
-| user_id     | integer   | not null, foreign_key (references users), indexed   |
-| artist_id   | integer   | not null, foreign_key (references artists), indexed |
+| followable_id | integer   | not null, polymorphic, indexed |
+| followable_type | string   | not null, polymorphic, indexed |

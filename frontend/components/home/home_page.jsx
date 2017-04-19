@@ -15,10 +15,22 @@ class HomePage extends React.Component {
   render() {
     return (
       <main className="home">
-        <section className="auth-links">
-          <Link to="/mymusic/playlists" onClick={ this.props.demoLogIn }>Demo Log In</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/login">Already have an account? Log In here.</Link>
+        <section className="left">
+          <header>
+            <img src={ window.images.logo } />
+            <h1>Fraudify</h1>
+          </header>
+
+          <section className="auth-links">
+            <Link
+              to="/mymusic/playlists"
+              onClick={ this.props.demoLogIn }
+              className="demo button">Demo Log In</Link>
+
+            <Link to="/signup" className="button">Sign Up</Link>
+
+            <Link to="/login">Already have an account? Log In here.</Link>
+          </section>
         </section>
         <Splash />
       </main>

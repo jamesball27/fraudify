@@ -1,0 +1,112 @@
+.home {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("splash-4.jpg");
+  background-size: cover;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  padding-right: 50px;
+  border-right: 1px solid white;
+
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    h1 {
+      font-size: 70px;
+      color: white;
+    }
+
+    img {
+      height: 100px;
+      width: 100px;
+      margin: 30px;
+    }
+  }
+}
+
+.auth-links {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .button {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: lighter;
+    border-radius: 10px;
+    background: black;
+    text-align: center;
+    padding: 10px;
+    width: 80%;
+    margin: 20px;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .demo {
+    background: $green;
+  }
+
+  a {
+    font-size: 12px;
+    color: white;
+    margin-top: 18px;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.splash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 200px;
+  padding-left: 100px;
+
+  h1 {
+    font-size: 56px;
+    color: $green;
+    padding: 10px;
+  }
+
+  h4 {
+    font-size: 26px;
+    font-weight: 300;
+    color: white;
+    padding: 10px;
+  }
+
+  ul {
+    margin: 10px;
+
+    li {
+      padding: 5px;
+      color: white;
+
+      &:before {
+        content: "✓";
+        color: $green;
+        padding-right: 5px;
+        font-size: 26px;
+      }
+    }
+  }
+}

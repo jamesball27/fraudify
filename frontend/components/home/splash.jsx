@@ -2,7 +2,7 @@ import React from 'react';
 
 const Splash = props => (
   <aside className="splash">
-    <h1>Get the right music, right now</h1>
+    <h1>Get the right music, <br/>right now</h1>
     <h4>Listen to a few songs for free.</h4>
     <ul>
       <li>Search & discover new music you'll love</li>
