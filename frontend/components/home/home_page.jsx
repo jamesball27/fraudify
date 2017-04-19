@@ -31,6 +31,7 @@ class HomePage extends React.Component {
 
             <Link to="/login">Already have an account? Log In here.</Link>
           </section>
+          { this.props.children }
         </section>
         <Splash />
       </main>

@@ -59,6 +59,11 @@ class AuthForm extends React.Component {
     return(
       <main className="home">
         <section className="auth-form">
+          <header>
+            <img src={ window.images.logo } />
+            <h1>Fraudify</h1>
+          </header>
+
           <h2>{ formText }</h2>
           <Errors errors={ this.props.errors } />
           <form onSubmit={ this.handleSubmit }>

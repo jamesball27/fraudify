@@ -1,0 +1,90 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid white;
+  padding-right: 50px;
+
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    img {
+      height: 25px;
+      width: 25px;
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 18px;
+      text-align: center;
+      color: white;
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+    color: white;
+  }
+
+  a {
+    font-size: 12px;
+    color: white;
+    margin-top: 18px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    input {
+      padding: 10px;
+      margin: 20px 0;
+      width: 100%;
+      font-size: 14px;
+      background: transparent;
+      color: white;
+      border: none;
+      border-bottom: 1px solid black;
+
+
+      &::-webkit-input-placeholder {
+        color: white;
+      }
+
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input[type="submit"] {
+      border: 1px solid white;
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: lighter;
+      border-radius: 10px;
+      background: transparent;
+      text-align: center;
+      padding: 10px;
+      width: 80%;
+      margin: 20px;
+      text-transform: uppercase;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+
+    }
+  }
+}
