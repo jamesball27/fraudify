@@ -32,16 +32,19 @@ link when live*
 #### Phase 1: Backend Configuration and Front End User Authentication (1.5 days)
   * User can: login and signup, with backend and frontend authentication
 
-#### Phase 2: Playlist CRUD and Songs/Albums/Artists views (3 days)
-  * User can: create, update, read, and destroy playlists, as well as view all songs, albums, and artists associated with playlists
+#### Phase 2: Playlist CRUD (1.5 days)
+  * User can: create, update, read, and destroy playlists
 
-#### Phase 3: Song Playback (2 days)
+#### Phase 3: Songs/Albums/Artists views (1.5 days)
+  * User can: view all songs, albums, and artists associated with playlists
+
+#### Phase 4: Song Playback (2 days)
   * User can: playback songs continuously sitewide, with ability to play, pause, seek, adjust volume, and navigate through play queue
 
-#### Phase 4: Search (1.5 days)
+#### Phase 5: Search (1.5 days)
   * User can: search for playlists, artists, songs, and albums with dynamic search results
 
-#### Phase 5: Playlist and Artist Follows (1 day)
+#### Phase 6: Playlist and Artist Follows (1 day)
   * User can: follow and unfollow playlists and artists
 
 ### Bonus features

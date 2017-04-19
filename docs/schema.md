@@ -14,7 +14,6 @@
 | id          | integer   | not null, primary key                             |
 | name        | string    | not null                                          |
 | creator_id  | integer   | not null, foreign_key (references users), indexed |
-| order       | array     | not null, list of song_ids                        |
 
 ## songs
 | Column name | Data type | Details                                             |
@@ -32,6 +31,7 @@
 | id          | integer   | not null, primary key                                 |
 | playlist_id | integer   | not null, foreign_key (references playlists), indexed |
 | song_id     | integer   | not null, foreign_key (references songs), indexed     |
+| ord         | integer   | not null                                              |
 
 ## albums
 | Column name | Data type | Details                                             |

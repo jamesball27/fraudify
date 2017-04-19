@@ -1,6 +1,6 @@
 # React Component Hierarchy
 ## App
-  * ### StaticPageContainer
+  * ### HomePageContainer
   * ### AuthFormContainer
     * ### AuthForm (signup/login)
   * ### Sidebar
