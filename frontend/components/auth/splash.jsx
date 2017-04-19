@@ -2,8 +2,8 @@ import React from 'react';
 
 const Splash = props => (
   <aside className="splash">
-    <h2>Tagline</h2>
-    <h3>Lorem ipsum dolor sit amet</h3>
+    <h2>Get all your favorite music, right now</h2>
+    <h3>Listen to a handful of songs</h3>
     <ul>
       <li>Feature 1</li>
       <li>Feature 2</li>
