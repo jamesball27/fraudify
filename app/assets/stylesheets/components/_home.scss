@@ -5,8 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background-image: url("splash-4.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("splash-2.jpg");
   background-size: cover;
 }
 
@@ -47,7 +46,8 @@
     font-size: 16px;
     font-weight: lighter;
     border-radius: 10px;
-    background: black;
+    // background: transpar;
+    border: 1px solid white;
     text-align: center;
     padding: 10px;
     width: 80%;

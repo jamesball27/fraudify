@@ -52,7 +52,7 @@ class AuthForm extends React.Component {
     } else {
       formText = 'Create a free Fraudify account';
       buttonText = 'SIGN UP';
-      linkText = '<< Go back';
+      linkText = '« Go back';
       linkUrl = '/';
     }
 
@@ -64,8 +64,8 @@ class AuthForm extends React.Component {
             <h1>Fraudify</h1>
           </header>
 
-          <h2>{ formText }</h2>
           <Errors errors={ this.props.errors } />
+          <h2>{ formText }</h2>
           <form onSubmit={ this.handleSubmit }>
             <input
               type="text"
