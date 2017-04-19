@@ -16,8 +16,10 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8, allow_nil: true }
   after_initialize :ensure_session_token
 
-  has_many :playlist_songs
-  has_many :created_playlists, through: :playlist_songs, source: :playlist
+  has_many :created_playlists,
+    primary_key: :id,
+    foreign_key: :creator_id,
+    class_name: "Playlist"
 
   attr_reader :password
 
