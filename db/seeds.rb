@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
-User.create(username: "guest", password: "password")
+guest = User.create(username: "guest", password: "password")
 
 10.times do
   username = Faker::HarryPotter.unique.character
@@ -38,8 +38,8 @@ Song.create(title: "song10", artist_id: test_artist.id, album_id: test_album.id,
 songs = Song.all
 
 Playlist.destroy_all
-playlist1 = Playlist.create(name: "playlist1", creator_id: users.sample.id)
-playlist2 = Playlist.create(name: "playlist2", creator_id: users.sample.id)
+playlist1 = Playlist.create(name: "playlist1", creator_id: guest.id)
+playlist2 = Playlist.create(name: "playlist2", creator_id: guest.id)
 
 
 PlaylistSong.destroy_all

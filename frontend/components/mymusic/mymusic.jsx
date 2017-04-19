@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logOut } from '../../actions/session_actions';
+import { getAllPlaylists } from '../../reducers/selectors';
 
 class MyMusic extends React.Component {
 
@@ -22,7 +23,8 @@ class MyMusic extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  playlists: getAllPlaylists(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
