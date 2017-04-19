@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Splash from './splash';
-import { logIn, signUp } from '../../actions/session_actions';
+import { logIn, signUp, receiveErrors } from '../../actions/session_actions';
 import { Link } from 'react-router';
+import Errors from './errors';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class AuthForm extends React.Component {
     this.state = { username: '', password: '' };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.clearForm = this.clearForm.bind(this);
   }
 
   handleInput(property) {
@@ -19,8 +21,25 @@ class AuthForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitAction(this.state);
-    this.props.router.push('/mymusic/playlists');
+    this.props.submitAction(this.state)
+      .then(
+        () => this.props.router.push('/mymusic/playlists'),
+        () => this.clearForm()
+      );
+  }
+
+  clearForm() {
+    if (this.props.errors.includes("Password is too short (minimum is 8 characters)")) {
+      this.setState({ password: '' });
+    } else {
+      this.setState({ username: '', password: '' });
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.errors === newProps.errors) {
+      this.props.clearErrors();
+    }
   }
 
   render() {
@@ -41,6 +60,7 @@ class AuthForm extends React.Component {
       <main className="home">
         <section className="auth-form">
           <h2>{ formText }</h2>
+          <Errors errors={ this.props.errors } />
           <form onSubmit={ this.handleSubmit }>
             <input
               type="text"
@@ -64,9 +84,10 @@ class AuthForm extends React.Component {
   }
 }
 
-const mapStateToProps = ({ session }, ownProps) => {
-  return { formType: ownProps.route.path };
-};
+const mapStateToProps = ({ session }, ownProps) => ({
+  formType: ownProps.route.path,
+  errors: session.errors
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   let submitAction;
@@ -77,7 +98,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     submitAction = (user) => dispatch(signUp(user));
   }
 
-  return { submitAction };
+  return {
+    submitAction,
+    clearErrors: () => dispatch(receiveErrors([]))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthForm);
