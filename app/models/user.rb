@@ -14,8 +14,11 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
   validates :password, length: { minimum: 8, allow_nil: true }
-
   after_initialize :ensure_session_token
+
+  has_many :playlist_songs
+  has_many :created_playlists, through: :playlist_songs, source: :playlist
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

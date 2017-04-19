@@ -24,6 +24,7 @@
 | album_id    | integer   | not null, foreign_key (references albums), indexed  |
 | duration    | integer   | not null, length of song in seconds                 |
 | audio_url   | string    | not null, links to audio file in AWS S3             |
+| album_ord   | integer   | not null |
 
 ## playlist_songs
 | Column name | Data type | Details                                               |
@@ -40,7 +41,6 @@
 | title       | string    | not null                                            |
 | artist_id   | integer   | not null, foreign_key (references artists), indexed |
 | image_url   | string    | not null, links to image file in AWS S3             |
-| order       | array     | not null, list of song_ids                          |
 
 ## artists
 | Column name | Data type | Details                                 |

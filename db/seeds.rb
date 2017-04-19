@@ -8,3 +8,10 @@
 
 User.destroy_all
 User.create(username: "guest", password: "password")
+
+10.times do
+  username = Faker::HarryPotter.unique.character
+  password = Faker::Internet.password
+
+  User.create(username: username, password: password)
+end
