@@ -6,6 +6,7 @@ import AuthForm from './home/auth_form';
 import HomePage from './home/home_page';
 import MyMusic from './mymusic/mymusic';
 import CollectionsIndex from './mymusic/collections_index';
+import CollectionContainer from './mymusic/collection_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -32,6 +33,7 @@ const Root = ({ store }) => {
             <Route path="playlists" component={ CollectionsIndex } />
             <Route path="albums" component={ CollectionsIndex } />
           </Route>
+          <Route path="playlists/:id" component={ CollectionContainer } />
         </Route>
       </Router>
     </Provider>

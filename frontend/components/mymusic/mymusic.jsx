@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logOut } from '../../actions/session_actions';
-import { fetchPlaylists } from '../../actions/playlist_actions';
+import { fetchPlaylists, createPlaylist } from '../../actions/playlist_actions';
 import MusicNavbar from '../shared/music_navbar';
 
 class MyMusic extends React.Component {
@@ -20,7 +20,10 @@ class MyMusic extends React.Component {
     return(
       <div>
         <h1>MY MUSIC</h1>
-        <MusicNavbar path={ this.props.location.pathname }/>
+        <MusicNavbar
+          path={ this.props.location.pathname }
+          createPlaylist={ this.props.createPlaylist }
+        />
 
         { this.props.children }
         <button onClick={ this.props.logOut }>Log Out</button>
@@ -35,7 +38,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   logOut: () => dispatch(logOut()),
-  fetchPlaylists: () => dispatch(fetchPlaylists())
+  fetchPlaylists: () => dispatch(fetchPlaylists()),
+  createPlaylist: (playlist) => dispatch(createPlaylist(playlist))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyMusic);

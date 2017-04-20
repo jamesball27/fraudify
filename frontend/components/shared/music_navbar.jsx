@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import Modal from 'react-modal';
-import NewPlaylist from './new_playlist';
+import NewPlaylist from '../mymusic/new_playlist';
 
 class MusicNavbar extends React.Component {
 
   render() {
-    const { path } = this.props;
+    const { path, createPlaylist } = this.props;
     let newPlaylist;
     if (path === '/mymusic/playlists') {
-      newPlaylist = <NewPlaylist />;
+      newPlaylist = <NewPlaylist createPlaylist={ createPlaylist }/>;
     }
 
     return(

@@ -41,9 +41,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-// const mapDispatchToProps = (dispatch) => ({
-//
-// });
-
-// export default CollectionsIndex;
 export default connect(mapStateToProps)(CollectionsIndex);

@@ -2,7 +2,7 @@ import React from 'react';
 
 const CollectionsIndexItem = ({ playlist }) => {
   return(
-    <li>
+    <li key={ playlist.id }>
       { playlist.name }
     </li>
   );
