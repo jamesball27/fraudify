@@ -40,7 +40,13 @@
   justify-content: center;
   align-items: center;
 
+  .button {
+    font-size: 16px;
 
+    &:hover {
+      text-decoration: none;
+    }
+  }
 
   a {
     font-size: 12px;

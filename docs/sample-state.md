@@ -22,14 +22,16 @@
       id: 1,
       name: 'Great Songs',
       creator: 'mary2',
-      songs: [10, 5] // in array to maintain correct order
+      songs: [10, 5], // in array to maintain correct order
+      image: 'http://www.imageexample.com'
     },
 
     4: {
       id: 4,
       name: 'OK Songs',
       creator: 'mozart1756',
-      songs: []
+      songs: [],
+      image: 'http://www.imageexample.com'
     }
   },
 

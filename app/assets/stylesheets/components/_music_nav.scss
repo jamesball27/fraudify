@@ -1,3 +1,34 @@
 .music-nav {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  // padding: 25px;
+  height: 15%;
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    a {
+      padding: 10px 30px;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: white;
+      box-sizing: border-box;
+      &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid $green;
+      }
+    }
+  }
+
+  .button {
+    left: 100%;
+    opacity: 1;
+    font-size: 12px;
+    width: 180px;
+    padding: 10px;
+    border: none;
+  }
 }

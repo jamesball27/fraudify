@@ -15,8 +15,7 @@ class CollectionsIndex extends React.Component {
 
     const { playlists } = this.props;
     return(
-      <div>
-        <h1>{ indexText }</h1>
+      <section className="collections-index">
         <ul>
           {
             playlists.map(playlist => (
@@ -27,7 +26,7 @@ class CollectionsIndex extends React.Component {
             )
           }
         </ul>
-      </div>
+      </section>
     );
   }
 }

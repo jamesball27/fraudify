@@ -38,7 +38,7 @@ class NewPlaylist extends React.Component {
   render() {
     return(
       <div>
-        <button onClick={ this.openModal }>New Playlist</button>
+        <button onClick={ this.openModal } className="button green">New Playlist</button>
         <Modal
           isOpen={ this.state.modalIsOpen }
           onRequestClose={ this.closeModal }
@@ -51,7 +51,7 @@ class NewPlaylist extends React.Component {
               onChange={ this.handleInput }
               value={ this.state.name }
             />
-            <button>Create Playlist</button>
+            <button className="button">Create Playlist</button>
           </form>
         </Modal>
       </div>

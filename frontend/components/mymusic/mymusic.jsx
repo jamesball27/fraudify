@@ -18,9 +18,8 @@ class MyMusic extends React.Component {
   render() {
     return(
       <main className="main-content">
-        <h1>MY MUSIC</h1>
         <MusicNavbar
-          path={ this.props.location.pathname }
+          path={ this.props.route.path }
           createPlaylist={ this.props.createPlaylist }
         />
 

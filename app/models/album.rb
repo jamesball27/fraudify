@@ -5,7 +5,6 @@
 #  id                 :integer          not null, primary key
 #  title              :string           not null
 #  artist_id          :integer          not null
-#  image_url          :string           not null
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  image_file_name    :string
@@ -15,9 +14,9 @@
 #
 
 class Album < ActiveRecord::Base
-  validates :title, :artist_id, :image_url, presence: true
+  validates :title, :artist_id, presence: true
 
-  has_attached_file :image
+  has_attached_file :image, default_url: "music.png"
   validates_attachment_content_type :image, content_type: ["image/jpeg", "image/png"]
 
   belongs_to :artist
