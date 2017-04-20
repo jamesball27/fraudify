@@ -1,0 +1,66 @@
+.new-playlist {
+  background: black;
+  opacity: .95;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  h1 {
+    color: white;
+    font-size: 75px;
+    padding: 20px;
+  }
+
+  span {
+    color: white;
+    font-size: 50px;
+    transition: transform .25s;
+    margin: 5px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    input {
+      width: 25%;
+      font-size: 30px;
+      color: white;
+      height: 30px;
+      padding: 15px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid white;
+
+      &::-webkit-input-placeholder {
+        color: white;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .button {
+      width: 10%;
+      // opacity: 1;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+
+}

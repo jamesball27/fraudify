@@ -45,13 +45,16 @@ class NewPlaylist extends React.Component {
           className="new-playlist"
           contentLabel="newPlaylist"
         >
+          <span onClick={ this.closeModal }>╳</span>
+          <h1>Create a new Playlist</h1>
           <form onSubmit={ this.handleSubmit }>
             <input
               type="text"
               onChange={ this.handleInput }
               value={ this.state.name }
+              placeholder="Playlist name"
             />
-            <button className="button">Create Playlist</button>
+            <button className="button green">Create Playlist</button>
           </form>
         </Modal>
       </div>
