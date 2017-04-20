@@ -4,8 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  background: black;
-  opacity: .9;
+  background-color: rgba(0,0,0,0.5);
   color: grey;
   padding: 20px;
 }
@@ -20,8 +19,9 @@
 
     &:hover {
       color: white;
+
     }
-    
+
     img {
       height: 35px;
       width: 35px;
@@ -37,6 +37,7 @@
 
   h4 {
     padding: 10px;
+    color: white;
   }
 
 }
