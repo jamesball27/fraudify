@@ -11,26 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419183001) do
+ActiveRecord::Schema.define(version: 20170420004318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "albums", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.integer  "artist_id",  null: false
-    t.string   "image_url",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title",              null: false
+    t.integer  "artist_id",          null: false
+    t.string   "image_url",          null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "albums", ["artist_id"], name: "index_albums_on_artist_id", using: :btree
 
   create_table "artists", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "image_url",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",               null: false
+    t.string   "image_url",          null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "playlist_songs", force: :cascade do |t|
@@ -54,14 +62,18 @@ ActiveRecord::Schema.define(version: 20170419183001) do
   add_index "playlists", ["creator_id"], name: "index_playlists_on_creator_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.integer  "artist_id",  null: false
-    t.integer  "album_id",   null: false
-    t.integer  "duration",   null: false
-    t.string   "audio_url",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "album_ord",  null: false
+    t.string   "title",              null: false
+    t.integer  "artist_id",          null: false
+    t.integer  "album_id",           null: false
+    t.integer  "duration",           null: false
+    t.string   "audio_url",          null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "album_ord",          null: false
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
   end
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id", using: :btree
