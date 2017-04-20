@@ -6,7 +6,7 @@ class NewPlaylist extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { modalIsOpen: false, name: '' };
+    this.state = { modalIsOpen: false, playlist: { name: '' } };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -23,13 +23,12 @@ class NewPlaylist extends React.Component {
   }
 
   handleInput(e) {
-    this.setState({ name: e.target.value });
+    this.setState({ playlist: { name: e.target.value } });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const { name } = this.state;
-    this.props.createPlaylist(name).then((newPlaylist) => {
+    this.props.createPlaylist(this.state.playlist).then((newPlaylist) => {
       this.closeModal();
       this.props.router.push(`/playlists/${newPlaylist.id}`);
     });
