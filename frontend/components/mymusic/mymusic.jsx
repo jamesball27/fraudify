@@ -11,13 +11,13 @@ class MyMusic extends React.Component {
 
   componentDidUpdate() {
     if (!this.props.currentUser) {
-      this.props.router.push('/login');
+      this.props.router.push('/home');
     }
   }
 
   render() {
     return(
-      <div>
+      <main className="main-content">
         <h1>MY MUSIC</h1>
         <MusicNavbar
           path={ this.props.location.pathname }
@@ -25,7 +25,7 @@ class MyMusic extends React.Component {
         />
 
         { this.props.children }
-      </div>
+      </main>
     );
   }
 }

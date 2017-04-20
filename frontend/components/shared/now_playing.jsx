@@ -4,13 +4,11 @@ import { connect } from 'react-redux';
 class NowPlaying extends React.Component {
 
   render() {
-    if (this.props.currentUser) {
-      return(
-        <h1>Now Playing...</h1>
-      );
-    } else {
-      return <div></div>
-    }
+    return(
+      <section className="now-playing">
+        <p>now playing here</p>
+      </section>
+    );
   }
 }
 

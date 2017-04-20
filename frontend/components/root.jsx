@@ -17,7 +17,7 @@ const Root = ({ store }) => {
 
   const _ensureLoggedIn = (nextState, replace) => {
     if (!store.getState().session.currentUser) {
-      replace("/");
+      replace("/home");
     }
   };
 
@@ -25,7 +25,7 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ App } >
-          <IndexRoute component={ HomePage } onEnter={ _redirectIfLoggedIn } />
+          <Route path="home" component={ HomePage } onEnter={ _redirectIfLoggedIn } />
           <Route path="signup" component={ AuthForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="login" component={ AuthForm } onEnter={ _redirectIfLoggedIn } />
 

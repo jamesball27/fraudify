@@ -13,7 +13,7 @@ class MusicNavbar extends React.Component {
     }
 
     return(
-      <nav>
+      <nav className="music-nav">
         <Link to={ path + '/playlists' }>Playlists</Link>
         <Link to={ path + '/songs' }>Songs</Link>
         <Link to={ path + '/albums' }>Albums</Link>

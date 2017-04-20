@@ -53,7 +53,7 @@ class AuthForm extends React.Component {
       formText = 'Create a free Fraudify account';
       buttonText = 'SIGN UP';
       linkText = '« Go back';
-      linkUrl = '/';
+      linkUrl = '/home';
     }
 
     return(

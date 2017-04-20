@@ -4,17 +4,20 @@ import { Link } from 'react-router';
 import { logOut } from '../../actions/session_actions';
 
 const Sidebar = ({ currentUser, logOut }) => {
-  if (currentUser) {
-    return(
-      <nav className="sidebar">
+  const username = currentUser ? currentUser.username : '';
+  return(
+    <nav className="sidebar">
+      <div className="sidebar-top">
+        <Link to="/mymusic"><img src={ window.images.logo } /></Link>
+        <Link to="/mymusic">Search</Link>
         <Link to="/mymusic">Your Music</Link>
-        <h4>{ currentUser.username }</h4>
-        <button onClick={ logOut }>Log Out</button>
-      </nav>
-    );
-  } else {
-    return <div></div>;
-  }
+      </div>
+      <div className="sidebar-bottom">
+        <h4>{ username }</h4>
+        <button onClick={ logOut } className="button green">Log Out</button>
+      </div>
+    </nav>
+  );
 };
 
 const mapStateToProps = store => ({

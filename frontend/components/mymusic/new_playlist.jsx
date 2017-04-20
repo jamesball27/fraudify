@@ -9,7 +9,7 @@ class NewPlaylist extends React.Component {
     this.state = { modalIsOpen: false, name: '' };
 
     this.openModal = this.openModal.bind(this);
-    // this.closeModal = this.closeModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -18,9 +18,9 @@ class NewPlaylist extends React.Component {
     this.setState({ modalIsOpen: true });
   }
 
-  // closeModal() {
-  //   this.setState({ modalIsOpen: false });
-  // }
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
 
   handleInput(e) {
     this.setState({ name: e.target.value });
@@ -30,7 +30,7 @@ class NewPlaylist extends React.Component {
     e.preventDefault();
     const { name } = this.state;
     this.props.createPlaylist(name).then((newPlaylist) => {
-      // this.closeModal();
+      this.closeModal();
       this.props.router.push(`/playlists/${newPlaylist.id}`);
     });
   }

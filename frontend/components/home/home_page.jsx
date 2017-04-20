@@ -25,7 +25,7 @@ class HomePage extends React.Component {
             <Link
               to="/mymusic/playlists"
               onClick={ this.props.demoLogIn }
-              className="demo button">Demo Log In</Link>
+              className="button green">Demo Log In</Link>
 
             <Link to="/signup" className="button">Sign Up</Link>
 
