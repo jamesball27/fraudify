@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logOut } from '../../actions/session_actions';
 import { fetchPlaylists, createPlaylist } from '../../actions/playlist_actions';
 import MusicNavbar from '../shared/music_navbar';
 
@@ -26,20 +25,18 @@ class MyMusic extends React.Component {
         />
 
         { this.props.children }
-        <button onClick={ this.props.logOut }>Log Out</button>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+const mapStateToProps = store => ({
+  currentUser: store.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  logOut: () => dispatch(logOut()),
   fetchPlaylists: () => dispatch(fetchPlaylists()),
-  createPlaylist: (playlist) => dispatch(createPlaylist(playlist))
+  createPlaylist: (playlistName) => dispatch(createPlaylist(playlistName))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyMusic);

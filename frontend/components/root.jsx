@@ -28,12 +28,15 @@ const Root = ({ store }) => {
           <IndexRoute component={ HomePage } onEnter={ _redirectIfLoggedIn } />
           <Route path="signup" component={ AuthForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="login" component={ AuthForm } onEnter={ _redirectIfLoggedIn } />
+
           <Route path="mymusic" component={ MyMusic } onEnter={ _ensureLoggedIn }>
             <IndexRedirect to="playlists" />
             <Route path="playlists" component={ CollectionsIndex } />
             <Route path="albums" component={ CollectionsIndex } />
           </Route>
+
           <Route path="playlists/:id" component={ CollectionContainer } />
+          <Route path="albums/:id" component={ CollectionContainer } />
         </Route>
       </Router>
     </Provider>

@@ -20,5 +20,8 @@ export const fetchPlaylists = () => dispatch => {
 
 export const createPlaylist = playlistName => dispatch => {
   return PlaylistApiUtil.createPlaylist(playlistName)
-    .then(newPlaylist => dispatch(receivePlaylist(newPlaylist)));
+    .then(newPlaylist => {
+      dispatch(receivePlaylist(newPlaylist));
+      return newPlaylist;
+    });
 };
