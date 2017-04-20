@@ -6,7 +6,7 @@ import AuthForm from './home/auth_form';
 import HomePage from './home/home_page';
 import MyMusic from './mymusic/mymusic';
 import CollectionsIndex from './mymusic/collections_index';
-import CollectionContainer from './mymusic/collection_container';
+import CollectionContainer from './collection/collection_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
