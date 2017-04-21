@@ -52,15 +52,15 @@ class PlaylistModal extends React.Component {
     let buttonText, headerText;
     switch(this.props.modalType) {
       case 'createPlaylist':
-        buttonText = 'Create Playlist';
+        buttonText = 'New Playlist';
         headerText = 'Create a new Playlist';
         break;
       case 'updatePlaylist':
-        buttonText = 'Rename Playlist';
+        buttonText = 'Rename';
         headerText = 'Rename Playlist';
         break;
       case 'deletePlaylist':
-        buttonText = 'Delete Playlist';
+        buttonText = 'Delete';
         headerText = 'Are you sure you want to delete this playlist?';
         input = null;
         break;

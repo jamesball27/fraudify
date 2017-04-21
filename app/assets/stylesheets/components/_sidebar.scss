@@ -10,12 +10,23 @@
 
   button {
     border: none;
+    &:focus {
+      outline: none;
+    }
   }
 }
 
 .sidebar-top {
   display: flex;
   flex-direction: column;
+
+  .active {
+    color: $green;
+
+    &:hover {
+      color: $green;
+    }
+  }
 
   a {
     padding: 15px 0;
@@ -43,4 +54,7 @@
     color: white;
   }
 
+  .button {
+    font-size: 14px;
+  }
 }

@@ -31,12 +31,14 @@ const Root = ({ store }) => {
 
           <Route path="mymusic" component={ MyMusic } onEnter={ _ensureLoggedIn }>
             <IndexRedirect to="playlists" />
-            <Route path="playlists" component={ CollectionsIndex } />
-            <Route path="albums" component={ CollectionsIndex } />
+            <Route path="playlists" component={ CollectionsIndex } onEnter={ _ensureLoggedIn }/>
+            <Route path="albums" component={ CollectionsIndex } onEnter={ _ensureLoggedIn }/>
           </Route>
 
-          <Route path="playlists/:playlistId" component={ CollectionContainer } />
-          <Route path="albums/:albumId" component={ CollectionContainer } />
+          <Route path="playlists/:playlistId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>
+          <Route path="albums/:albumId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>
+
+          <Route path="search" />
         </Route>
       </Router>
     </Provider>

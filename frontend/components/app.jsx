@@ -5,11 +5,11 @@ import NowPlaying from './shared/now_playing';
 
 class App extends React.Component {
 
-  componentDidMount() {
-    if (!this.props.currentUser) {
-      this.props.router.push('/home');
-    }
-  }
+  // componentDidMount() {
+  //   if (!this.props.currentUser) {
+  //     this.props.router.push('/home');
+  //   }
+  // }
 
   render() {
     return(

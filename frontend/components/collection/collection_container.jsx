@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CollectionDetail from './collection_detail';
 import { updatePlaylist, deletePlaylist } from '../../actions/playlist_actions';
+import SongsIndex from '../songs/songs_index';
 
 const CollectionContainer = (props) => {
   return(
@@ -10,23 +11,32 @@ const CollectionContainer = (props) => {
         collectionItem={ props.collectionItem }
         updatePlaylist={ props.updatePlaylist }
         deletePlaylist={ props.deletePlaylist }
+        createdByCurrentUser={ props.createdByCurrentUser }
       />
-      <h1>Song list will go here</h1>
+      <SongsIndex />
     </main>
   );
 };
 
 const mapStateToProps = (store, ownProps) => {
-  let collectionType, collectionItem;
+  let collectionType, collectionItem, createdByCurrentUser;
+  const { currentUser } = store.session;
   if (ownProps.route.path.startsWith('playlists')) {
     collectionType = 'playlist';
     collectionItem = store.playlists[ownProps.params.playlistId];
+    if (currentUser && collectionItem.creator === currentUser.username) {
+      createdByCurrentUser = true;
+    }
   } else {
     collectionType = 'album';
     collectionItem = store.albums[ownProps.params.albumId];
   }
 
-  return { collectionType, collectionItem };
+  return {
+    collectionType,
+    collectionItem,
+    createdByCurrentUser
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
