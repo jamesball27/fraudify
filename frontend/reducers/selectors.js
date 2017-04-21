@@ -1,4 +1,4 @@
-export const getAllPlaylists = ({ playlists }) => (
+export const arrayAllPlaylists = ({ playlists }) => (
   Object.keys(playlists).map(key => playlists[key])
 );
 

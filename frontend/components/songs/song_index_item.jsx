@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SongIndexItem = ({ song, fetching }) => {
+const SongIndexItem = ({ song, fetching, playlists }) => {
   const parseDuration = (duration) => {
 
     const minutes = Math.floor(duration / 60);
@@ -11,7 +11,7 @@ const SongIndexItem = ({ song, fetching }) => {
 
     return `${minutesString}:${secondsString}`;
   };
-  
+
   if (fetching) {
     return <div></div>;
   } else {
@@ -19,6 +19,14 @@ const SongIndexItem = ({ song, fetching }) => {
       <li>
         <h4>{ song.title }</h4>
         <h5>{ song.artist } • { song.album }</h5>
+
+        <select>
+          <option disabled="true" selected="true">Add Song to Playlist</option>
+          {
+            playlists.map(playlist => <option key={ playlist.id }>{ playlist.name }</option>)
+          }
+        </select>
+
         <h6>{ parseDuration(song.duration) }</h6>
       </li>
     );

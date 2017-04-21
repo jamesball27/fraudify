@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import { fetchAllSongs } from './actions/song_actions';
+import { createPlaylistSong } from './actions/playlist_song_actions';
 import Modal from 'react-modal';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   Modal.setAppElement(document.body);
 
-  // window.store = store;
-  // window.fetchAllSongs = fetchAllSongs;
+  window.store = store;
+  window.createPlaylistSong = createPlaylistSong;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
 });

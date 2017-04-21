@@ -4,6 +4,8 @@ import {
   REMOVE_PLAYLIST
 } from '../actions/playlist_actions';
 
+import { RECEIVE_PLAYLIST_SONG } from '../actions/playlist_song_actions';
+
 const PlaylistsReducer = (state = {}, action) => {
   Object.freeze(state);
 
@@ -16,6 +18,11 @@ const PlaylistsReducer = (state = {}, action) => {
       const newState = Object.assign({}, state);
       delete newState[action.playlistId];
       return newState;
+    case RECEIVE_PLAYLIST_SONG:
+      debugger
+      const playlist = state[action.playlistSong.playlist_id];
+      playlist.songs.push(action.playlistSong.song_id);
+      return Object.assign({}, state, { [playlist.id]: playlist });
     default:
       return state;
   }

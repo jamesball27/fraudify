@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAllPlaylists } from '../../reducers/selectors';
+import { arrayAllPlaylists } from '../../reducers/selectors';
 import CollectionsIndexItem from './collections_index_item';
 
 class CollectionsIndex extends React.Component {
@@ -35,7 +35,7 @@ const mapStateToProps = (state, ownProps) => {
   const indexType = ownProps.route.path;
 
   return {
-    playlists: getAllPlaylists(state),
+    playlists: arrayAllPlaylists(state),
     indexType
   };
 };

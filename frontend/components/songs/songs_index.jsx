@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { arrayAllSongs } from '../../reducers/selectors';
 import { fetchAllSongs } from '../../actions/song_actions';
 import SongIndexItem from './song_index_item';
+import { arrayAllPlaylists } from '../../reducers/selectors';
 
 class SongsIndex extends React.Component {
 
@@ -21,6 +22,7 @@ class SongsIndex extends React.Component {
                 key={ idx }
                 song={ song }
                 fetching={ this.props.fetching }
+                playlists={ this.props.playlists }
               />
             )
           )
@@ -41,7 +43,8 @@ const mapStateToProps = (store, ownProps) => {
 
   return {
     songs,
-    fetching: store.fetching
+    fetching: store.fetching,
+    playlists: arrayAllPlaylists(store)
   };
 };
 
