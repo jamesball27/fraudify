@@ -7,6 +7,7 @@ import HomePage from './home/home_page';
 import MyMusic from './mymusic/mymusic';
 import CollectionsIndex from './mymusic/collections_index';
 import CollectionContainer from './collection/collection_container';
+import SongsIndex from './songs/songs_index';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -34,6 +35,7 @@ const Root = ({ store }) => {
             <IndexRedirect to="playlists" />
             <Route path="playlists" component={ CollectionsIndex } onEnter={ _ensureLoggedIn }/>
             <Route path="albums" component={ CollectionsIndex } onEnter={ _ensureLoggedIn }/>
+            <Route path="songs" component={ SongsIndex } onEnter={ _ensureLoggedIn } />
           </Route>
 
           <Route path="playlists/:playlistId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>

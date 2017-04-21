@@ -33,7 +33,6 @@ export const createPlaylist = playlist => dispatch => {
 };
 
 export const updatePlaylist = playlist => dispatch => {
-  debugger
   return PlaylistApiUtil.updatePlaylist(playlist)
     .then(updatedPlaylist => {
       dispatch(receivePlaylist(updatedPlaylist));

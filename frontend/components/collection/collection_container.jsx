@@ -13,7 +13,7 @@ const CollectionContainer = (props) => {
         deletePlaylist={ props.deletePlaylist }
         createdByCurrentUser={ props.createdByCurrentUser }
       />
-      <SongsIndex />
+      <SongsIndex playlistPage="true" songs={ props.collectionItem.songs }/>
     </main>
   );
 };
