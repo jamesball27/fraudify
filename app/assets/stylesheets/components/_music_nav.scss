@@ -1,0 +1,30 @@
+.music-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 15%;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    a {
+      padding: 10px 30px;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: white;
+      box-sizing: border-box;
+      &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid $green;
+      }
+    }
+  }
+
+  button {
+    margin-right: 50px;
+    left: 100%;
+  }
+}

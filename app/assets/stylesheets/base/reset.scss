@@ -1,4 +1,4 @@
-html, body, h1, h2, h3, h4, h5, h6, section, aside, ul, li, header {
+html, body, h1, h2, h3, h4, h5, h6, section, aside, ul, li, header, footer, main, nav, div {
   margin: 0;
   border: 0;
   padding: 0;
@@ -20,4 +20,5 @@ ol, ul {
 
 a {
   text-decoration: none;
+  color: inherit;
 }

@@ -1,0 +1,36 @@
+.collections-index {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 50px;
+  overflow: auto;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.collections-index-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 30px;
+  text-align: center;
+
+  img {
+    background: black;
+    height: 250px;
+    width: 250px;
+    box-sizing: border-box;
+  }
+
+  h3 {
+    color: white;
+    font-size: 16px;
+    padding: 3px;
+  }
+
+  h5 {
+    font-size: 13px;
+  }
+}

@@ -41,27 +41,11 @@
   align-items: center;
 
   .button {
-    text-decoration: none;
-    color: white;
     font-size: 16px;
-    border-radius: 10px;
-    border: 1px solid white;
-    text-align: center;
-    padding: 10px;
-    width: 80%;
-    margin: 20px;
-    text-transform: uppercase;
-    opacity: .6;
 
     &:hover {
       text-decoration: none;
-      opacity: 1;
-      transition: opacity .25s;
     }
-  }
-
-  .demo {
-    background: $green;
   }
 
   a {

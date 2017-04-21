@@ -4,8 +4,9 @@ import { Router, Route, hashHistory, IndexRoute, IndexRedirect } from 'react-rou
 import App from './app';
 import AuthForm from './home/auth_form';
 import HomePage from './home/home_page';
-import MyMusicContainer from './mymusic/mymusic';
+import MyMusic from './mymusic/mymusic';
 import CollectionsIndex from './mymusic/collections_index';
+import CollectionContainer from './collection/collection_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -16,7 +17,7 @@ const Root = ({ store }) => {
 
   const _ensureLoggedIn = (nextState, replace) => {
     if (!store.getState().session.currentUser) {
-      replace("/");
+      replace("/home");
     }
   };
 
@@ -24,13 +25,20 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ App } >
-          <IndexRoute component={ HomePage } onEnter={ _redirectIfLoggedIn } />
+          <Route path="home" component={ HomePage } onEnter={ _redirectIfLoggedIn } />
           <Route path="signup" component={ AuthForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="login" component={ AuthForm } onEnter={ _redirectIfLoggedIn } />
-          <Route path="mymusic" component={ MyMusicContainer } onEnter={ _ensureLoggedIn }>
+
+          <Route path="mymusic" component={ MyMusic } onEnter={ _ensureLoggedIn }>
             <IndexRedirect to="playlists" />
-            <Route path="playlists" component={ CollectionsIndex } />
+            <Route path="playlists" component={ CollectionsIndex } onEnter={ _ensureLoggedIn }/>
+            <Route path="albums" component={ CollectionsIndex } onEnter={ _ensureLoggedIn }/>
           </Route>
+
+          <Route path="playlists/:playlistId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>
+          <Route path="albums/:albumId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>
+
+          <Route path="search" />
         </Route>
       </Router>
     </Provider>
