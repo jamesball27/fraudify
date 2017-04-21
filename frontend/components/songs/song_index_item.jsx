@@ -2,15 +2,16 @@ import React from 'react';
 
 const SongIndexItem = ({ song, fetching }) => {
   const parseDuration = (duration) => {
-    const minutes = duration % 60;
+
+    const minutes = Math.floor(duration / 60);
     const seconds = duration - (minutes * 60);
 
     const minutesString = minutes < 10 ? `0${minutes}` : `${minutes}`;
-    const secondsString = minutes < 10 ? `0${seconds}` : `${seconds}`;
+    const secondsString = seconds < 10 ? `0${seconds}` : `${seconds}`;
 
     return `${minutesString}:${secondsString}`;
   };
-
+  
   if (fetching) {
     return <div></div>;
   } else {
