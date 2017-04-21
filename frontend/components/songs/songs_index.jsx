@@ -1,26 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { arrayAllSongs } from '../../reducers/selectors';
-import { fetchAllSongs } from '../../actions/song_actions';
+import SongIndexItem from './song_index_item';
 
 class SongsIndex extends React.Component {
 
-  componentDidMount() {
-    this.props.fetchAllSongs();
-  }
-
   render() {
     return(
-      <div>
-        <h1>Song List Here</h1>
-        <ul>
-          {
-            this.props.songs.map(song => <li>{ song.title }</li>)
-          }
-        </ul>
-      </div>
+      <ul>
+        {
+          this.props.songs.map((song, idx) => <SongIndexItem key={ idx } song={ song } fetching={ this.props.fetching }/>)
+        }
+      </ul>
     );
   }
+
 }
 
 const mapStateToProps = (store, ownProps) => {
@@ -31,11 +25,10 @@ const mapStateToProps = (store, ownProps) => {
     songs = arrayAllSongs(store);
   }
 
-  return { songs };
+  return {
+    songs,
+    fetching: store.fetching
+  };
 };
 
-const mapDispatchToProps = dispatch => ({
-  fetchAllSongs: () => dispatch(fetchAllSongs())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SongsIndex);
+export default connect(mapStateToProps)(SongsIndex);

@@ -2,21 +2,29 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CollectionDetail from './collection_detail';
 import { updatePlaylist, deletePlaylist } from '../../actions/playlist_actions';
+import { fetchAllSongs } from '../../actions/song_actions';
 import SongsIndex from '../songs/songs_index';
 
-const CollectionContainer = (props) => {
-  return(
-    <main className="collection-container">
-      <CollectionDetail
-        collectionItem={ props.collectionItem }
-        updatePlaylist={ props.updatePlaylist }
-        deletePlaylist={ props.deletePlaylist }
-        createdByCurrentUser={ props.createdByCurrentUser }
-      />
-      <SongsIndex playlistPage="true" songs={ props.collectionItem.songs }/>
-    </main>
-  );
-};
+class CollectionContainer extends React.Component {
+
+  componentWillMount() {
+    this.props.fetchAllSongs();
+  }
+
+  render() {
+    return(
+      <main className="collection-container">
+        <CollectionDetail
+          collectionItem={ this.props.collectionItem }
+          updatePlaylist={ this.props.updatePlaylist }
+          deletePlaylist={ this.props.deletePlaylist }
+          createdByCurrentUser={ this.props.createdByCurrentUser }
+          />
+        <SongsIndex playlistPage="true" songs={ this.props.collectionItem.songs }/>
+      </main>
+    );
+  }
+}
 
 const mapStateToProps = (store, ownProps) => {
   let collectionType, collectionItem, createdByCurrentUser;
@@ -41,7 +49,8 @@ const mapStateToProps = (store, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
-  deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId))
+  deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId)),
+  fetchAllSongs: () => dispatch(fetchAllSongs())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CollectionContainer);
