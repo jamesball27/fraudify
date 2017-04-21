@@ -19,7 +19,7 @@
 class Song < ActiveRecord::Base
   validates :title, :artist, :album, :duration, presence: true
 
-  has_attached_file :audio
+  has_attached_file :audio, default_url: "no_audio.mp3"
   validates_attachment_content_type :audio, content_type: ["audio/mp3", "audio/ogg", "audio/wav"]
 
   belongs_to :artist

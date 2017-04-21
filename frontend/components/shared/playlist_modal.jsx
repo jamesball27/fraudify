@@ -37,8 +37,7 @@ class PlaylistModal extends React.Component {
           router.push(`/playlists/${resPlaylist.id}`);
         });
     } else {
-      modalSubmit(params.playlistId);
-      router.push('/mymusic/playlists');
+      modalSubmit(params.playlistId).then(router.push('/mymusic/playlists'));
     }
   }
 
