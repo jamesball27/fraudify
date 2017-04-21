@@ -8,7 +8,9 @@ import SongsIndex from '../songs/songs_index';
 class CollectionContainer extends React.Component {
 
   componentWillMount() {
-    this.props.fetchAllSongs();
+    if (!this.props.fetching) {
+      this.props.fetchAllSongs();
+    }
   }
 
   render() {
@@ -43,7 +45,8 @@ const mapStateToProps = (store, ownProps) => {
   return {
     collectionType,
     collectionItem,
-    createdByCurrentUser
+    createdByCurrentUser,
+    fetching: store.fetching
   };
 };
 
