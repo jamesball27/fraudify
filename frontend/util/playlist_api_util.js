@@ -13,13 +13,16 @@ export const createPlaylist = playlist => (
   })
 );
 
-export const updatePlaylist = playlist => (
-  $.ajax({
-    method: 'PATCH',
-    url: `/api/playlists/${playlist.id}`,
-    data: { playlist }
-  })
-);
+export const updatePlaylist = playlist => {
+  debugger
+  return(
+    $.ajax({
+      method: 'PATCH',
+      url: `/api/playlists/${playlist.id}`,
+      data: { playlist }
+    })
+  );
+};
 
 export const deletePlaylist = playlistId => (
   $.ajax({

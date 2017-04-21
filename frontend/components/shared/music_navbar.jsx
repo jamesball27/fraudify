@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import Modal from 'react-modal';
-import NewPlaylist from '../mymusic/new_playlist';
+import PlaylistModal from './playlist_modal';
 
 class MusicNavbar extends React.Component {
 
@@ -10,7 +10,7 @@ class MusicNavbar extends React.Component {
     const { path, createPlaylist } = this.props;
     let newPlaylist;
     if (path === 'mymusic') {
-      newPlaylist = <NewPlaylist createPlaylist={ createPlaylist }/>;
+      newPlaylist = <PlaylistModal modalSubmit={ createPlaylist } modalType="createPlaylist"/>;
     }
 
     return(

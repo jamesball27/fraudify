@@ -35,8 +35,8 @@ const Root = ({ store }) => {
             <Route path="albums" component={ CollectionsIndex } />
           </Route>
 
-          <Route path="playlists/:id" component={ CollectionContainer } />
-          <Route path="albums/:id" component={ CollectionContainer } />
+          <Route path="playlists/:playlistId" component={ CollectionContainer } />
+          <Route path="albums/:albumId" component={ CollectionContainer } />
         </Route>
       </Router>
     </Provider>
