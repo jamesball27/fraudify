@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  // padding: 25px;
   height: 15%;
+
   ul {
     display: flex;
     justify-content: center;
@@ -23,16 +23,8 @@
     }
   }
 
-  .button {
-    left: 100%;
-    opacity: 1;
-    font-size: 12px;
-    width: 180px;
-    padding: 10px;
-    border: none;
+  button {
     margin-right: 50px;
-    &:focus {
-      outline: none;
-    }
+    left: 100%;
   }
 }

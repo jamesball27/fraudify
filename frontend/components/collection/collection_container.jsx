@@ -5,12 +5,13 @@ import { updatePlaylist, deletePlaylist } from '../../actions/playlist_actions';
 
 const CollectionContainer = (props) => {
   return(
-    <main className="main-content">
+    <main className="collection-container">
       <CollectionDetail
         collectionItem={ props.collectionItem }
         updatePlaylist={ props.updatePlaylist }
         deletePlaylist={ props.deletePlaylist }
       />
+      <h1>Song list will go here</h1>
     </main>
   );
 };

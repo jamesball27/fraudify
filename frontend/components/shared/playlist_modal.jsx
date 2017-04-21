@@ -70,21 +70,21 @@ class PlaylistModal extends React.Component {
       <div>
         <button
           onClick={ this.openModal }
-          className="button green"
+          className="modal-entry-button button green"
         >
           { buttonText }
         </button>
         <Modal
           isOpen={ this.state.modalIsOpen }
           onRequestClose={ this.closeModal }
-          className="new-playlist"
-          contentLabel="newPlaylist"
+          className="playlist-modal"
+          contentLabel="Playlist Modal"
         >
           <span onClick={ this.closeModal }>╳</span>
           <h1>{ headerText }</h1>
           <form onSubmit={ this.handleSubmit }>
             { input }
-            <button className="button green">{ buttonText }</button>
+            <button className="button green modal-button">{ buttonText }</button>
           </form>
         </Modal>
       </div>

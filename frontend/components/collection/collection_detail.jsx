@@ -1,5 +1,6 @@
 import React from 'react';
 import PlaylistModal from '../shared/playlist_modal';
+
 const CollectionDetail = props => {
   return(
     <section className="collection-detail">

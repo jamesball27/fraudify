@@ -7,6 +7,10 @@
   background-color: rgba(0,0,0,0.5);
   color: grey;
   padding: 20px;
+
+  button {
+    border: none;
+  }
 }
 
 .sidebar-top {
@@ -19,7 +23,6 @@
 
     &:hover {
       color: white;
-
     }
 
     img {

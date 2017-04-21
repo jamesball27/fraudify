@@ -1,4 +1,4 @@
-.new-playlist {
+.playlist-modal {
   background: black;
   opacity: .95;
   display: flex;
@@ -11,6 +11,7 @@
     color: white;
     font-size: 75px;
     padding: 20px;
+    text-align: center;
   }
 
   span {
@@ -53,7 +54,6 @@
 
     .button {
       width: 10%;
-      // opacity: 1;
       border: none;
 
       &:focus {
@@ -61,6 +61,25 @@
       }
     }
   }
+}
 
+.modal-entry-button {
+  opacity: 1;
+  font-size: 12px;
+  width: 180px;
+  padding: 10px;
+  border: none;
 
+  &:focus {
+    outline: none;
+  }
+}
+
+.modal-button {
+  opacity: 1;
+  transition: transform .5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
