@@ -35,7 +35,7 @@ class SongsIndex extends React.Component {
 
 const mapStateToProps = (store, ownProps) => {
   let songs;
-  if (ownProps.playlistPage === 'true') {
+  if (ownProps.collectionPage === 'true') {
     songs = ownProps.songs.map(songId => store.songs[songId]);
   } else {
     songs = arrayAllSongs(store);

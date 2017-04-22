@@ -11,3 +11,10 @@ export const fetchArtistSongs = (artistId) => (
     url: `/api/artists/${artistId}/songs`
   })
 );
+
+export const fetchAlbumSongs = (albumId) => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/albums/${albumId}/songs`
+  })
+);

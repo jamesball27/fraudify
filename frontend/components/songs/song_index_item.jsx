@@ -14,19 +14,21 @@ const SongIndexItem = ({ song, fetching, playlists, createPlaylistSong, router }
     return `${minutesString}:${secondsString}`;
   };
 
-  let artistAlbum;
-  if (!router.location.pathname.startsWith('/albums')) {
-    artistAlbum =
-      <h5>
-        { song.artist }
-        <span>•</span>
-        { song.album }
-      </h5>;
-  }
+
 
   if (fetching) {
     return <div></div>;
   } else {
+    let artistAlbum;
+    if (!router.location.pathname.startsWith('/albums')) {
+      artistAlbum =
+        <h5>
+          { song.artist }
+          <span>•</span>
+          { song.album }
+        </h5>;
+    }
+    
     return(
       <li className="songs-index-item">
         <div className="song-item-left">

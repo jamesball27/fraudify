@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CollectionDetail from './collection_detail';
 import { updatePlaylist, deletePlaylist } from '../../actions/playlist_actions';
-import { fetchSongs } from '../../actions/song_actions';
+import { fetchSongs, fetchAlbumSongs } from '../../actions/song_actions';
 import SongsIndex from '../songs/songs_index';
 
 class CollectionContainer extends React.Component {
 
   componentWillMount() {
     if (!this.props.fetching) {
-      this.props.fetchSongs();
+      this.props.fetchSongs(this.props.params.albumId);
     }
   }
 
@@ -50,10 +50,16 @@ const mapStateToProps = (store, ownProps) => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
   deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId)),
-  fetchSongs: () => dispatch(fetchSongs())
+  fetchSongs: (albumId) => {
+      if (ownProps.route.path.startsWith('album')) {
+        dispatch(fetchAlbumSongs(albumId));
+      } else {
+        dispatch(fetchSongs());
+      }
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CollectionContainer);
