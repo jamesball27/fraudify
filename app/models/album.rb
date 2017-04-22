@@ -21,4 +21,9 @@ class Album < ActiveRecord::Base
 
   belongs_to :artist
   has_many :songs
+  has_many :playlists, through: :songs, source: :playlists
+
+  def songs_in_order
+    self.songs.order(:album_ord).pluck("songs.id")
+  end
 end
