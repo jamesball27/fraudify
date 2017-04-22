@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { arrayAllSongs } from '../../reducers/selectors';
 import { fetchAllSongs } from '../../actions/song_actions';
+import { createPlaylistSong } from '../../actions/playlist_song_actions';
 import SongIndexItem from './song_index_item';
 import { arrayAllPlaylists } from '../../reducers/selectors';
 
@@ -23,6 +24,7 @@ class SongsIndex extends React.Component {
                 song={ song }
                 fetching={ this.props.fetching }
                 playlists={ this.props.playlists }
+                createPlaylistSong={ this.props.createPlaylistSong }
               />
             )
           )
@@ -49,7 +51,8 @@ const mapStateToProps = (store, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllSongs: () => dispatch(fetchAllSongs())
+  fetchAllSongs: () => dispatch(fetchAllSongs()),
+  createPlaylistSong: (playlistSong) => dispatch(createPlaylistSong(playlistSong))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongsIndex);

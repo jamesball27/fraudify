@@ -19,7 +19,6 @@ const PlaylistsReducer = (state = {}, action) => {
       delete newState[action.playlistId];
       return newState;
     case RECEIVE_PLAYLIST_SONG:
-      debugger
       const playlist = state[action.playlistSong.playlist_id];
       playlist.songs.push(action.playlistSong.song_id);
       return Object.assign({}, state, { [playlist.id]: playlist });

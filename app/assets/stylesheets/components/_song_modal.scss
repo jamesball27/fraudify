@@ -1,0 +1,52 @@
+.song-modal {
+  height: 100%;
+  background: black;
+  background-color: rgba(0,0,0,0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  color: white;
+
+  h1 {
+    color: white;
+    font-size: 75px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // overflow: auto;
+
+    .collection-detail {
+      cursor: pointer;
+      transition: transform .25s;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  img {
+    height: 250px;
+    width: 250px;
+  }
+
+  span {
+    color: white;
+    font-size: 50px;
+    transition: transform .25s;
+    margin: 5px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
