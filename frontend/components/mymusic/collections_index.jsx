@@ -18,8 +18,10 @@ class CollectionsIndex extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.route.path !== newProps.route.path) {
-      this.fetchData(newProps.indexType);
+    if (this.props.route) {
+      if (this.props.route.path !== newProps.route.path) {
+        this.fetchData(newProps.indexType);
+      }
     }
   }
 
@@ -76,7 +78,10 @@ class CollectionsIndex extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const indexType = ownProps.route.path;
+  let indexType = ownProps.indexType;
+  if (ownProps.route) {
+    indexType = ownProps.route.path;
+  }
 
   return {
     playlists: arrayAllPlaylists(state),

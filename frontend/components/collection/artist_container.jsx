@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { fetchArtistSongs } from '../../actions/song_actions';
 import { fetchArtistAlbums } from '../../actions/album_actions';
 import { songsByArtist, albumsByArtist } from '../../reducers/selectors';
+import ArtistDetail from './artist_detail';
+import SongsIndex from '../songs/songs_index';
+import CollectionsIndex from '../mymusic/collections_index';
 
 class ArtistContainer extends React.Component {
 
@@ -13,7 +16,11 @@ class ArtistContainer extends React.Component {
 
   render() {
     return(
-      <div></div>
+      <div>
+        <ArtistDetail />
+        <SongsIndex collectionPage="true" songs={ this.props.songs }/>
+        <CollectionsIndex indexType="albums"/>
+      </div>
     );
   }
 }
