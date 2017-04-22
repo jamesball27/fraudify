@@ -22,7 +22,7 @@ class CollectionContainer extends React.Component {
           deletePlaylist={ this.props.deletePlaylist }
           createdByCurrentUser={ this.props.createdByCurrentUser }
           />
-        <SongsIndex playlistPage="true" songs={ this.props.collectionItem.songs }/>
+        <SongsIndex collectionPage="true" songs={ this.props.collectionItem.songs }/>
       </main>
     );
   }

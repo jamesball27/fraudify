@@ -14,8 +14,8 @@ const CollectionDetail = props => {
   return(
     <section className="collection-detail">
       <img src={ props.collectionItem.image_url } />
-      <h1>{ props.collectionItem.name }</h1>
-      <h2>By: {props.collectionItem.creator }</h2>
+      <h1>{ props.collectionItem.name || props.collectionItem.title }</h1>
+      <h2>By: {props.collectionItem.creator || props.collectionItem.artist }</h2>
       <h5>{ `${props.collectionItem.songs.length}` } songs</h5>
       { modals }
     </section>

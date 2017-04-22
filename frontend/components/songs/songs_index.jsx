@@ -9,9 +9,7 @@ import { arrayAllPlaylists } from '../../reducers/selectors';
 class SongsIndex extends React.Component {
 
   componentDidMount() {
-    if (!this.props.playlistPage) {
-      this.props.fetchAllSongs();
-    }
+    this.props.fetchAllSongs();
   }
 
   render() {

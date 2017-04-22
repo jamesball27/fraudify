@@ -13,6 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 8px 0;
 }
 
 .song-item-left {
@@ -20,19 +21,23 @@
   flex-direction: column;
   margin-left: 75px;
   display: list-item;
-  padding: 0 10px 10px 10px;
+  padding: 0 10px;
 
   h4 {
     font-size: 20px;
-    padding: 8px 0;
   }
 
   h5 {
     font-size: 13px;
+    padding-top: 5px;
   }
 
   span {
     padding: 0 5px;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 }
 

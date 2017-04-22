@@ -36,6 +36,7 @@ const Root = ({ store }) => {
             <Route path="playlists" component={ CollectionsIndex } onEnter={ _ensureLoggedIn }/>
             <Route path="albums" component={ CollectionsIndex } onEnter={ _ensureLoggedIn }/>
             <Route path="songs" component={ SongsIndex } onEnter={ _ensureLoggedIn } />
+            <Route path="artists" component={ CollectionsIndex } onEnter={ _ensureLoggedIn } />
           </Route>
 
           <Route path="playlists/:playlistId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>

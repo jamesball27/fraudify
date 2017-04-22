@@ -1,7 +1,8 @@
 import React from 'react';
 import SongModal from './song_modal';
+import { withRouter } from 'react-router';
 
-const SongIndexItem = ({ key, song, fetching, playlists, createPlaylistSong }) => {
+const SongIndexItem = ({ song, fetching, playlists, createPlaylistSong, router }) => {
   const parseDuration = (duration) => {
 
     const minutes = Math.floor(duration / 60);
@@ -13,6 +14,16 @@ const SongIndexItem = ({ key, song, fetching, playlists, createPlaylistSong }) =
     return `${minutesString}:${secondsString}`;
   };
 
+  let artistAlbum;
+  if (!router.location.pathname.startsWith('/albums')) {
+    artistAlbum =
+      <h5>
+        { song.artist }
+        <span>•</span>
+        { song.album }
+      </h5>;
+  }
+
   if (fetching) {
     return <div></div>;
   } else {
@@ -20,7 +31,7 @@ const SongIndexItem = ({ key, song, fetching, playlists, createPlaylistSong }) =
       <li className="songs-index-item">
         <div className="song-item-left">
           <h4>{ song.title }</h4>
-          <h5>{ song.artist } <span>•</span>  { song.album }</h5>
+          { artistAlbum }
         </div>
 
         <div className="song-item-right">
@@ -36,4 +47,4 @@ const SongIndexItem = ({ key, song, fetching, playlists, createPlaylistSong }) =
   }
 };
 
-export default SongIndexItem;
+export default withRouter(SongIndexItem);

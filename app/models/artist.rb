@@ -15,7 +15,7 @@
 class Artist < ActiveRecord::Base
   validates :name, presence: true
 
-  has_attached_file :image, default_url: "no_image.jpg"
+  has_attached_file :image, default_url: "music.png"
   validates_attachment_content_type :image, content_type: ["image/jpeg", "image/png"]
 
   has_many :songs

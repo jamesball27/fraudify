@@ -49,7 +49,7 @@ class SongModal extends React.Component {
             {
               this.props.playlists.map(playlist => {
                 return(
-                  <li className="collection-detail" onClick={ this.handleClick(playlist.id) }>
+                  <li className="collection-detail" onClick={ this.handleClick(playlist.id) } key={ playlist.id }>
                     <img src={ playlist.image_url } />
                     <h2>{ playlist.name }</h2>
                     <h4>By: {playlist.creator }</h4>
