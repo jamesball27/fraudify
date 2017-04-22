@@ -19,23 +19,24 @@ guest = User.create(username: "guest", password: "password")
 users = User.all
 
 Artist.destroy_all
-test_artist = Artist.create(name: "TestArtist", image: nil)
+test_artist1 = Artist.create(name: "TestArtist1", image: nil)
+test_artist2 = Artist.create(name: "TestArtist2", image: nil)
 
 Album.destroy_all
-test_album1 = Album.create(title: "Greatest Hits", artist_id: test_artist.id)
-test_album2 = Album.create(title: "Greatest Hits pt. 2", artist_id: test_artist.id)
+test_album1 = Album.create(title: "Greatest Hits", artist_id: test_artist1.id)
+test_album2 = Album.create(title: "Greatest Hits pt. 2", artist_id: test_artist2.id)
 
 Song.destroy_all
-Song.create(title: "song1", artist_id: test_artist.id, album_id: test_album1.id, duration: 300, album_ord: 1)
-Song.create(title: "song2", artist_id: test_artist.id, album_id: test_album1.id, duration: 300, album_ord: 2)
-Song.create(title: "song3", artist_id: test_artist.id, album_id: test_album1.id, duration: 300, album_ord: 3)
-Song.create(title: "song4", artist_id: test_artist.id, album_id: test_album1.id, duration: 300, album_ord: 4)
-Song.create(title: "song5", artist_id: test_artist.id, album_id: test_album1.id, duration: 300, album_ord: 5)
-Song.create(title: "song6", artist_id: test_artist.id, album_id: test_album2.id, duration: 300, album_ord: 2)
-Song.create(title: "song7", artist_id: test_artist.id, album_id: test_album2.id, duration: 300, album_ord: 1)
-Song.create(title: "song8", artist_id: test_artist.id, album_id: test_album2.id, duration: 300, album_ord: 3)
-Song.create(title: "song9", artist_id: test_artist.id, album_id: test_album2.id, duration: 300, album_ord: 4)
-Song.create(title: "song10", artist_id: test_artist.id, album_id: test_album2.id, duration: 300, album_ord: 5)
+Song.create(title: "song1", artist_id: test_artist1.id, album_id: test_album1.id, duration: 300, album_ord: 1)
+Song.create(title: "song2", artist_id: test_artist1.id, album_id: test_album1.id, duration: 300, album_ord: 2)
+Song.create(title: "song3", artist_id: test_artist1.id, album_id: test_album1.id, duration: 300, album_ord: 3)
+Song.create(title: "song4", artist_id: test_artist1.id, album_id: test_album1.id, duration: 300, album_ord: 4)
+Song.create(title: "song5", artist_id: test_artist1.id, album_id: test_album1.id, duration: 300, album_ord: 5)
+Song.create(title: "song6", artist_id: test_artist2.id, album_id: test_album2.id, duration: 300, album_ord: 2)
+Song.create(title: "song7", artist_id: test_artist2.id, album_id: test_album2.id, duration: 300, album_ord: 1)
+Song.create(title: "song8", artist_id: test_artist2.id, album_id: test_album2.id, duration: 300, album_ord: 3)
+Song.create(title: "song9", artist_id: test_artist2.id, album_id: test_album2.id, duration: 300, album_ord: 4)
+Song.create(title: "song10", artist_id: test_artist2.id, album_id: test_album2.id, duration: 300, album_ord: 5)
 songs = Song.all
 
 Playlist.destroy_all
