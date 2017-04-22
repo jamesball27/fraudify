@@ -1,12 +1,17 @@
 class Api::SongsController < ApplicationController
   def index
-    @songs =
-      Song
-        .joins(:playlists)
-        .where("playlists.creator_id = ?", current_user.id)
-        .distinct
-        .includes(:artist)
-        .includes(:album)
+    if params[:artist_id]
+      @songs = Song.where(artist_id: params[:artist_id])
+    else
+      @songs =
+        Song
+          .joins(:playlists)
+          .where("playlists.creator_id = ?", current_user.id)
+          .distinct
+          .includes(:artist)
+          .includes(:album)
+    end
+
     render :index
   end
 

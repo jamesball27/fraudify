@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { arrayAllSongs } from '../../reducers/selectors';
-import { fetchAllSongs } from '../../actions/song_actions';
+import { fetchSongs } from '../../actions/song_actions';
 import { createPlaylistSong } from '../../actions/playlist_song_actions';
 import SongIndexItem from './song_index_item';
 import { arrayAllPlaylists } from '../../reducers/selectors';
@@ -9,7 +9,7 @@ import { arrayAllPlaylists } from '../../reducers/selectors';
 class SongsIndex extends React.Component {
 
   componentDidMount() {
-    this.props.fetchAllSongs();
+    this.props.fetchSongs();
   }
 
   render() {
@@ -49,7 +49,7 @@ const mapStateToProps = (store, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllSongs: () => dispatch(fetchAllSongs()),
+  fetchSongs: () => dispatch(fetchSongs()),
   createPlaylistSong: (playlistSong) => dispatch(createPlaylistSong(playlistSong))
 });
 

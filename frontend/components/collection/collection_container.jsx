@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CollectionDetail from './collection_detail';
 import { updatePlaylist, deletePlaylist } from '../../actions/playlist_actions';
-import { fetchAllSongs } from '../../actions/song_actions';
+import { fetchSongs } from '../../actions/song_actions';
 import SongsIndex from '../songs/songs_index';
 
 class CollectionContainer extends React.Component {
 
   componentWillMount() {
     if (!this.props.fetching) {
-      this.props.fetchAllSongs();
+      this.props.fetchSongs();
     }
   }
 
@@ -53,7 +53,7 @@ const mapStateToProps = (store, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
   deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId)),
-  fetchAllSongs: () => dispatch(fetchAllSongs())
+  fetchSongs: () => dispatch(fetchSongs())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CollectionContainer);

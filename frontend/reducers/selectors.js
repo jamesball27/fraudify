@@ -13,3 +13,23 @@ export const arrayAllAlbums = ({ albums }) => (
 export const arrayAllArtists = ({ artists }) => (
   Object.keys(artists).map(key => artists[key])
 );
+
+export const songsByArtist = ({ songs, artists }, artistId) => {
+  let artistSongs = [];
+  for (const songId in songs) {
+    if (songs[songId].artist === artists[artistId].name) {
+      artistSongs.push(songId);
+    }
+  }
+  return artistSongs;
+};
+
+export const albumsByArtist = ({ albums, artists }, artistId) => {
+  let artistAlbums = [];
+  for (const albumId in albums) {
+    if (albums[albumId].artist === artists[artistId].name) {
+      artistAlbums.push(albumId);
+    }
+  }
+  return artistAlbums;
+};

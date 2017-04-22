@@ -8,8 +8,16 @@ const receiveSongs = songs => ({
   songs
 });
 
-export const fetchAllSongs = () => dispatch => {
+export const fetchSongs = () => dispatch => {
   dispatch({ type: FETCHING_SONGS });
-  return SongApiUtil.fetchAllSongs()
+  return SongApiUtil.fetchSongs()
+    .then(songs => {
+      dispatch(receiveSongs(songs));
+      return songs;
+    });
+};
+
+export const fetchArtistSongs = artistId => dispatch => {
+  return SongApiUtil.fetchArtistSongs(artistId)
     .then(songs => dispatch(receiveSongs(songs)));
 };
