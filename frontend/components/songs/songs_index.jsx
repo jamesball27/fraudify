@@ -16,7 +16,7 @@ class SongsIndex extends React.Component {
 
   render() {
     return(
-      <ul>
+      <ol className="songs-index">
         {
           this.props.songs.map((song, idx) => (
               <SongIndexItem
@@ -29,7 +29,7 @@ class SongsIndex extends React.Component {
             )
           )
         }
-      </ul>
+      </ol>
     );
   }
 

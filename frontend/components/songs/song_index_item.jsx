@@ -1,7 +1,7 @@
 import React from 'react';
 import SongModal from './song_modal';
 
-const SongIndexItem = ({ song, fetching, playlists, createPlaylistSong }) => {
+const SongIndexItem = ({ key, song, fetching, playlists, createPlaylistSong }) => {
   const parseDuration = (duration) => {
 
     const minutes = Math.floor(duration / 60);
@@ -17,12 +17,20 @@ const SongIndexItem = ({ song, fetching, playlists, createPlaylistSong }) => {
     return <div></div>;
   } else {
     return(
-      <li>
-        <h4>{ song.title }</h4>
-        <h5>{ song.artist } • { song.album }</h5>
+      <li className="songs-index-item">
+        <div className="song-item-left">
+          <h4>{ song.title }</h4>
+          <h5>{ song.artist } <span>•</span>  { song.album }</h5>
+        </div>
 
-        <SongModal playlists={ playlists } createPlaylistSong={ createPlaylistSong } songId={ song.id } />
-        <h6>{ parseDuration(song.duration) }</h6>
+        <div className="song-item-right">
+          <SongModal
+            playlists={ playlists }
+            createPlaylistSong={ createPlaylistSong }
+            songId={ song.id }
+          />
+          <h6>{ parseDuration(song.duration) }</h6>
+        </div>
       </li>
     );
   }

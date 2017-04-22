@@ -35,7 +35,7 @@ class SongModal extends React.Component {
       <div>
         <button
           onClick={ this.openModal }
-          className="modal-entry-button button green"
+          title="Add to playlist"
         >+</button>
         <Modal
           isOpen={ this.state.modalIsOpen }
