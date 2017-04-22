@@ -36,7 +36,6 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => ({
   fetchPlaylists: () => dispatch(fetchPlaylists()),
   createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyMusic);

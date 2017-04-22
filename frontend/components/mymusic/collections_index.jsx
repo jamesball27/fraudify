@@ -7,19 +7,33 @@ import { fetchAlbums } from '../../actions/album_actions';
 import { fetchArtists } from '../../actions/artist_actions';
 
 class CollectionsIndex extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchData(this.props.indexType);
+  }
 
   componentWillReceiveProps(newProps) {
     if (this.props.route.path !== newProps.route.path) {
-      switch(newProps.indexType) {
-        case 'playlists':
-          this.props.fetchPlaylists();
-          break;
-        case 'albums':
-          this.props.fetchAlbums();
-          break;
-        case 'artists':
-          this.props.fetchArtists();
-      }
+      this.fetchData(newProps.indexType);
+    }
+  }
+
+  fetchData(indexType) {
+    switch(indexType) {
+      case 'playlists':
+        this.props.fetchPlaylists();
+        break;
+      case 'albums':
+        this.props.fetchAlbums();
+        break;
+      case 'artists':
+        this.props.fetchArtists();
+        break;
     }
   }
 
@@ -77,4 +91,5 @@ const mapDispatchToProps = dispatch => ({
   fetchAlbums: () => dispatch(fetchAlbums()),
   fetchArtists: () => dispatch(fetchArtists())
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(CollectionsIndex);
