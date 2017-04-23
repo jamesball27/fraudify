@@ -16,12 +16,16 @@ class ArtistContainer extends React.Component {
 
   render() {
     return(
-      <main className="main-content artist-container">
-        <ArtistDetail artist={ this.props.artist }/>
-        <h2>Songs</h2>
-        <SongsIndex collectionPage="true" songs={ this.props.songs } />
-        <h2>Albums</h2>
-        <CollectionsIndex indexType="albums" albums={ this.props.albums }/>
+      <main className="main-content">
+        <div className="artist-container">
+          <ArtistDetail artist={ this.props.artist }/>
+          <div className="artist-songs-albums">
+            <h2>Songs</h2>
+            <SongsIndex collectionPage="true" songs={ this.props.songs } />
+            <h2>Albums</h2>
+            <CollectionsIndex indexType="albums" albums={ this.props.albums }/>
+          </div>
+        </div>
       </main>
     );
   }
