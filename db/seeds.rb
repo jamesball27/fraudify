@@ -31,20 +31,20 @@ tchaikovksy = Artist.create(name: "Pyotr Ilyich Tchaikovsky", image: "https://s3
 vivaldi = Artist.create(name: "Antonio Vivaldi", image: "https://s3.amazonaws.com/fraudify-dev/artist-images/vivaldi.jpg")
 
 Album.destroy_all
-test_album1 = Album.create(title: "Greatest Hits", artist_id: test_artist1.id)
-test_album2 = Album.create(title: "Greatest Hits pt. 2", artist_id: test_artist2.id)
+test_album1 = Album.create(title: "Greatest Hits", artist_id: bach.id)
+test_album2 = Album.create(title: "Greatest Hits pt. 2", artist_id: Mozart.id)
 
 Song.destroy_all
 song1 = Song.create(title: "song1", artist_id: bach.id, album_id: test_album1.id, duration: 300, album_ord: 1)
-Song.create(title: "song2", artist_id: test_artist1.id, album_id: test_album1.id, duration: 300, album_ord: 2)
-Song.create(title: "song3", artist_id: test_artist1.id, album_id: test_album1.id, duration: 300, album_ord: 3)
-Song.create(title: "song4", artist_id: test_artist1.id, album_id: test_album1.id, duration: 300, album_ord: 4)
-Song.create(title: "song5", artist_id: test_artist1.id, album_id: test_album1.id, duration: 300, album_ord: 5)
-Song.create(title: "song6", artist_id: test_artist2.id, album_id: test_album2.id, duration: 300, album_ord: 2)
-Song.create(title: "song7", artist_id: test_artist2.id, album_id: test_album2.id, duration: 300, album_ord: 1)
-Song.create(title: "song8", artist_id: test_artist2.id, album_id: test_album2.id, duration: 300, album_ord: 3)
-Song.create(title: "song9", artist_id: test_artist2.id, album_id: test_album2.id, duration: 300, album_ord: 4)
-Song.create(title: "song10", artist_id: test_artist2.id, album_id: test_album2.id, duration: 300, album_ord: 5)
+Song.create(title: "song2", artist_id: bach.id, album_id: test_album1.id, duration: 300, album_ord: 2)
+Song.create(title: "song3", artist_id: bach.id, album_id: test_album1.id, duration: 300, album_ord: 3)
+Song.create(title: "song4", artist_id: bach.id, album_id: test_album1.id, duration: 300, album_ord: 4)
+Song.create(title: "song5", artist_id: bach.id, album_id: test_album1.id, duration: 300, album_ord: 5)
+Song.create(title: "song6", artist_id: Mozart.id, album_id: test_album2.id, duration: 300, album_ord: 2)
+Song.create(title: "song7", artist_id: Mozart.id, album_id: test_album2.id, duration: 300, album_ord: 1)
+Song.create(title: "song8", artist_id: Mozart.id, album_id: test_album2.id, duration: 300, album_ord: 3)
+Song.create(title: "song9", artist_id: Mozart.id, album_id: test_album2.id, duration: 300, album_ord: 4)
+Song.create(title: "song10", artist_id: Mozart.id, album_id: test_album2.id, duration: 300, album_ord: 5)
 songs = Song.all
 
 Playlist.destroy_all
