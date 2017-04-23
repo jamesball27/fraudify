@@ -16,11 +16,13 @@ class ArtistContainer extends React.Component {
 
   render() {
     return(
-      <div>
-        <ArtistDetail />
-        <SongsIndex collectionPage="true" songs={ this.props.songs }/>
-        <CollectionsIndex indexType="albums"/>
-      </div>
+      <main className="main-content artist-container">
+        <ArtistDetail artist={ this.props.artist }/>
+        <h2>Songs</h2>
+        <SongsIndex collectionPage="true" songs={ this.props.songs } />
+        <h2>Albums</h2>
+        <CollectionsIndex indexType="albums" albums={ this.props.albums }/>
+      </main>
     );
   }
 }
@@ -28,7 +30,8 @@ class ArtistContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     songs: songsByArtist(state, ownProps.params.artistId),
-    albums: albumsByArtist(state, ownProps.params.artistId)
+    albums: albumsByArtist(state, ownProps.params.artistId),
+    artist: state.artists[ownProps.params.artistId]
   };
 };
 

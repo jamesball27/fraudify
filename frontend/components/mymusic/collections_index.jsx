@@ -83,9 +83,16 @@ const mapStateToProps = (state, ownProps) => {
     indexType = ownProps.route.path;
   }
 
+  let albums;
+  if (ownProps.album) {
+    albums = ownProps.albums.map(albumId => state.albums[albumId]);
+  } else {
+    albums = arrayAllAlbums(state);
+  }
+
   return {
     playlists: arrayAllPlaylists(state),
-    albums: arrayAllAlbums(state),
+    albums,
     artists: arrayAllArtists(state),
     indexType
   };

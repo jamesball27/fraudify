@@ -1,0 +1,25 @@
+.artist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 100px;
+
+  overflow: auto;
+}
+
+.artist-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+
+  }
+
+  img {
+    height: 250px;
+    width: 250px;
+  }
+}

@@ -2,7 +2,10 @@ import React from 'react';
 
 const ArtistDetail = props => {
   return(
-    <h1>Artist Detail</h1>
+    <div className="artist-detail">
+      <img src={ props.artist.image_url } className="image-round"/>
+      <h1>{ props.artist.name }</h1>
+    </div>
   );
 };
 
