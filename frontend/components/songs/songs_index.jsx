@@ -5,6 +5,7 @@ import { fetchSongs } from '../../actions/song_actions';
 import { createPlaylistSong } from '../../actions/playlist_song_actions';
 import SongIndexItem from './song_index_item';
 import { arrayAllPlaylists } from '../../reducers/selectors';
+import { receiveCurrentSong } from '../../actions/now_playing_actions';
 
 class SongsIndex extends React.Component {
 
@@ -23,6 +24,7 @@ class SongsIndex extends React.Component {
                 fetching={ this.props.fetching }
                 playlists={ this.props.playlists }
                 createPlaylistSong={ this.props.createPlaylistSong }
+                receiveCurrentSong={ this.props.receiveCurrentSong }
               />
             )
           )
@@ -50,7 +52,8 @@ const mapStateToProps = (store, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchSongs: () => dispatch(fetchSongs()),
-  createPlaylistSong: (playlistSong) => dispatch(createPlaylistSong(playlistSong))
+  createPlaylistSong: (playlistSong) => dispatch(createPlaylistSong(playlistSong)),
+  receiveCurrentSong: (song) => dispatch(receiveCurrentSong(song))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongsIndex);

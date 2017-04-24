@@ -13,6 +13,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
+
+  &:hover {
+    background: rgba(0,0,0, 0.2);
+  }
+
 }
 
 .song-item-left {
@@ -38,6 +43,8 @@
   a:hover {
     text-decoration: underline;
   }
+
+
 }
 
 .song-item-right {
@@ -50,6 +57,18 @@
     font-size: 14px;
     vertical-align: middle;
     margin-top: 5px;
+  }
+
+
+
+  img {
+    margin-top: 5px;
+    height: 25px;
+    width: 25px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   button {

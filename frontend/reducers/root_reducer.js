@@ -5,6 +5,7 @@ import SongsReducer from './songs_reducer';
 import FetchingReducer from './fetching_reducer';
 import ArtistsReducer from './artists_reducer';
 import AlbumsReducer from './albums_reducer';
+import NowPlayingReducer from './now_playing_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
@@ -12,6 +13,7 @@ const RootReducer = combineReducers({
   songs: SongsReducer,
   artists: ArtistsReducer,
   albums: AlbumsReducer,
+  nowPlaying: NowPlayingReducer,
   fetching: FetchingReducer
 });
 
