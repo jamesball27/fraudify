@@ -9,17 +9,6 @@ class SongIndexItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  parseDuration(duration) {
-
-    const minutes = Math.floor(duration / 60);
-    const seconds = duration - (minutes * 60);
-
-    const minutesString = minutes < 10 ? `0${minutes}` : `${minutes}`;
-    const secondsString = seconds < 10 ? `0${seconds}` : `${seconds}`;
-
-    return `${minutesString}:${secondsString}`;
-  }
-
   handleClick(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -55,7 +44,6 @@ class SongIndexItem extends React.Component {
               createPlaylistSong={ this.props.createPlaylistSong }
               songId={ this.props.song.id }
               />
-            <h6>{ this.parseDuration(this.props.song.duration) }</h6>
           </div>
         </li>
       );

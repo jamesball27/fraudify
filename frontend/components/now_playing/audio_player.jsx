@@ -48,13 +48,24 @@ class AudioPlayer extends React.Component {
     e.preventDefault();
     e.stopPropagation();
 
-    const timeline = document.getElementById('timeline');
+    const timeline = document.getElementById('scrollbar');
     const width = timeline.getBoundingClientRect().width;
     const left = timeline.getBoundingClientRect().left;
     const percent = (e.clientX - left) / width;
 
     this.audio.currentTime = this.state.duration * percent;
     this.setState({ elapsed: this.audio.currentTime });
+  }
+
+  parseTime(time) {
+    const duration = Math.floor(time);
+    const minutes = Math.floor(duration / 60);
+    const seconds = Math.floor(duration) - (minutes * 60);
+
+    const minutesString = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const secondsString = seconds < 10 ? `0${seconds}` : `${seconds}`;
+
+    return `${minutesString}:${secondsString}`;
   }
 
   render() {
@@ -67,9 +78,12 @@ class AudioPlayer extends React.Component {
 
         <img src={ pButtonUrl } className="p-button" onClick={ this.togglePlay } />
 
-        
-        <div id="timeline" onClick={ this.scrollPlayback }>
-          <div id="playhead"></div>
+        <div className="timeline">
+          <p>{ this.parseTime(this.state.elapsed) }</p>
+          <div id="scrollbar" onClick={ this.scrollPlayback }>
+            <div id="playhead"></div>
+          </div>
+          <p>{ this.parseTime(this.state.duration) }</p>
         </div>
       </div>
     );

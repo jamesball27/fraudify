@@ -9,7 +9,7 @@
 .p-button {
   height: 35px;
   width: 35px;
-  margin: 20px;
+  margin: 20px 20px 15px 20px;
   transition: transform .25s;
   &:hover {
     transform: scale(1.2);
@@ -17,13 +17,14 @@
   }
 }
 
-#timeline {
+#scrollbar {
   height: 5px;
   width: 400px;
   background: #404040;
   border-radius: 5px;
-
+  margin: 0 10px;
   cursor: pointer;
+
 }
 
 #playhead {
@@ -31,4 +32,16 @@
   width: 5px;
   border-radius: 50%;
   background: white;
+}
+
+.timeline {
+  display: flex;
+  align-items: center;
+  width: 500px;
+
+  p {
+    font-size: 11px;
+    padding: 0 15px;
+    width: 50px;
+  }
 }
