@@ -13,7 +13,7 @@
 #
 
 class Song < ActiveRecord::Base
-  validates :title, :artist, :album, presence: true
+  validates :title, :artist, :album, :audio_url, presence: true
 
   belongs_to :artist
   belongs_to :album

@@ -21,6 +21,3 @@ class Playlist < ActiveRecord::Base
     self.playlist_songs.joins(:song).order(:ord).pluck("songs.id")
   end
 end
-
-# put a playlist image column in Playlists, set it to the album_image of the first song that it added to that playlist
-# fetch songs only when navigating to songs page
