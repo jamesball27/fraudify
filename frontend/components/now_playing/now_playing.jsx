@@ -7,7 +7,6 @@ class NowPlaying extends React.Component {
   render() {
     return(
       <section className="now-playing">
-        <p>now playing here</p>
         <AudioPlayer
           currentSong={ this.props.currentSong }
         />
@@ -18,7 +17,7 @@ class NowPlaying extends React.Component {
 
 const mapStateToProps = store => ({
   currentUser: store.session.currentUser,
-  currentSong: store.currentSong
+  currentSong: store.nowPlaying.currentSong
 });
 
 const mapDispatchToProps = dispatch => ({

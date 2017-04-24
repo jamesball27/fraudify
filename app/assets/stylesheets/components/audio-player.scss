@@ -1,0 +1,16 @@
+.audio-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: auto;
+}
+
+.p-button {
+  height: 50px;
+  width: 50px;
+
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+}
