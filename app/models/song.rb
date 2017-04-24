@@ -2,24 +2,18 @@
 #
 # Table name: songs
 #
-#  id                 :integer          not null, primary key
-#  title              :string           not null
-#  artist_id          :integer          not null
-#  album_id           :integer          not null
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  album_ord          :integer          not null
-#  audio_file_name    :string
-#  audio_content_type :string
-#  audio_file_size    :integer
-#  audio_updated_at   :datetime
+#  id         :integer          not null, primary key
+#  title      :string           not null
+#  artist_id  :integer          not null
+#  album_id   :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  album_ord  :integer          not null
+#  audio_url  :string
 #
 
 class Song < ActiveRecord::Base
   validates :title, :artist, :album, presence: true
-
-  has_attached_file :audio, default_url: "no_audio.mp3"
-  validates_attachment_content_type :audio, content_type: ["audio/mpeg", "audio/ogg", "audio/wav"]
 
   belongs_to :artist
   belongs_to :album
