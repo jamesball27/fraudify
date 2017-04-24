@@ -4,7 +4,8 @@ class AudioPlayer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { audioUrl: '', playing: false, duration: null, elapsed: 0 };
+    this.state = { elapsed: 0 };
+    this.duration = 0;
 
     this.togglePlay = this.togglePlay.bind(this);
     this.updateTimeline = this.updateTimeline.bind(this);
@@ -12,22 +13,34 @@ class AudioPlayer extends React.Component {
     this.scrollPlayback = this.scrollPlayback.bind(this);
   }
 
-  componentWillReceiveProps(newProps) {
+  componentDidMount() {
     this.audio = document.getElementById('audio');
-    if (this.state.audioUrl !== newProps.currentSong.audioUrl) {
-      this.setState({ audioUrl: newProps.currentSong.audioUrl });
+  }
+
+  // componentWillReceiveProps(newProps) {
+  //   if (newProps.playQueue.length === 1 && this.props.playQueue !== newProps.playQueue) {
+  //     this.setState({ audioUrl: newProps.playQueue[0].audioUrl, duration: this.audio.duration });
+  //   }
+  // }
+
+  componentDidUpdate() {
+    if (this.props.playQueue.length === 1 && !this.props.playing && this.state.elapsed === 0) {
+      this.togglePlay();
     }
   }
 
   togglePlay() {
-    if (!this.state.playing) {
-      this.audio.play();
+
+    if (!this.props.playing) {
+      this.audio.play().then(() => {
+        this.duration = this.audio.duration;
+      });
       this.updateTimeline();
-      this.setState({ playing: true, duration: this.audio.duration });
+      this.props.playSong();
     } else {
       this.audio.pause();
       window.clearInterval(this.updateInterval);
-      this.setState({ playing: false });
+      this.props.pauseSong();
     }
   }
 
@@ -40,7 +53,7 @@ class AudioPlayer extends React.Component {
 
   movePlayhead() {
     const playhead = document.getElementById('playhead');
-    const playPercent = (this.state.elapsed / this.state.duration) * 100;
+    const playPercent = (this.state.elapsed / this.duration) * 100;
     playhead.style.marginLeft = playPercent + '%';
   }
 
@@ -49,11 +62,11 @@ class AudioPlayer extends React.Component {
     e.stopPropagation();
 
     const timeline = document.getElementById('scrollbar');
-    const width = timeline.getBoundingClientRect().width;
-    const left = timeline.getBoundingClientRect().left;
-    const percent = (e.clientX - left) / width;
+    const timelineWidth = timeline.getBoundingClientRect().width;
+    const timelineLeft = timeline.getBoundingClientRect().left;
+    const clickPos = (e.clientX - timelineLeft) / timelineWidth;
 
-    this.audio.currentTime = this.state.duration * percent;
+    this.audio.currentTime = this.duration * clickPos;
     this.setState({ elapsed: this.audio.currentTime });
   }
 
@@ -69,12 +82,17 @@ class AudioPlayer extends React.Component {
   }
 
   render() {
-    let pButtonUrl = this.state.playing ? window.images.pause : window.images.play;
+    let pButtonUrl = this.props.playing ? window.images.pause : window.images.play;
+
+    let audioUrl;
+    if (this.props.playQueue[0]) {
+      audioUrl = this.props.playQueue[0].audioUrl;
+    }
 
     return(
       <div className="audio-player">
 
-        <audio id="audio" src={ this.state.audioUrl }></audio>
+        <audio id="audio" src={ audioUrl }></audio>
 
         <img src={ pButtonUrl } className="p-button" onClick={ this.togglePlay } />
 
@@ -83,7 +101,7 @@ class AudioPlayer extends React.Component {
           <div id="scrollbar" onClick={ this.scrollPlayback }>
             <div id="playhead"></div>
           </div>
-          <p>{ this.parseTime(this.state.duration) }</p>
+          <p>{ this.parseTime(this.duration) }</p>
         </div>
       </div>
     );

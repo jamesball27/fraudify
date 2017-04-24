@@ -13,7 +13,7 @@ class SongIndexItem extends React.Component {
     e.preventDefault();
     e.stopPropagation();
 
-    this.props.receiveCurrentSong(this.props.song);
+    this.props.addSongToTopOfQueue(this.props.song);
   }
 
   render() {
