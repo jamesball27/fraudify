@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_SONG, PLAY_SONG, PAUSE_SONG } from '../actions/now_playing_actions';
+import { RECEIVE_CURRENT_SONG, RECEIVE_NEXT_SONG, PLAY_SONG, PAUSE_SONG } from '../actions/now_playing_actions';
 
 const defaultState = {
   currentSong: null,

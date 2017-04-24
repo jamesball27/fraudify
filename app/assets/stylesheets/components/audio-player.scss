@@ -45,3 +45,19 @@
     width: 50px;
   }
 }
+
+.song-controls {
+  display: flex;
+  align-items: center;
+
+}
+
+.next-song {
+  height: 15px;
+  width: 15px;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}

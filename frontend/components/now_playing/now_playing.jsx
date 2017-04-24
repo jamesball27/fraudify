@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AudioPlayer from './audio_player';
-import { playSong, pauseSong } from '../../actions/now_playing_actions';
+import { playSong, pauseSong, receiveCurrentSong } from '../../actions/now_playing_actions';
 
 class NowPlaying extends React.Component {
 
@@ -14,6 +14,7 @@ class NowPlaying extends React.Component {
           pauseSong={ this.props.pauseSong }
           playing={ this.props.playing }
           playQueue={ this.props.playQueue }
+          receiveCurrentSong={ this.props.receiveCurrentSong }
         />
       </section>
     );
@@ -29,7 +30,8 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   playSong: () => dispatch(playSong()),
-  pauseSong: () => dispatch(pauseSong())
+  pauseSong: () => dispatch(pauseSong()),
+  receiveCurrentSong: (song) => dispatch(receiveCurrentSong(song))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NowPlaying);

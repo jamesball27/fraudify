@@ -1,16 +1,17 @@
 export const RECEIVE_CURRENT_SONG = 'RECEIVE_CURRENT_SONG';
 export const PLAY_SONG = 'PLAY_SONG';
 export const PAUSE_SONG = 'PAUSE_SONG';
+// export const RECEIVE_NEXT_SONG = 'RECEIVE_NEXT_SONG';
 
-export const receiveCurrentSong = (song) => ({
+export const receiveCurrentSong = (currentSong) => ({
   type: RECEIVE_CURRENT_SONG,
-  currentSong: song
+  currentSong
 });
 
-export const receiveNextSong = (song) => ({
-  type: RECEIVE_NEXT_SONG,
-  song
-})
+// export const receiveNextSong = (nextSong) => ({
+//   type: RECEIVE_NEXT_SONG,
+//   nextSong
+// });
 
 export const playSong = () => ({
   type: PLAY_SONG
