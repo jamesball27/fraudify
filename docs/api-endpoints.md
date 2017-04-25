@@ -32,4 +32,7 @@
   - `DELETE /api/artistfollows/:id`
 
 #### Search
-  - `POST /api/search`
+  - `POST /api/search/playlists`
+  - `POST /api/search/artists`
+  - `POST /api/search/albums`
+  - `POST /api/search/songs`

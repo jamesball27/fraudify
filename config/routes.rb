@@ -14,5 +14,6 @@ Rails.application.routes.draw do
       resources :songs, only: [:index]
       resources :albums, only: [:index]
     end
+    resources :search, only: [:index]
   end
 end

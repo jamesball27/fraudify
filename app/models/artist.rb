@@ -14,4 +14,10 @@ class Artist < ActiveRecord::Base
 
   has_many :songs
   has_many :playlists, through: :songs, source: :playlists
+
+  include PgSearch
+  multisearchable against: :name, using: :trigram
+                  # using: {
+                  #   tsearch: { prefix: true }
+                  # }
 end
