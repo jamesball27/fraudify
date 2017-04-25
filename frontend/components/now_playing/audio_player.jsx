@@ -13,22 +13,10 @@ class AudioPlayer extends React.Component {
     this.nextSong = this.nextSong.bind(this);
   }
 
-  componentDidMount() {
-    this.audio = document.getElementById('audio');
-  }
-
   componentWillReceiveProps(newProps) {
     if (this.props.playQueue !== newProps.playQueue) {
       this.props.receiveCurrentSong(newProps.playQueue[0]);
       this.setState({ playQueuePosition: 0 });
-      this.togglePlay();
-    }
-
-    if (this.props.currentSong !== newProps.currentSong && this.props.playing) {
-      this.togglePlay();
-    }
-
-    if (this.props.playQueue.length === 0) {
       this.togglePlay();
     }
   }
@@ -53,31 +41,28 @@ class AudioPlayer extends React.Component {
       });
     } else {
       this.audio.pause();
-      window.clearInterval(this.updateInterval);
       this.props.pauseSong();
     }
   }
 
   updateTimeline() {
-    this.updateInterval = window.setInterval(() => {
+    this.audio.ontimeupdate = () => {
       this.setState({ elapsed: this.audio.currentTime });
       this.movePlayhead();
-    }, 1000);
+    };
   }
 
   movePlayhead() {
-    const playhead = document.getElementById('playhead');
     const playPercent = (this.state.elapsed / this.duration) * 100;
-    playhead.style.marginLeft = playPercent + '%';
+    this.playhead.style.marginLeft = playPercent + '%';
   }
 
   scrollPlayback(e) {
     e.preventDefault();
     e.stopPropagation();
 
-    const timeline = document.getElementById('scrollbar');
-    const timelineWidth = timeline.getBoundingClientRect().width;
-    const timelineLeft = timeline.getBoundingClientRect().left;
+    const timelineWidth = this.scrollbar.getBoundingClientRect().width;
+    const timelineLeft = this.scrollbar.getBoundingClientRect().left;
     const clickPos = (e.clientX - timelineLeft) / timelineWidth;
 
     this.audio.currentTime = this.duration * clickPos;
@@ -101,6 +86,7 @@ class AudioPlayer extends React.Component {
       this.props.clearPlayQueue();
       this.props.pauseSong();
       this.togglePlay();
+      this.setState({ playQueuePosition: 0 });
     } else {
       this.props.receiveCurrentSong(this.props.playQueue[playQueuePosition]);
       this.props.pauseSong();
@@ -119,7 +105,7 @@ class AudioPlayer extends React.Component {
     return(
       <div className="audio-player">
 
-        <audio id="audio" src={ audioUrl }></audio>
+        <audio id="audio" src={ audioUrl } ref={ audio => { this.audio = audio; } }></audio>
 
         <div className="song-controls">
           <img src={ pButtonUrl } className="p-button" onClick={ this.togglePlay } />
@@ -128,8 +114,8 @@ class AudioPlayer extends React.Component {
 
         <div className="timeline">
           <p>{ this.parseTime(this.state.elapsed) }</p>
-          <div id="scrollbar" onClick={ this.scrollPlayback }>
-            <div id="playhead"></div>
+          <div id="scrollbar" onClick={ this.scrollPlayback } ref={ scrollbar => { this.scrollbar = scrollbar; } }>
+            <div id="playhead" ref={ playhead => { this.playhead = playhead; } }></div>
           </div>
           <p>{ this.parseTime(this.duration) }</p>
         </div>
