@@ -6,7 +6,12 @@ class PlaylistModal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { modalIsOpen: false, playlist: { name: '' } };
+    let name = '';
+    if (this.props.playlist) {
+      name = this.props.playlist.name;
+    }
+
+    this.state = { modalIsOpen: false, playlist: { name } };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -45,7 +50,7 @@ class PlaylistModal extends React.Component {
     let input = <input
               type="text"
               onChange={ this.handleInput }
-              value={ this.state.name }
+              value={ this.state.playlist.name }
               placeholder="Playlist name"
             />;
     let buttonText, headerText;
