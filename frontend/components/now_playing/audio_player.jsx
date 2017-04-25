@@ -14,6 +14,7 @@ class AudioPlayer extends React.Component {
     this.scrollPlayback = this.scrollPlayback.bind(this);
     this.nextSong = this.nextSong.bind(this);
     this.prevSong = this.prevSong.bind(this);
+    this.changeVolume = this.changeVolume.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -74,6 +75,20 @@ class AudioPlayer extends React.Component {
     this.setState({ elapsed: this.audio.currentTime });
   }
 
+  changeVolume(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const volumeWidth = this.volume.getBoundingClientRect().width;
+    const volumeLeft = this.volume.getBoundingClientRect().left;
+    const clickPos = (e.clientX - volumeLeft) / volumeWidth;
+
+    this.audio.volume = clickPos;
+
+    const volPercent = this.audio.volume * 100;
+    this.volumeHead.style.marginLeft = volPercent + '%';
+  }
+
   parseTime(time) {
     const duration = Math.floor(time);
     const minutes = Math.floor(duration / 60);
@@ -107,6 +122,7 @@ class AudioPlayer extends React.Component {
       this.setState({ playQueuePosition });
     }
   }
+
   render() {
     let pButtonUrl = this.props.playing ? window.images.pause : window.images.play;
 
@@ -120,18 +136,28 @@ class AudioPlayer extends React.Component {
 
         <audio id="audio" src={ audioUrl } ref={ audio => { this.audio = audio; } }></audio>
 
-        <div className="song-controls">
-          <img src={ window.images.prevSong } className="next-song" onClick={ this.prevSong } />
-          <img src={ pButtonUrl } className="p-button" onClick={ this.togglePlay } />
-          <img src={ window.images.nextSong } className="next-song" onClick={ this.nextSong }/>
+        <div className="audio-left">
+          <div className="song-controls">
+            <img src={ window.images.prevSong } className="next-song" onClick={ this.prevSong } />
+            <img src={ pButtonUrl } className="p-button" onClick={ this.togglePlay } />
+            <img src={ window.images.nextSong } className="next-song" onClick={ this.nextSong }/>
+          </div>
+
+          <div className="timeline">
+            <p>{ this.parseTime(this.state.elapsed) }</p>
+            <div id="scrollbar" onClick={ this.scrollPlayback } ref={ scrollbar => { this.scrollbar = scrollbar; } }>
+              <div id="playhead" ref={ playhead => { this.playhead = playhead; } }></div>
+            </div>
+            <p>{ this.parseTime(this.duration) }</p>
+          </div>
         </div>
 
-        <div className="timeline">
-          <p>{ this.parseTime(this.state.elapsed) }</p>
-          <div id="scrollbar" onClick={ this.scrollPlayback } ref={ scrollbar => { this.scrollbar = scrollbar; } }>
-            <div id="playhead" ref={ playhead => { this.playhead = playhead; } }></div>
+        <div className="audio-right">
+          <img src={ window.images.volume } />
+          <div id="volume" ref={ volume => { this.volume = volume; } } onClick={ this.changeVolume }>
+            <div id="volume-head" ref={ volumeHead => { this.volumeHead = volumeHead; }}></div>
           </div>
-          <p>{ this.parseTime(this.duration) }</p>
+
         </div>
       </div>
     );

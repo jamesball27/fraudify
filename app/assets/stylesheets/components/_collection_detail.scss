@@ -49,6 +49,10 @@
     padding: 15px;
     border: none;
     margin: 0;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .modal-entry-button {
