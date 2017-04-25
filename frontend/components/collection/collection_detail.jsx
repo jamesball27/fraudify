@@ -23,7 +23,9 @@ const CollectionDetail = props => {
       <h1>{ props.collectionItem.name || props.collectionItem.title }</h1>
       <h2>By: {props.collectionItem.creator || props.collectionItem.artist }</h2>
       <h5>{ `${props.collectionItem.songs.length}` } songs</h5>
-      <button onClick={ playCollection }>Play</button>
+      <div className="play-div">
+        <button onClick={ playCollection } className="button green play">Play</button>
+      </div>
       { modals }
     </section>
   );
