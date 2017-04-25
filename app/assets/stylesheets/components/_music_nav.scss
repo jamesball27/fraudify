@@ -4,6 +4,13 @@
   align-items: center;
   height: 15%;
 
+  .active {
+    border-bottom: 1px solid $green;
+    &:hover {
+      color: white;
+    }
+  }
+
   ul {
     display: flex;
     justify-content: center;
@@ -16,9 +23,10 @@
       text-transform: uppercase;
       color: white;
       box-sizing: border-box;
+
       &:hover {
         cursor: pointer;
-        border-bottom: 1px solid $green;
+        color: $green;
       }
     }
   }
