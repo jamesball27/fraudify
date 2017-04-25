@@ -11,6 +11,7 @@ class AudioPlayer extends React.Component {
     this.movePlayhead = this.movePlayhead.bind(this);
     this.scrollPlayback = this.scrollPlayback.bind(this);
     this.nextSong = this.nextSong.bind(this);
+    this.prevSong = this.prevSong.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -33,15 +34,17 @@ class AudioPlayer extends React.Component {
   }
 
   togglePlay() {
-    if (!this.props.playing) {
-      this.audio.play().then(() => {
-        this.duration = this.audio.duration;
-        this.updateTimeline();
-        this.props.playSong();
-      });
-    } else {
-      this.audio.pause();
-      this.props.pauseSong();
+    if (this.props.currentSong) {
+      if (!this.props.playing) {
+        this.audio.play().then(() => {
+          this.duration = this.audio.duration;
+          this.updateTimeline();
+          this.props.playSong();
+        });
+      } else {
+        this.audio.pause();
+        this.props.pauseSong();
+      }
     }
   }
 
@@ -83,10 +86,8 @@ class AudioPlayer extends React.Component {
   nextSong() {
     const playQueuePosition = this.state.playQueuePosition + 1;
     if (playQueuePosition >= this.props.playQueue.length) {
-      this.props.clearPlayQueue();
-      this.props.pauseSong();
-      this.togglePlay();
       this.setState({ playQueuePosition: 0 });
+      this.togglePlay();
     } else {
       this.props.receiveCurrentSong(this.props.playQueue[playQueuePosition]);
       this.props.pauseSong();
@@ -94,6 +95,16 @@ class AudioPlayer extends React.Component {
     }
   }
 
+  prevSong() {
+    const playQueuePosition = this.state.playQueuePosition - 1;
+    if (playQueuePosition < 0) {
+      this.setState({ playQueuePosition: 0 });
+    } else {
+      this.props.receiveCurrentSong(this.props.playQueue[playQueuePosition]);
+      this.props.pauseSong();
+      this.setState({ playQueuePosition });
+    }
+  }
   render() {
     let pButtonUrl = this.props.playing ? window.images.pause : window.images.play;
 
@@ -108,6 +119,7 @@ class AudioPlayer extends React.Component {
         <audio id="audio" src={ audioUrl } ref={ audio => { this.audio = audio; } }></audio>
 
         <div className="song-controls">
+          <img src={ window.images.prevSong } className="next-song" onClick={ this.prevSong } />
           <img src={ pButtonUrl } className="p-button" onClick={ this.togglePlay } />
           <img src={ window.images.nextSong } className="next-song" onClick={ this.nextSong }/>
         </div>
