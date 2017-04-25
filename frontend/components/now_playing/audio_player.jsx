@@ -6,7 +6,6 @@ class AudioPlayer extends React.Component {
 
     this.state = { elapsed: 0, playQueuePosition: 0 };
     this.duration = 0;
-    this.playQueuePosition = 0;
     this.togglePlay = this.togglePlay.bind(this);
     this.updateTimeline = this.updateTimeline.bind(this);
     this.movePlayhead = this.movePlayhead.bind(this);
@@ -19,15 +18,24 @@ class AudioPlayer extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.togglePlay();
+    if (this.props.playQueue !== newProps.playQueue) {
+      this.props.receiveCurrentSong(newProps.playQueue[0]);
+      this.setState({ playQueuePosition: 0 });
+      this.togglePlay();
+    }
+
     if (this.props.currentSong !== newProps.currentSong && this.props.playing) {
+      this.togglePlay();
+    }
+
+    if (this.props.playQueue.length === 0) {
       this.togglePlay();
     }
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.playQueue.length >= 1 && !this.props.playing && this.state.elapsed === 0) {
-      this.props.receiveCurrentSong(this.props.playQueue[0]);
+      this.props.receiveCurrentSong(this.props.playQueue[this.state.playQueuePosition]);
       this.togglePlay();
     }
 
@@ -89,8 +97,15 @@ class AudioPlayer extends React.Component {
 
   nextSong() {
     const playQueuePosition = this.state.playQueuePosition + 1;
-    this.props.receiveCurrentSong(this.props.playQueue[playQueuePosition]);
-    this.setState({ playQueuePosition });
+    if (playQueuePosition >= this.props.playQueue.length) {
+      this.props.clearPlayQueue();
+      this.props.pauseSong();
+      this.togglePlay();
+    } else {
+      this.props.receiveCurrentSong(this.props.playQueue[playQueuePosition]);
+      this.props.pauseSong();
+      this.setState({ playQueuePosition });
+    }
   }
 
   render() {

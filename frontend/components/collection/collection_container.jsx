@@ -4,7 +4,7 @@ import CollectionDetail from './collection_detail';
 import { updatePlaylist, deletePlaylist } from '../../actions/playlist_actions';
 import { fetchSongs, fetchAlbumSongs } from '../../actions/song_actions';
 import SongsIndex from '../songs/songs_index';
-import { addCollectionToQueue } from '../../actions/play_queue_actions';
+import { addCollectionToQueue, clearPlayQueue } from '../../actions/play_queue_actions';
 
 class CollectionContainer extends React.Component {
 
@@ -24,6 +24,7 @@ class CollectionContainer extends React.Component {
           createdByCurrentUser={ this.props.createdByCurrentUser }
           playCollection={ this.props.playCollection }
           songsInState={ this.props.songs }
+          clearPlayQueue={ this.props.clearPlayQueue }
           />
         <SongsIndex collectionPage="true" songs={ this.props.collectionItem.songs }/>
       </main>
@@ -64,7 +65,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         dispatch(fetchSongs());
       }
     },
-  playCollection: (collection) => dispatch(addCollectionToQueue(collection))
+  playCollection: (collection) => dispatch(addCollectionToQueue(collection)),
+  clearPlayQueue: () => dispatch(clearPlayQueue())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CollectionContainer);

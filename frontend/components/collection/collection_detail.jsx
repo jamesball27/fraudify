@@ -12,6 +12,7 @@ const CollectionDetail = props => {
   }
 
   const playCollection = (e) => {
+    props.clearPlayQueue();
     const songs = props.collectionItem.songs.map(songId => props.songsInState[songId]);
     props.playCollection(songs);
   };

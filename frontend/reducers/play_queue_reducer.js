@@ -1,4 +1,4 @@
-import { ADD_TO_TOP_OF_QUEUE, ADD_COLLECTION_TO_QUEUE } from '../actions/play_queue_actions';
+import { ADD_TO_TOP_OF_QUEUE, ADD_COLLECTION_TO_QUEUE, CLEAR_PLAY_QUEUE } from '../actions/play_queue_actions';
 
 const PlayQueueReducer = (state = [], action) =>{
   Object.freeze(state);
@@ -10,6 +10,8 @@ const PlayQueueReducer = (state = [], action) =>{
       return newState;
     case ADD_COLLECTION_TO_QUEUE:
       return action.collection;
+    case CLEAR_PLAY_QUEUE:
+      return [];
     default:
       return state;
   }
