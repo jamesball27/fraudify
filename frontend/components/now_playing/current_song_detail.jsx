@@ -2,16 +2,21 @@ import React from 'React';
 
 const CurrentSongDetail = ({ currentSong }) => {
   if (currentSong) {
+    let title = currentSong.title;
+
+    if (currentSong.title.length > 35) {
+      title = currentSong.title.slice(0, 40) + '...';
+    }
     return(
-      <div>
-        <h6>{ currentSong.title }</h6>
+      <div className='current-song-detail'>
+        <h5 title={currentSong.title}>{ title }</h5>
         <h6>{ currentSong.artist }</h6>
         <h6>{ currentSong.album }</h6>
       </div>
     );
   } else {
     return(
-      <div></div>
+      <div className='current-song-detail'></div>
     );
   }
 };
