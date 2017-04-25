@@ -6,12 +6,12 @@ class PlaylistModal extends React.Component {
   constructor(props) {
     super(props);
 
-    let name = '';
+    this.name = '';
     if (this.props.playlist) {
-      name = this.props.playlist.name;
+      this.name = this.props.playlist.name;
     }
 
-    this.state = { modalIsOpen: false, playlist: { name } };
+    this.state = { modalIsOpen: false, playlist: { name: this.name } };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -24,7 +24,7 @@ class PlaylistModal extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalIsOpen: false, playlist: { name: this.name } });
   }
 
   handleInput(e) {
