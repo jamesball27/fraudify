@@ -1,9 +1,14 @@
 .collection-container {
+  height: 90%;
   width: 85%;
   display: flex;
-  height: 90%;
   padding: 50px 0 0 50px;
   overflow: auto;
+
+  ol {
+    height: 100%;
+    // margin: 0;
+  }
 }
 
 
@@ -11,13 +16,11 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 30%;
   align-items: center;
-  // padding: 50px 0 0 50px;
-  // margin: 50px 0 0 50px;
+  width: 30%;
+  height: 100%;
   color: white;
   text-align: center;
-  height: 100%;
 
   img {
     height: 300px;
@@ -27,7 +30,7 @@
 
   h1 {
     font-size: 40px;
-    padding: 20px;
+    padding: 10px;
   }
 
   h2 {
@@ -42,13 +45,13 @@
   .play-div {
     height: 50px;
     width: 50%;
-    margin: 20px;
+    margin: 13px;
   }
 
   .play {
     opacity: 1;
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     border: none;
     margin: 0;
 
@@ -57,13 +60,10 @@
     }
   }
 
-  // .modals {
-  //   position: relative;
-  // }
-
   .modal-entry-button {
     opacity: .4;
-    // position: absolute;
+    margin: 10px;
+    
     &:hover {
       opacity: 1;
     }
