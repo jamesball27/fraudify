@@ -1,8 +1,8 @@
 .collection-container {
-  width: 90%;
+  width: 85%;
   display: flex;
-  height: 100%;
-  padding: 50px;
+  height: 90%;
+  padding: 50px 0 0 50px;
   overflow: auto;
 }
 
@@ -13,10 +13,11 @@
   justify-content: flex-start;
   width: 30%;
   align-items: center;
+  // padding: 50px 0 0 50px;
   // margin: 50px 0 0 50px;
   color: white;
   text-align: center;
-  height: 90%;
+  height: 100%;
 
   img {
     height: 300px;
@@ -37,6 +38,7 @@
   h5 {
     font-size: 12px;
   }
+
   .play-div {
     height: 50px;
     width: 50%;
@@ -55,9 +57,13 @@
     }
   }
 
+  // .modals {
+  //   position: relative;
+  // }
+
   .modal-entry-button {
     opacity: .4;
-
+    // position: absolute;
     &:hover {
       opacity: 1;
     }

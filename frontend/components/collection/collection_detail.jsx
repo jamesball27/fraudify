@@ -5,7 +5,7 @@ const CollectionDetail = props => {
   let modals;
   if (props.createdByCurrentUser) {
     modals =
-      <div>
+      <div className="modals">
         <PlaylistModal modalSubmit={ props.updatePlaylist } modalType="updatePlaylist" playlist={ props.collectionItem }/>
         <PlaylistModal modalSubmit={ props.deletePlaylist } modalType="deletePlaylist" />
       </div>;
