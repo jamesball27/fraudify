@@ -111,15 +111,15 @@ bach_wtc_12 = Song.create!(title: "No. 12: Prelude and Fugue in F minor, BWV 857
 bach_wtc_13 = Song.create!(title: "No. 13: Prelude and Fugue in F♯ major, BWV 858", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 13, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_13_-_Bach_Prelude___Fugue_13.mp3")
 bach_wtc_14 = Song.create!(title: "No. 14: Prelude and Fugue in F♯ minor, BWV 859", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 14, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_14_-_Bach_Prelude___Fugue_14.mp3")
 bach_wtc_15 = Song.create!(title: "No. 15: Prelude and Fugue in G major, BWV 860", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 15, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_15_-_Bach_Prelude___Fugue_15.mp3")
-bach_wtc_16 = Song.create!(title: "No. 16: Prelude and Fugue in G minor, BWV 861", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 16, audio_url: )
-bach_wtc_17 = Song.create!(title: "No. 17: Prelude and Fugue in A♭ major, BWV 862", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 17, audio_url: )
-bach_wtc_18 = Song.create!(title: "No. 18: Prelude and Fugue in G♯ minor, BWV 863", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 18, audio_url: )
-bach_wtc_19 = Song.create!(title: "No. 19: Prelude and Fugue in A major, BWV 864", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 19, audio_url: )
-bach_wtc_20 = Song.create!(title: "No. 20: Prelude and Fugue in A minor, BWV 865", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 20, audio_url: )
-bach_wtc_21 = Song.create!(title: "No. 21: Prelude and Fugue in B♭ major, BWV 866", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 21, audio_url: )
-bach_wtc_22 = Song.create!(title: "No. 22: Prelude and Fugue in B♭ minor, BWV 867", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 22, audio_url: )
-bach_wtc_23 = Song.create!(title: "No. 23: Prelude and Fugue in B major, BWV 868", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 23, audio_url: )
-bach_wtc_24 = Song.create!(title: "No. 24: Prelude and Fugue in B minor, BWV 869", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 24, audio_url: )
+bach_wtc_16 = Song.create!(title: "No. 16: Prelude and Fugue in G minor, BWV 861", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 16, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_16_-_Bach_Prelude___Fugue_16.mp3")
+bach_wtc_17 = Song.create!(title: "No. 17: Prelude and Fugue in A♭ major, BWV 862", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 17, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_17_-_Bach_Prelude___Fugue_17.mp3")
+bach_wtc_18 = Song.create!(title: "No. 18: Prelude and Fugue in G♯ minor, BWV 863", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 18, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_18_-_Bach_Prelude___Fugue_18.mp3")
+bach_wtc_19 = Song.create!(title: "No. 19: Prelude and Fugue in A major, BWV 864", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 19, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_19_-_Bach_Prelude___Fugue_19.mp3")
+bach_wtc_20 = Song.create!(title: "No. 20: Prelude and Fugue in A minor, BWV 865", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 20, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_20_-_Bach_Prelude___Fugue_20.mp3")
+bach_wtc_21 = Song.create!(title: "No. 21: Prelude and Fugue in B♭ major, BWV 866", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 21, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_21_-_Bach_Prelude___Fugue_21.mp3")
+bach_wtc_22 = Song.create!(title: "No. 22: Prelude and Fugue in B♭ minor, BWV 867", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 22, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_22_-_Bach_Prelude___Fugue_22.mp3")
+bach_wtc_23 = Song.create!(title: "No. 23: Prelude and Fugue in B major, BWV 868", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 23, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_23_-_Bach_Prelude___Fugue_23.mp3")
+bach_wtc_24 = Song.create!(title: "No. 24: Prelude and Fugue in B minor, BWV 869", artist_id: bach.id, album_id: bach_wtc.id, album_ord: 24, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Bach-wtc/John_Lewis_Grant_-_24_-_Bach_Prelude___Fugue_24.mp3")
 
 beethoven_8_1 = Song.create!(title: "I. Grave – Allegro di molto e con brio", artist_id: beethoven.id, album_id: beethoven_8.id, album_ord: 1, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Beethoven-pathetique/Daniel_Veesey_-_01_-_Sonata_8_Pathetique_-_I_Grave_-_Allegro_di_molto_e_con_brio.mp3")
 beethoven_8_2 = Song.create!(title: "II. Adagio cantabile", artist_id: beethoven.id, album_id: beethoven_8.id, album_ord: 2, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Beethoven-pathetique/Daniel_Veesey_-_02_-_Sonata_8_Pathetique_-_II_Adagio_cantabile.mp3")
@@ -174,10 +174,30 @@ mahler_1_2 = Song.create!(title: "II. Kräftig bewegt, doch nicht zu schnell, Re
 mahler_1_3 = Song.create!(title: "III. Feierlich und gemessen, ohne zu schleppen", artist_id: mahler.id, album_id: mahler_1.id, album_ord: 3, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Mahler-1/2993_imslp270845-pmlp15427-dso20120512-007-mahler-symphony-no1-mvtiii-feierlich-und-gemessen-3654eaf4-79b8-475a-9a31-f7921e7ffc4a.mp3")
 mahler_1_4 = Song.create!(title: "IV. Stürmisch bewegt – Energisch", artist_id: mahler.id, album_id: mahler_1.id, album_ord: 4, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Mahler-1/2993_imslp270846-pmlp15427-dso20120512-008-mahler-symphony-no1-mvtiv-sturmisch-bewegt-21fd8c2e-b758-4342-b1b9-3071549b50f2.mp3")
 
+mozart_38_1 = Song.create!(title: "I. Adagio — Allegro", artist_id: mozart.id, album_id: mozart_38.id, album_ord: 1, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Mozart-38/2365_i-adagio-allegro-26b8c1bc-952d-484c-bd57-4e306b76a1f5.mp3")
+mozart_38_2 = Song.create!(title: "II. Andante", artist_id: mozart.id, album_id: mozart_38.id, album_ord: 2, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Mozart-38/2365_ii-andante-f58b7b8d-7784-45f1-8fbd-c986ac7aa8ea.mp3")
+mozart_38_3 = Song.create!(title: "III. Finale - Presto", artist_id: mozart.id, album_id: mozart_38.id, album_ord: 3, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Mozart-38/2365_iii-finale-presto-8d57f3e9-de4c-4e0d-8752-3ce969280c9f.mp3")
+
 ravel_quartet_1 = Song.create!(title: "I. Allegro moderato – très doux", artist_id: ravel.id, album_id: ravel_quartet.id, album_ord: 1, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-quartet/3073_i-allegro-moderato-80bf3f3d-f4bb-408e-9844-5c7996a64711.mp3")
 ravel_quartet_2 = Song.create!(title: "II. Assez vif – très rythmé", artist_id: ravel.id, album_id: ravel_quartet.id, album_ord: 2, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-quartet/3073_ii-assez-vif-tres-rythme-35959928-4efe-4ffa-a40e-c004ba8962a2.mp3")
 ravel_quartet_3 = Song.create!(title: "III. Très lent", artist_id: ravel.id, album_id: ravel_quartet.id, album_ord: 3, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-quartet/3073_tres-lent-4d9190d5-5a4c-4613-94b8-7f89db0506f1.mp3")
 ravel_quartet_4 = Song.create!(title: "IV. Vif et agité", artist_id: ravel.id, album_id: ravel_quartet.id, album_ord: 4, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-quartet/3073_vif-et-agite-709c8bdb-a865-4ce3-bc74-8efeb0c9afa4.mp3")
+
+ravel_piano_1 = Song.create!(title: "Miroirs - I. \"Noctuelles\"", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 1, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_01_-_Ravel_-_Miroirs_I__Noctuelles.mp3")
+ravel_piano_2 = Song.create!(title: "Miroirs - II. \"Oiseaux tristes\"", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 2, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_02_-_Ravel_-_Miroirs_II__Oiseaux_Tristes.mp3")
+ravel_piano_3 = Song.create!(title: "Miroirs - III. \"Une barque sur l'océan\"", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 3, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_03_-_Ravel_-_Miroirs_III__Une_Barque_Sur_LOcan.mp3")
+ravel_piano_4 = Song.create!(title: "Miroirs - IV. \"Alborada del gracioso\"", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 4, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_04_-_Ravel_-_Miroirs__IV__Alborad.mp3")
+ravel_piano_5 = Song.create!(title: "Miroirs - V. \"La vallée des cloches\"", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 5, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_05_-_Ravel_-_Miroirs__V__La_Valle_Des_Cloches.mp3")
+ravel_piano_6 = Song.create!(title: "Ma mère l'Oye - I. Pavane de la Belle au bois dormant", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 6, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_06_-_Ravel_-_Ma_Mere_LOye_-_1_Pavane_De_La_Belle_Au_Bois_Dormant.mp3")
+ravel_piano_7 = Song.create!(title: "Ma mère l'Oye - II. Petit Poucet", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 7, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_07_-_Ravel_-_Ma_Mere_LOye_-_2_Petit_Poucet.mp3")
+ravel_piano_8 = Song.create!(title: "Ma mère l'Oye - III. Laideronnette, impératrice des pagodes", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 8, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_08_-_Ravel_-_Ma_Mere_LOye_-_3_Laideronnette_Impratrice_des_Padoges.mp3")
+ravel_piano_9 = Song.create!(title: "Ma mère l'Oye - IV. Les entretiens de la belle et de la bête", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 9, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_09_-_Ravel_-_Ma_Mere_LOye_-_4_Les_Entretiens_De_La_Belle_Et_De_La_Bete.mp3")
+ravel_piano_10 = Song.create!(title: "Ma mère l'Oye - V. Le jardin féerique", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 10, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_10_-_Ravel_-_Ma_mere_loye_-_5_Le_Jardin_Feerique.mp3")
+ravel_piano_11 = Song.create!(title: "Menuet Antique", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 11, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_11_-_Ravel_-_Menuet_Antique.mp3")
+ravel_piano_12 = Song.create!(title: "Menuet sur le nom d'Haydn", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 12, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_12_-_Ravel_-_Menuet_Sur_Le_Nom_De_Haydn.mp3")
+ravel_piano_13 = Song.create!(title: "Pavane pour une infante défunte", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 13, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_13_-_Ravel_-_Pavane_Pour_Une_Infante_Dfunte.mp3")
+ravel_piano_14 = Song.create!(title: "Kaddisch (transcribed for solo piano by A. Siloti)", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 14, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_14_-_Ravel_-_Kaddisch_transcribed_by_Siloti.mp3")
+ravel_piano_15 = Song.create!(title: "Bolero (transcribed for solo piano by R. Branga)", artist_id: ravel.id, album_id: ravel_piano.id, album_ord: 15, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Ravel-piano/Felipe_Sarro_-_15_-_Ravel_-_Bolro_transcribed_by_Branga.mp3")
 
 tchaikovsky_nutcracker_1 = Song.create!(title: "Overture", artist_id: tchaikovsky.id, album_id: tchaikovsky_nutcracker.id, album_ord: 1, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Tchaikovsky-nutcracker/Tchaikovsky+-+The+Nutcracker+Suite+-+Act+I%2C+No.1.+Overture.mp3")
 tchaikovsky_nutcracker_2 = Song.create!(title: "March", artist_id: tchaikovsky.id, album_id: tchaikovsky_nutcracker.id, album_ord: 2, audio_url: "https://s3.amazonaws.com/fraudify-dev/audio-files/Tchaikovsky-nutcracker/Tchaikovsky+-+The+Nutcracker+Suite+-+Act+I%2C+No.2.+March.mp3")
@@ -210,6 +230,7 @@ vivaldi_four_seasons_12 = Song.create!(title: "Winter Mvt. 3", artist_id: vivald
 
 songs = Song.all
 
+
 #### PLAYLISTS ####
 Playlist.destroy_all
 users.each do |user|
@@ -220,6 +241,7 @@ users.each do |user|
 end
 
 playlists = Playlist.all
+
 
 #### PLAYLIST_SONGS ####
 PlaylistSong.destroy_all
