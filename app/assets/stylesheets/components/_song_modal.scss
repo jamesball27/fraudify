@@ -20,13 +20,16 @@
   ul {
     display: flex;
     justify-content: center;
-    align-items: center;
-    // overflow: auto;
+    align-items: space-between;
+    flex-wrap: wrap;
+    width: 80%;
+    height: 435px;
+    overflow: auto;
 
     .collection-detail {
       cursor: pointer;
       transition: transform .25s;
-
+      margin: 10px;
       &:hover {
         transform: scale(1.1);
       }

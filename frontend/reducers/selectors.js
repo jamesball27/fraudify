@@ -33,3 +33,13 @@ export const albumsByArtist = ({ albums, artists }, artistId) => {
   }
   return artistAlbums;
 };
+
+export const playlistsByCurrentUser = ({ playlists }, username) => {
+  let userPlaylists = [];
+  for (const playlistId in playlists) {
+    if (playlists[playlistId].creator === username) {
+      userPlaylists.push(playlists[playlistId]);
+    }
+  }
+  return userPlaylists;
+};

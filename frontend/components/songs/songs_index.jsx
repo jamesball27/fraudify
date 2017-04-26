@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { arrayAllSongs } from '../../reducers/selectors';
+import { arrayAllSongs, playlistsByCurrentUser } from '../../reducers/selectors';
 import { fetchSongs } from '../../actions/song_actions';
 import { createPlaylistSong } from '../../actions/playlist_song_actions';
 import SongIndexItem from './song_index_item';
-import { arrayAllPlaylists } from '../../reducers/selectors';
 import { addSongToTopOfQueue } from '../../actions/play_queue_actions';
 
 class SongsIndex extends React.Component {
@@ -45,10 +44,12 @@ const mapStateToProps = (state, ownProps) => {
     songs = arrayAllSongs(state);
   }
 
+  const playlists = playlistsByCurrentUser(state, state.session.currentUser.username);
+
   return {
     songs,
     fetching: state.fetching,
-    playlists: arrayAllPlaylists(state)
+    playlists
   };
 };
 
