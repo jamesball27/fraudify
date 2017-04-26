@@ -44,7 +44,13 @@ const Root = ({ store }) => {
           <Route path="playlists/:playlistId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>
           <Route path="albums/:albumId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>
           <Route path="artists/:artistId" component={ ArtistContainer } onEnter={ _ensureLoggedIn } />
-          <Route path="search" component={ SearchContainer }/>
+          <Route path="search" component={ SearchContainer }>
+            <IndexRedirect to="playlists" />
+            <Route path="playlists" component={ CollectionsIndex } onEnter={ _ensureLoggedIn }/>
+            <Route path="albums" component={ CollectionsIndex } onEnter={ _ensureLoggedIn }/>
+            <Route path="songs" component={ SongsIndex } onEnter={ _ensureLoggedIn } />
+            <Route path="artists" component={ CollectionsIndex } onEnter={ _ensureLoggedIn } />
+          </Route>
         </Route>
       </Router>
     </Provider>

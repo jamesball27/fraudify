@@ -4,6 +4,7 @@ import { fetchSearchResults } from '../../actions/search_actions';
 import CollectionsIndex from '../mymusic/collections_index';
 import SongsIndex from '../songs/songs_index';
 import MusicNavbar from '../shared/music_navbar';
+import SearchResults from './search_results';
 
 class Search extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Search extends React.Component {
     this.state = { searchTerm: '' };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderResults = this.renderResults.bind(this);
+    // this.renderResults = this.renderResults.bind(this);
   }
 
   handleInput(e) {
@@ -27,21 +28,21 @@ class Search extends React.Component {
     this.props.fetchSearchResults(this.state.searchTerm);
   }
 
-  renderResults(indexType) {
-    if (Object.keys(this.props.searchResults[indexType]).length === 0) {
-      return(
-        <h4>No Results Found</h4>
-      );
-    } else if (indexType === 'songs') {
-      return(
-        <SongsIndex search="true" />
-      );
-    } else {
-      return(
-        <CollectionsIndex indexType={ indexType } search="true"/>
-      );
-    }
-  }
+  // renderResults(indexType) {
+  //   if (Object.keys(this.props.searchResults[indexType]).length === 0) {
+  //     return(
+  //       <h4>No Results Found</h4>
+  //     );
+  //   } else if (indexType === 'songs') {
+  //     return(
+  //       <SongsIndex search="true" />
+  //     );
+  //   } else {
+  //     return(
+  //       <CollectionsIndex indexType={ indexType } search="true"/>
+  //     );
+  //   }
+  // }
 
   render() {
     if (this.props.searchResults.playlists)
@@ -58,14 +59,11 @@ class Search extends React.Component {
           />
           <button></button>
         </form>
-        <h2>Playlists</h2>
-        { this.renderResults('playlists') }
-        <h2>Albums</h2>
-        { this.renderResults('albums') }
-        <h2>Artists</h2>
-        { this.renderResults('artists') }
-        <h2>Songs</h2>
-        { this.renderResults('songs') }
+        <MusicNavbar path="search"/>
+        <div className="search-results">
+          <SearchResults indexType={ this.props.router.path } searchResults={ this.props.searchResults }/>
+        </div>
+
       </main>
     );
   }
