@@ -8,7 +8,7 @@ const CollectionsIndexItem = ({ item, type }) => {
     imageRound = 'image-round';
     subheader = undefined;
   }
-
+  
   return(
     <li key={ item.id } className='collections-index-item'>
       <Link to={ `/${type}/${item.id}`}>

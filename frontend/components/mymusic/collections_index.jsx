@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { arrayAllPlaylists, arrayAllAlbums, arrayAllArtists } from '../../reducers/selectors';
+import { arrayAllPlaylists, arrayAllAlbums, arrayAllArtists, playlistsByCurrentUser } from '../../reducers/selectors';
 import CollectionsIndexItem from './collections_index_item';
 import { fetchPlaylists } from '../../actions/playlist_actions';
 import { fetchAlbums } from '../../actions/album_actions';
@@ -94,6 +94,8 @@ const mapStateToProps = (state, ownProps) => {
       albums = [];
       artists = [];
     }
+  } else {
+    playlists = playlistsByCurrentUser(state, state.session.currentUser.username);
   }
 
   let indexType = ownProps.indexType;

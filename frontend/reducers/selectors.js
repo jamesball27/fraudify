@@ -43,3 +43,17 @@ export const playlistsByCurrentUser = ({ playlists }, username) => {
   }
   return userPlaylists;
 };
+
+export const currentUserSongs = ({ songs }, userPlaylists, username) => {
+  let userSongs = [];
+
+  for (const playlistId in userPlaylists) {
+    userPlaylists[playlistId].songs.forEach(songId => {
+      if (!userPlaylists[playlistId].songs.includes(songs[songId])) {
+        userSongs.push(songs[songId]);
+      }
+    });
+  }
+
+  return userSongs;
+};
