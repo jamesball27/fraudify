@@ -16,7 +16,8 @@ class Playlist < ActiveRecord::Base
   belongs_to :creator, foreign_key: :creator_id, class_name: "User"
   has_many :playlist_songs, dependent: :destroy
   has_many :songs, through: :playlist_songs, source: :song
-
+  has_many :follows, as: :followable
+  
   # include PgSearch
   # multisearchable against: :name,
   # using: [

@@ -21,6 +21,18 @@ class User < ActiveRecord::Base
     foreign_key: :creator_id,
     class_name: "Playlist"
 
+  has_many :follows, inverse_of: :user
+  
+  has_many :followed_playlists,
+    through: :follows,
+    source: :followable,
+    source_type: 'Playlist'
+
+  has_many :followed_artists,
+    through: :follows,
+    source: :followable,
+    source_type: 'Artist'
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)
