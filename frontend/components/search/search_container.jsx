@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchSearchResults } from '../../actions/search_actions';
 import CollectionsIndex from '../mymusic/collections_index';
 import SongsIndex from '../songs/songs_index';
+import MusicNavbar from '../shared/music_navbar';
 
 class Search extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Search extends React.Component {
   renderResults(indexType) {
     if (Object.keys(this.props.searchResults[indexType]).length === 0) {
       return(
-        <h2>No Results Found</h2>
+        <h4>No Results Found</h4>
       );
     } else if (indexType === 'songs') {
       return(
@@ -47,9 +48,11 @@ class Search extends React.Component {
     return(
       <main className="search">
         <form onSubmit={ this.handleSubmit }>
+          <label>Search for playlists, songs, albums, and artists</label>
+          <br />
           <input
             type="text"
-            placeholder="Search for playlists, songs, albums, and artists"
+            placeholder="Start typing..."
             value={ this.state.searchTerm }
             onChange={ this.handleInput }
           />
