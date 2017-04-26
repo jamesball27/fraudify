@@ -10,8 +10,13 @@ class Api::AlbumsController < ApplicationController
           .distinct
           .includes(:songs)
     end
-    
+
     render :index
+  end
+
+  def show
+    @album = Album.find(params[:id])
+    render :show
   end
 end
 

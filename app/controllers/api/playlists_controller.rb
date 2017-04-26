@@ -32,6 +32,11 @@ class Api::PlaylistsController < ApplicationController
     render :show
   end
 
+  def show
+    @playlist = Playlist.find(params[:id])
+    render :show
+  end
+
   private
 
   def playlist_params

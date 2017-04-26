@@ -1,18 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CollectionDetail from './collection_detail';
-import { updatePlaylist, deletePlaylist } from '../../actions/playlist_actions';
-import { fetchSongs, fetchAlbumSongs } from '../../actions/song_actions';
+import { updatePlaylist, deletePlaylist, fetchPlaylist } from '../../actions/playlist_actions';
+import { fetchSongs, fetchAlbumSongs, fetchPlaylistSongs } from '../../actions/song_actions';
 import SongsIndex from '../songs/songs_index';
 import { addCollectionToQueue, clearPlayQueue } from '../../actions/play_queue_actions';
+import { fetchAlbum } from '../../actions/album_actions';
 
 class CollectionContainer extends React.Component {
 
   componentWillMount() {
     if (!this.props.fetching) {
-      this.props.fetchSongs(this.props.params.albumId);
+      if (this.props.collectionType === 'playlist') {
+        this.props.fetchSongs(this.props.params.playlistId);
+      } else {
+        this.props.fetchSongs(this.props.params.albumId);
+      }
     }
   }
+
 
   render() {
     return(
@@ -35,16 +41,20 @@ class CollectionContainer extends React.Component {
 const mapStateToProps = (store, ownProps) => {
   let collectionType, collectionItem, createdByCurrentUser;
   const { currentUser } = store.session;
+
   if (ownProps.route.path.startsWith('playlists')) {
     collectionType = 'playlist';
     collectionItem = store.playlists[ownProps.params.playlistId];
-    if (currentUser && collectionItem.creator === currentUser.username) {
-      createdByCurrentUser = true;
+    if (collectionItem) {
+      if (currentUser && collectionItem.creator === currentUser.username) {
+        createdByCurrentUser = true;
+      }
     }
   } else {
     collectionType = 'album';
     collectionItem = store.albums[ownProps.params.albumId];
   }
+
 
   return {
     collectionType,
@@ -58,9 +68,11 @@ const mapStateToProps = (store, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
   deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId)),
-  fetchSongs: (albumId) => {
+  fetchSongs: (collectionId) => {
       if (ownProps.route.path.startsWith('album')) {
-        dispatch(fetchAlbumSongs(albumId));
+        dispatch(fetchAlbumSongs(collectionId));
+      } else if (ownProps.route.path.startsWith('playlist')) {
+        dispatch(fetchPlaylistSongs(collectionId));
       } else {
         dispatch(fetchSongs());
       }

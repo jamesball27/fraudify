@@ -4,6 +4,8 @@ class Api::SongsController < ApplicationController
       @songs = Song.where(artist_id: params[:artist_id])
     elsif params[:album_id]
       @songs = Song.where(album_id: params[:album_id])
+    elsif params[:playlist_id]
+      @songs = Song.joins(:playlists).where("playlists.id = ?", params[:playlist_id])
     else
       @songs =
         Song

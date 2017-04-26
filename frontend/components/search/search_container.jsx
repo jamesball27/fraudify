@@ -5,6 +5,9 @@ import CollectionsIndex from '../mymusic/collections_index';
 import SongsIndex from '../songs/songs_index';
 import MusicNavbar from '../shared/music_navbar';
 import SearchResults from './search_results';
+import { receivePlaylists } from '../../actions/playlist_actions';
+import { receiveAlbums } from '../../actions/album_actions';
+import { receiveArtists } from '../../actions/artist_actions';
 
 class Search extends React.Component {
   constructor(props) {
@@ -28,12 +31,17 @@ class Search extends React.Component {
     e.preventDefault();
 
     this.props.clearSearchResults();
-    this.props.fetchSearchResults(e.target.value);
+    this.props.fetchSearchResults(e.target.value)
+      .then(results => {
+        this.props.receivePlaylists(results.playlists);
+        this.props.receiveAlbums(results.albums);
+        this.props.receiveArtists(results.artists);
+      });
+
     this.setState({ searchTerm: e.target.value });
   }
 
   render() {
-    if (this.props.searchResults.playlists)
     return(
       <main className="search">
         <div className="form">
@@ -50,7 +58,6 @@ class Search extends React.Component {
         <div className="search-results">
           <SearchResults indexType={ this.props.router.path } searchResults={ this.props.searchResults }/>
         </div>
-
       </main>
     );
   }
@@ -63,7 +70,10 @@ const mapStateToProps = ({ searchResults }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchSearchResults: (searchTerm) => dispatch(fetchSearchResults(searchTerm)),
-  clearSearchResults: () => dispatch(clearSearchResults())
+  clearSearchResults: () => dispatch(clearSearchResults()),
+  receivePlaylists: (playlists) => dispatch(receivePlaylists(playlists)),
+  receiveAlbums: (albums) => dispatch(receiveAlbums(albums)),
+  receiveArtists: (artists) => dispatch(receiveArtists(artists))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

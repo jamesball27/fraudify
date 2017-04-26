@@ -27,3 +27,9 @@ export const fetchAlbumSongs = albumId => dispatch => {
   return SongApiUtil.fetchAlbumSongs(albumId)
     .then(songs => dispatch(receiveSongs(songs)));
 };
+
+export const fetchPlaylistSongs = playlistId => dispatch => {
+  dispatch({ type: FETCHING_SONGS });
+  return SongApiUtil.fetchPlaylistSongs(playlistId)
+    .then(songs => dispatch(receiveSongs(songs)));
+};

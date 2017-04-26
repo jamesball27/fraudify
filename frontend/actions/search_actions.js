@@ -10,7 +10,10 @@ const receiveSearchResults = searchResults => ({
 
 export const fetchSearchResults = searchTerm => dispatch => {
   return SearchApiUtil.fetchSearchResults(searchTerm)
-    .then(searchResults => dispatch(receiveSearchResults(searchResults)));
+    .then(searchResults => {
+      dispatch(receiveSearchResults(searchResults));
+      return searchResults;
+    });
 };
 
 export const clearSearchResults = () => ({
