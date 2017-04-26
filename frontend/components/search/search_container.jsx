@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSearchResults } from '../../actions/search_actions';
 import CollectionsIndex from '../mymusic/collections_index';
+import SongsIndex from '../songs/songs_index';
 
 class Search extends React.Component {
   constructor(props) {
@@ -28,9 +29,11 @@ class Search extends React.Component {
   renderResults(indexType) {
     if (Object.keys(this.props.searchResults[indexType]).length === 0) {
       return(
-        <div>
-          <h2>No Results Found</h2>
-        </div>
+        <h2>No Results Found</h2>
+      );
+    } else if (indexType === 'songs') {
+      return(
+        <SongsIndex search="true" />
       );
     } else {
       return(
@@ -58,6 +61,8 @@ class Search extends React.Component {
         { this.renderResults('albums') }
         <h2>Artists</h2>
         { this.renderResults('artists') }
+        <h2>Songs</h2>
+        { this.renderResults('songs') }
       </main>
     );
   }
