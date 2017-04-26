@@ -12,32 +12,31 @@ class Search extends React.Component {
 
     this.state = { searchTerm: '' };
     this.handleInput = this.handleInput.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   if (this.props.searchResults !== newProps.searchResults) {
-  //     this.props.clearSearchResults();
-  //   }
-  // }
+  componentWillUnmount() {
+    this.props.clearSearchResults();
+  }
+
+  componentWillReceiveProps() {
+    if (this.state.searchTerm === '') {
+      this.props.clearSearchResults();
+    }
+  }
 
   handleInput(e) {
     e.preventDefault();
 
-    this.setState({ searchTerm: e.target.value });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
     this.props.clearSearchResults();
-    this.props.fetchSearchResults(this.state.searchTerm);
+    this.props.fetchSearchResults(e.target.value);
+    this.setState({ searchTerm: e.target.value });
   }
 
   render() {
     if (this.props.searchResults.playlists)
     return(
       <main className="search">
-        <form onSubmit={ this.handleSubmit }>
+        <div className="form">
           <label>Search for playlists, songs, albums, and artists</label>
           <br />
           <input
@@ -46,8 +45,7 @@ class Search extends React.Component {
             value={ this.state.searchTerm }
             onChange={ this.handleInput }
           />
-          <button></button>
-        </form>
+        </div>
         <MusicNavbar path="search"/>
         <div className="search-results">
           <SearchResults indexType={ this.props.router.path } searchResults={ this.props.searchResults }/>
