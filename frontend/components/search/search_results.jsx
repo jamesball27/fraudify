@@ -7,7 +7,7 @@ const SearchResults = props => {
   const renderResults = (indexType) => {
     if (Object.keys(props.searchResults[indexType]).length === 0) {
       return(
-        <h4>No Results Found</h4>
+        <h2>No Results Found</h2>
       );
     } else if (indexType === 'songs') {
       return(

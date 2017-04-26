@@ -36,12 +36,8 @@
       display: none;
     }
   }
-  h2 {
-    color: white;
-    font-size: 30px;
-  }
 
-  h4 {
+  h2 {
     color: white;
     font-size: 16px;
     margin: 20px;
@@ -49,13 +45,14 @@
 
   .collections-index, .songs-index {
     overflow: initial;
-    padding: 0 20px 20px 20px;
+
     display: block;
     margin: 0 auto;
   }
 
   .search-results {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,7 +61,6 @@
 
   .music-nav {
     height: 15%;
-    margin: 20px;
 
   }
 }

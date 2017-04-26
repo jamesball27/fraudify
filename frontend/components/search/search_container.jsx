@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchSearchResults } from '../../actions/search_actions';
+import { fetchSearchResults, clearSearchResults } from '../../actions/search_actions';
 import CollectionsIndex from '../mymusic/collections_index';
 import SongsIndex from '../songs/songs_index';
 import MusicNavbar from '../shared/music_navbar';
@@ -13,8 +13,13 @@ class Search extends React.Component {
     this.state = { searchTerm: '' };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.renderResults = this.renderResults.bind(this);
   }
+
+  // componentWillReceiveProps(newProps) {
+  //   if (this.props.searchResults !== newProps.searchResults) {
+  //     this.props.clearSearchResults();
+  //   }
+  // }
 
   handleInput(e) {
     e.preventDefault();
@@ -24,25 +29,9 @@ class Search extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    this.props.clearSearchResults();
     this.props.fetchSearchResults(this.state.searchTerm);
   }
-
-  // renderResults(indexType) {
-  //   if (Object.keys(this.props.searchResults[indexType]).length === 0) {
-  //     return(
-  //       <h4>No Results Found</h4>
-  //     );
-  //   } else if (indexType === 'songs') {
-  //     return(
-  //       <SongsIndex search="true" />
-  //     );
-  //   } else {
-  //     return(
-  //       <CollectionsIndex indexType={ indexType } search="true"/>
-  //     );
-  //   }
-  // }
 
   render() {
     if (this.props.searchResults.playlists)
@@ -75,7 +64,8 @@ const mapStateToProps = ({ searchResults }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchSearchResults: (searchTerm) => dispatch(fetchSearchResults(searchTerm))
+  fetchSearchResults: (searchTerm) => dispatch(fetchSearchResults(searchTerm)),
+  clearSearchResults: () => dispatch(clearSearchResults())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

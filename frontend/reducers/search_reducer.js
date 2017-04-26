@@ -1,4 +1,4 @@
-import { RECEIVE_SEARCH_RESULTS } from '../actions/search_actions';
+import { RECEIVE_SEARCH_RESULTS, CLEAR_SEARCH_RESULTS } from '../actions/search_actions';
 
 const defaultState = {
   playlists: {},
@@ -13,6 +13,8 @@ const SearchReducer = (state = defaultState, action) => {
   switch(action.type) {
     case RECEIVE_SEARCH_RESULTS:
       return Object.assign({}, state, action.searchResults);
+    case CLEAR_SEARCH_RESULTS:
+      return defaultState;
     default:
       return state;
   }
