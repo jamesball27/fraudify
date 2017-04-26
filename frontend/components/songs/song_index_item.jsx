@@ -19,16 +19,16 @@ class SongIndexItem extends React.Component {
   render() {
     if (this.props.fetching) {
       return <div></div>;
-      } else {
-        let artistAlbum;
-        if (!this.props.router.location.pathname.startsWith('/albums')) {
-          artistAlbum =
-          <h5>
-            { this.props.song.artist }
-            <span>•</span>
-            { this.props.song.album }
-          </h5>;
-        }
+    } else {
+      let artistAlbum;
+      if (!this.props.router.location.pathname.startsWith('/albums')) {
+        artistAlbum =
+        <h5>
+          { this.props.song.artist }
+          <span>•</span>
+          { this.props.song.album }
+        </h5>;
+      }
 
       return(
         <li className="songs-index-item">

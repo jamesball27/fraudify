@@ -83,6 +83,11 @@ const mapStateToProps = (state, ownProps) => {
   let playlists = arrayAllPlaylists(state);
   let artists = arrayAllArtists(state);
   let albums = arrayAllAlbums(state);
+  let username;
+
+  if (state.session.currentUser) {
+    username = state.session.currentUser.username;
+  }
 
   if (ownProps.search === 'true') {
     if (Object.keys(state.searchResults).length !== 0) {
@@ -95,7 +100,8 @@ const mapStateToProps = (state, ownProps) => {
       artists = [];
     }
   } else {
-    playlists = playlistsByCurrentUser(state, state.session.currentUser.username);
+    playlists = playlistsByCurrentUser(state, username);
+
   }
 
   let indexType = ownProps.indexType;

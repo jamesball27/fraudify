@@ -35,7 +35,12 @@ class SongsIndex extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const playlists = playlistsByCurrentUser(state, state.session.currentUser.username);
+  let username;
+  if (state.session.currentUser) {
+    username = state.session.currentUser.username;
+  }
+
+  const playlists = playlistsByCurrentUser(state, username);
 
   let songs;
   if (ownProps.collectionPage === 'true') {
@@ -43,7 +48,7 @@ const mapStateToProps = (state, ownProps) => {
   } else if (ownProps.search === 'true') {
     songs = arrayAllSongs(state.searchResults);
   } else {
-    songs = currentUserSongs(state, playlists, state.session.currentUser.username);
+    songs = currentUserSongs(state, playlists, username);
   }
 
 
