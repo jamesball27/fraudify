@@ -1,15 +1,18 @@
 class Api::SearchController < ApplicationController
-  include PgSearch
 
   def index
-    search_results = PgSearch.multisearch(search_params[:search_term])
-    debugger
+    # search_results = PgSearch.multisearch(search_params[:search_term])
+    #
+    # @playlists = search_results.where(searchable_type: "Playlist").includes(:searchable)
+    # @songs = search_results.where(searchable_type: "Song").includes(:searchable)
+    # @albums = search_results.where(searchable_type: "Album").includes(:searchable)
+    # @artists = search_results.where(searchable_type: "Artist").includes(:searchable)
 
-    @playlists = search_results.where(searchable_type: "Playlist")
-    @songs = search_results.where(searchable_type: "Song")
-    @albums = search_results.where(searchable_type: "Album")
-    @artists = search_results.where(searchable_type: "Artist")
-
+    @playlists = Playlist.where("name ILIKE ?", "%#{search_params[:search_term]}%").includes(:songs)
+    @songs = Song.where("title ILIKE ?", "%#{search_params[:search_term]}%").includes(:album).includes(:artist)
+    @albums = Album.where("title ILIKE ?", "%#{search_params[:search_term]}%").includes(:songs)
+    @artists = Artist.where("name ILIKE ?", "%#{search_params[:search_term]}%")
+    
     render :index
   end
 

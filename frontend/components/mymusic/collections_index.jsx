@@ -14,7 +14,9 @@ class CollectionsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchData(this.props.indexType);
+    if (this.props.search !== 'true') {
+      this.fetchData(this.props.indexType);
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -78,22 +80,35 @@ class CollectionsIndex extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  let playlists = arrayAllPlaylists(state);
+  let artists = arrayAllArtists(state);
+  let albums = arrayAllAlbums(state);
+
+  if (ownProps.search === 'true') {
+    if (Object.keys(state.searchResults).length !== 0) {
+      playlists = arrayAllPlaylists(state.searchResults);
+      albums = arrayAllAlbums(state.searchResults);
+      artists = arrayAllArtists(state.searchResults);
+    } else {
+      playlists = [];
+      albums = [];
+      artists = [];
+    }
+  }
+
   let indexType = ownProps.indexType;
   if (ownProps.route) {
     indexType = ownProps.route.path;
   }
 
-  let albums;
   if (ownProps.album) {
     albums = ownProps.albums.map(albumId => state.albums[albumId]);
-  } else {
-    albums = arrayAllAlbums(state);
   }
 
   return {
-    playlists: arrayAllPlaylists(state),
+    playlists,
     albums,
-    artists: arrayAllArtists(state),
+    artists,
     indexType
   };
 };

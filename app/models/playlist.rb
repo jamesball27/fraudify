@@ -17,11 +17,12 @@ class Playlist < ActiveRecord::Base
   has_many :playlist_songs, dependent: :destroy
   has_many :songs, through: :playlist_songs, source: :song
 
-  include PgSearch
-  multisearchable against: :name, using: :trigram
-                  # using: {
-                  #   tsearch: { prefix: true }
-                  # }
+  # include PgSearch
+  # multisearchable against: :name,
+  # using: [
+  #   :tsearch,
+  #   :trigram
+  # ]
 
   def songs_in_order
     self.playlist_songs.joins(:song).order(:ord).pluck("songs.id")

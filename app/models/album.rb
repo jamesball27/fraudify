@@ -17,11 +17,12 @@ class Album < ActiveRecord::Base
   has_many :songs
   has_many :playlists, through: :songs, source: :playlists
 
-  include PgSearch
-  multisearchable against: :title, using: :trigram
-                  # using: {
-                  #   tsearch: { prefix: true }
-                  # }
+  # include PgSearch
+  # multisearchable against: :title,
+  # using: [
+  #   :tsearch,
+  #   :trigram
+  # ]
 
   def songs_in_order
     self.songs.order(:album_ord).pluck("songs.id")

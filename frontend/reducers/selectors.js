@@ -1,17 +1,17 @@
-export const arrayAllPlaylists = ({ playlists }) => (
-  Object.keys(playlists).map(key => playlists[key])
+export const arrayAllPlaylists = (state) => (
+  Object.keys(state.playlists).map(key => state.playlists[key])
 );
 
-export const arrayAllSongs = ({ songs }) => (
-  Object.keys(songs).map(key => songs[key])
+export const arrayAllSongs = (state) => (
+  Object.keys(state.songs).map(key => state.songs[key])
 );
 
-export const arrayAllAlbums = ({ albums }) => (
-  Object.keys(albums).map(key => albums[key])
+export const arrayAllAlbums = (state) => (
+  Object.keys(state.albums).map(key => state.albums[key])
 );
 
-export const arrayAllArtists = ({ artists }) => (
-  Object.keys(artists).map(key => artists[key])
+export const arrayAllArtists = (state) => (
+  Object.keys(state.artists).map(key => state.artists[key])
 );
 
 export const songsByArtist = ({ songs, artists }, artistId) => {

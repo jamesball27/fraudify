@@ -9,6 +9,7 @@ import CollectionsIndex from './mymusic/collections_index';
 import CollectionContainer from './collection/collection_container';
 import SongsIndex from './songs/songs_index';
 import ArtistContainer from './collection/artist_container';
+import SearchContainer from './search/search_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -43,7 +44,7 @@ const Root = ({ store }) => {
           <Route path="playlists/:playlistId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>
           <Route path="albums/:albumId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>
           <Route path="artists/:artistId" component={ ArtistContainer } onEnter={ _ensureLoggedIn } />
-          <Route path="search" />
+          <Route path="search" component={ SearchContainer }/>
         </Route>
       </Router>
     </Provider>

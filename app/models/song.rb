@@ -20,9 +20,10 @@ class Song < ActiveRecord::Base
   has_many :playlist_songs
   has_many :playlists, through: :playlist_songs
 
-  include PgSearch
-  multisearchable against: :title, using: :trigram
-                  # using: {
-                  #   tsearch: { prefix: true }
-                  # }
+  # include PgSearch
+  # multisearchable against: :title,
+  #   using: [
+  #     :tsearch,
+  #     :trigram
+  #   ]
 end
