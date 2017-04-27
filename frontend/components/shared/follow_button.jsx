@@ -8,7 +8,19 @@ class FollowButton extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { followText: 'Follow' };
+    let followed = false;
+
+    if (this.props.followableType === 'Playlist') {
+      if (this.props.playlistFollows.includes(this.props.params.playlistId)) {
+        followed = true;
+      }
+    } else if (this.props.followableType === 'Artist') {
+      if (this.props.artistFollows.includes(this.props.params.artistId)) {
+        followed = true;
+      }
+    }
+
+    this.state = { followed };
     this.toggleFollow = this.toggleFollow.bind(this);
   }
 
@@ -27,27 +39,37 @@ class FollowButton extends React.Component {
       followable_type: this.props.followableType
     };
 
-    debugger
-    if (this.state.followText === 'Follow') {
-      debugger
+
+    if (!this.state.followed) {
       this.props.createFollow(follow)
-        .then(this.setState({ followText: 'Unfollow' }));
+        .then(this.setState({ followed: true }));
     } else {
-      this.props.deleteFollow(follow);
-      this.setState({ followText: 'Follow'});
+      this.props.deleteFollow(follow)
+        .then(this.setState({ followed: false }));
     }
   }
 
   render() {
+    let followText = 'Follow';
+
+    if (this.state.followed) {
+      followText = 'Unfollow';
+    }
+
     return(
-      <button onClick={ this.toggleFollow }>{ this.state.followText }</button>
+      <button onClick={ this.toggleFollow }>{ followText }</button>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  playlistFollows: state.follows.playlists,
+  artistFollows: state.follows.artists
+});
 
 const mapDispatchToProps = dispatch => ({
   createFollow: (follow) => dispatch(createFollow(follow)),
   deleteFollow: (follow) => dispatch(deleteFollow(follow))
 });
 
-export default connect(null, mapDispatchToProps)(withRouter(FollowButton));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(FollowButton));

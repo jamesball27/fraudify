@@ -14,19 +14,19 @@ const FollowsReducer = (state = defaultState, action) => {
       return action.follows;
     case RECEIVE_FOLLOW:
       if (action.follow.followableType === 'Playlist') {
-        newState.playlists.push(action.follow.id);
+        newState.playlists.push(action.follow.followableId);
       } else {
-        newState.artists.push(action.follow.id);
+        newState.artists.push(action.follow.followableId);
       }
       return newState;
     case REMOVE_FOLLOW:
       let index;
       if (action.follow.followableType === 'Playlist') {
-        index = newState.playlists.indexOf(action.follow.id);
-        newState.playlists.slice(index, 1);
+        index = newState.playlists.indexOf(action.follow.followableId);
+        newState.playlists.splice(index, 1);
       } else {
-        index = newState.artists.indexOf(action.follow.id);
-        newState.artists.slice(index, 1);
+        index = newState.artists.indexOf(action.follow.followableId);
+        newState.artists.splice(index, 1);
       }
       return newState;
     default:

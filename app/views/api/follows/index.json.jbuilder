@@ -1,2 +1,2 @@
 json.playlists @playlist_follows
-json.artists @playlist_artists
+json.artists @artist_follows
