@@ -20,10 +20,38 @@ class Song < ActiveRecord::Base
   has_many :playlist_songs
   has_many :playlists, through: :playlist_songs
 
-  # include PgSearch
-  # multisearchable against: :title,
-  #   using: [
-  #     :tsearch,
-  #     :trigram
-  #   ]
+  def self.user_songs(user)
+    Song
+      .joins(:playlists)
+      .joins("JOIN follows ON follows.followable_id = playlists.id")
+      .where("playlists.creator_id = ? OR follows.user_id = ?", user.id, user.id)
+      .includes(:artist)
+      .includes(:album)
+      .distinct
+
+    #
+    # <<-SQL
+    #   SELECT DISTINCT
+    #     songs
+    #   FROM
+    #     songs
+    #     JOIN playlist_songs ON songs.id = playlist_songs.song_id
+    #     JOIN playlists ON playlist_songs.playlist_id = playlists.id
+    #     JOIN follows ON follows.followable_id = playlists.id
+    #   WHERE
+    #     playlists.creator_id = 296 OR follows.user_id = 296
+    # SQL
+  end
+
+  def self.artist_songs(artist_id)
+    Song.where(artist_id: artist_id)
+  end
+
+  def self.album_songs(album_id)
+    Song.where(album_id: album_id)
+  end
+
+  def self.playlist_songs(playlist_id)
+    Song.joins(:playlists).where("playlists.id = ?", playlist_id)
+  end
 end

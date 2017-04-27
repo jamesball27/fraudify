@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     class_name: "Playlist"
 
   has_many :follows, inverse_of: :user
-  
+
   has_many :followed_playlists,
     through: :follows,
     source: :followable,

@@ -73,6 +73,9 @@ class CollectionsIndex extends React.Component {
         break;
     }
 
+    if (this.props.fetching) {
+      return <div></div>;
+    }
     if (Object.keys(indexItems).length === 0) {
       return(
         <section className="collections-index">
@@ -129,7 +132,8 @@ const mapStateToProps = (state, ownProps) => {
     playlists,
     albums,
     artists,
-    indexType
+    indexType,
+    fetching: state.fetching
   };
 };
 

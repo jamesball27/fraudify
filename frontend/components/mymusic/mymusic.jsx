@@ -8,8 +8,9 @@ import { fetchFollows } from '../../actions/follow_actions';
 class MyMusic extends React.Component {
 
   componentDidMount() {
-    this.props.fetchPlaylists()
-      .then(() => this.props.fetchFollows())
+    // this.props.fetchPlaylists()
+    //   .then(() =>
+      this.props.fetchFollows()
       .then(() => this.props.fetchSongs());
   }
 

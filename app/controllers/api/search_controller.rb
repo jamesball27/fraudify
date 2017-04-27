@@ -12,7 +12,7 @@ class Api::SearchController < ApplicationController
     @songs = Song.where("title ILIKE ?", "%#{search_params[:search_term]}%").includes(:album).includes(:artist)
     @albums = Album.where("title ILIKE ?", "%#{search_params[:search_term]}%").includes(:songs)
     @artists = Artist.where("name ILIKE ?", "%#{search_params[:search_term]}%")
-
+    
     render :index
   end
 

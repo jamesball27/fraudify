@@ -13,6 +13,10 @@ class SongsIndex extends React.Component {
   // }
 
   render() {
+    if (this.props.fetching) {
+      return <div></div>;
+    }
+
     if (this.props.songs.length === 0) {
       return(
         <section className="songs-index">
@@ -56,7 +60,7 @@ const mapStateToProps = (state, ownProps) => {
   } else if (ownProps.search === 'true') {
     songs = arrayAllSongs(state.searchResults);
   } else {
-    songs = currentUserSongs(state, playlists, username);
+    songs = arrayAllSongs(state);
   }
 
 
