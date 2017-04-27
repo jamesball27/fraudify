@@ -23,7 +23,7 @@ class Song < ActiveRecord::Base
   def self.user_songs(user)
     Song
       .joins(:playlists)
-      .joins("JOIN follows ON follows.followable_id = playlists.id")
+      .joins("LEFT OUTER JOIN follows ON follows.followable_id = playlists.id")
       .where("playlists.creator_id = ? OR follows.user_id = ?", user.id, user.id)
       .includes(:artist)
       .includes(:album)

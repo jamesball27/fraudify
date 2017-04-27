@@ -25,6 +25,7 @@ ravel = Artist.create!(name: "Maurice Ravel", image_url: "https://s3.amazonaws.c
 tchaikovsky = Artist.create!(name: "Pyotr Ilyich Tchaikovsky", image_url: "https://s3.amazonaws.com/fraudify-dev/artist-images/tchaikovsky.jpg")
 vivaldi = Artist.create!(name: "Antonio Vivaldi", image_url: "https://s3.amazonaws.com/fraudify-dev/artist-images/vivaldi.jpg")
 
+artists = Artist.all
 
 #### ALBUMS ####
 Album.destroy_all
@@ -250,5 +251,22 @@ playlists.each do |playlist|
   num = rand(3..8)
   num.times do |i|
     PlaylistSong.create!(playlist_id: playlist.id, song_id: songs.sample.id, ord: i)
+  end
+end
+
+#### FOLLOWS
+Follow.destroy_all
+
+3.times do
+  playlist_id = playlists.sample.id
+  unless Follow.find_by(followable_id: playlist_id, followable_type: "Playlist")
+    Follow.create!(user_id: guest.id, followable_id: playlist_id, followable_type: "Playlist")
+  end
+end
+
+3.times do
+  artist_id = artists.sample.id
+  unless Follow.find_by(followable_id: artist_id, followable_type: "Artist")
+    Follow.create!(user_id: guest.id, followable_id: artist_id, followable_type: "Artist")
   end
 end
