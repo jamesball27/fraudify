@@ -56,7 +56,7 @@ class FollowButton extends React.Component {
     }
 
     return(
-      <button onClick={ this.toggleFollow }>{ followText }</button>
+      <button className="button green follow" onClick={ this.toggleFollow }>{ followText }</button>
     );
   }
 }

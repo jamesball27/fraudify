@@ -1,0 +1,9 @@
+.follow {
+  border: none;
+  opacity: 1;
+  width: 50%;
+
+  &:focus {
+    outline: none;
+  }
+}
