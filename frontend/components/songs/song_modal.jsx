@@ -31,6 +31,13 @@ class SongModal extends React.Component {
   }
 
   render() {
+    let header;
+    if (this.props.playlists.length === 0) {
+      header = <h1>You don't have any created playlists! Create a playlist to add songs.</h1>;
+    } else {
+      header = <h1>Add to playlist</h1>;
+    }
+
     return(
       <div>
         <button
@@ -44,7 +51,7 @@ class SongModal extends React.Component {
           contentLabel="Song Modal"
         >
           <span onClick={ this.closeModal }>╳</span>
-          <h1>Add to playlist</h1>
+          { header }
           <ul>
             {
               this.props.playlists.map(playlist => {

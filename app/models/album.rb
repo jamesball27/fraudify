@@ -17,12 +17,18 @@ class Album < ActiveRecord::Base
   has_many :songs
   has_many :playlists, through: :songs, source: :playlists
 
-  # include PgSearch
-  # multisearchable against: :title,
-  # using: [
-  #   :tsearch,
-  #   :trigram
-  # ]
+  def self.user_albums(user)
+    Album
+      .joins(:playlists)
+      .joins("JOIN follows ON follows.followable_id = playlists.id")
+      .where("playlists.creator_id = ? OR follows.user_id = ?", user.id, user.id)
+      .includes(:songs)
+      .distinct
+  end
+
+  def self.artist_albums(artist_id)
+    Album.where(artist_id: artist_id)
+  end
 
   def songs_in_order
     self.songs.order(:album_ord).pluck("songs.id")

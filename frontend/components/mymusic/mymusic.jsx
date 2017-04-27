@@ -7,7 +7,7 @@ import { fetchFollows } from '../../actions/follow_actions';
 
 class MyMusic extends React.Component {
 
-  componentDidMount() {
+  componentWillMount() {
     // this.props.fetchPlaylists()
     //   .then(() =>
       this.props.fetchFollows()
