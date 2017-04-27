@@ -8,6 +8,7 @@ import AlbumsReducer from './albums_reducer';
 import NowPlayingReducer from './now_playing_reducer';
 import PlayQueueReducer from './play_queue_reducer';
 import SearchReducer from './search_reducer';
+import FollowsReducer from './follows_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
@@ -18,6 +19,7 @@ const RootReducer = combineReducers({
   nowPlaying: NowPlayingReducer,
   playQueue: PlayQueueReducer,
   searchResults: SearchReducer,
+  follows: FollowsReducer,
   fetching: FetchingReducer
 });
 

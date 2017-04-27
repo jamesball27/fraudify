@@ -1,2 +1,1 @@
-json.id @follow.idea
-json.followableId @follow.followable_id
+json.partial! "follow", follow: @follow

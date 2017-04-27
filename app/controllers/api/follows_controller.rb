@@ -1,4 +1,12 @@
-class FollowsController < ApplicationController
+class Api::FollowsController < ApplicationController
+
+  def index
+    @follows = Follow.where(user: current_user)
+    @playlist_follows = @follows.where(followable_type: "Playlist").pluck(:followable_id)
+    @artist_follows = @follows.where(followable_type: "Artist").pluck(:followable_id)
+
+    render :index
+  end
 
   def create
     @follow = Follow.new(follow_params)

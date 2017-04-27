@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import { fetchPlaylists, createPlaylist } from '../../actions/playlist_actions';
 import MusicNavbar from '../shared/music_navbar';
 import { fetchSongs } from '../../actions/song_actions';
+import { fetchFollows } from '../../actions/follow_actions';
 
 class MyMusic extends React.Component {
 
   componentDidMount() {
     this.props.fetchPlaylists()
+      .then(() => this.props.fetchFollows())
       .then(() => this.props.fetchSongs());
   }
 
@@ -38,7 +40,8 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => ({
   fetchPlaylists: () => dispatch(fetchPlaylists()),
   createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
-  fetchSongs: () => dispatch(fetchSongs())
+  fetchSongs: () => dispatch(fetchSongs()),
+  fetchFollows: () => dispatch(fetchFollows())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyMusic);

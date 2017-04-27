@@ -1,14 +1,17 @@
 import React from 'react';
 import PlaylistModal from '../shared/playlist_modal';
+import FollowButton from '../shared/follow_button';
 
 const CollectionDetail = props => {
-  let modals;
+  let userSpecific;
   if (props.createdByCurrentUser) {
-    modals =
+    userSpecific =
       <div className="modals">
         <PlaylistModal modalSubmit={ props.updatePlaylist } modalType="updatePlaylist" playlist={ props.collectionItem }/>
         <PlaylistModal modalSubmit={ props.deletePlaylist } modalType="deletePlaylist" />
       </div>;
+  } else {
+    userSpecific = <FollowButton followableType="Playlist" />;
   }
 
   const playCollection = (e) => {
@@ -26,7 +29,7 @@ const CollectionDetail = props => {
       <div className="play-div">
         <button onClick={ playCollection } className="button green play">Play</button>
       </div>
-      { modals }
+      { userSpecific }
     </section>
   );
 };
