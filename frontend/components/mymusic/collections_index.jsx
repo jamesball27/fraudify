@@ -57,25 +57,37 @@ class CollectionsIndex extends React.Component {
   render() {
     const { playlists, albums, artists } = this.props;
     let indexItems;
+    let emptyText = "There isn't anything here!";
     switch(this.props.indexType) {
       case 'playlists':
         indexItems = playlists;
+        emptyText += " Create or follow playlists to add them to your music.";
         break;
       case 'albums':
         indexItems = albums;
+        emptyText += " Add songs to your playlists to add their albums to your music.";
         break;
       case 'artists':
         indexItems = artists;
+        emptyText += " Follow artists to add them to your music.";
         break;
     }
 
-    return(
-      <section className="collections-index">
-        <ul>
-          { this.renderIndex(indexItems) }
-        </ul>
-      </section>
-    );
+    if (Object.keys(indexItems).length === 0) {
+      return(
+        <section className="collections-index">
+          <h2>{ emptyText }</h2>
+        </section>
+      );
+    } else {
+      return(
+        <section className="collections-index">
+          <ul>
+            { this.renderIndex(indexItems) }
+          </ul>
+        </section>
+      );
+    }
   }
 }
 
@@ -100,7 +112,7 @@ const mapStateToProps = (state, ownProps) => {
       artists = [];
     }
   } else {
-    playlists = playlistsByCurrentUser(state, username);
+    playlists = arrayAllPlaylists(state);
 
   }
 

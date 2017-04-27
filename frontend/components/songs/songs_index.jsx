@@ -13,6 +13,14 @@ class SongsIndex extends React.Component {
   // }
 
   render() {
+    if (this.props.songs.length === 0) {
+      return(
+        <section className="songs-index">
+          <h2>There isn't anything here! Add songs to your playlists to see them here.</h2>
+        </section>
+      );
+    }
+
     return(
       <ol className="songs-index">
         {

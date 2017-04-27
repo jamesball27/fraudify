@@ -11,7 +11,7 @@ const PlaylistsReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_PLAYLISTS:
-      return Object.assign({}, state, action.playlists);
+      return action.playlists;
     case RECEIVE_PLAYLIST:
       return Object.assign({}, state, { [action.playlist.id]: action.playlist });
     case REMOVE_PLAYLIST:

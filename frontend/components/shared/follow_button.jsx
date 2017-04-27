@@ -11,11 +11,11 @@ class FollowButton extends React.Component {
     let followed = false;
 
     if (this.props.followableType === 'Playlist') {
-      if (this.props.playlistFollows.includes(this.props.params.playlistId)) {
+      if (this.props.playlistFollows.includes(parseInt(this.props.params.playlistId))) {
         followed = true;
       }
     } else if (this.props.followableType === 'Artist') {
-      if (this.props.artistFollows.includes(this.props.params.artistId)) {
+      if (this.props.artistFollows.includes(parseInt(this.props.params.artistId))) {
         followed = true;
       }
     }
@@ -51,7 +51,6 @@ class FollowButton extends React.Component {
 
   render() {
     let followText = 'Follow';
-
     if (this.state.followed) {
       followText = 'Unfollow';
     }

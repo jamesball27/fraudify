@@ -1,11 +1,12 @@
 class Api::ArtistsController < ApplicationController
   def index
-    @artists =
-      Artist
-        .joins(:playlists)
-        .where("playlists.creator_id = ?", current_user.id)
-        .distinct
+    # @artists =
+    #   Artist
+    #     .joins(:playlists)
+    #     .where("playlists.creator_id = ?", current_user.id)
+    #     .distinct
 
+    @artists = current_user.followed_artists
     render :index
   end
 

@@ -4,11 +4,18 @@
   padding: 0 50px;
   overflow: auto;
   height: 100%;
-  
+
   ul {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
+  }
+
+  h2 {
+    padding: 200px;
+    font-size: 30px;
+    color: white;
+    text-align: center;
   }
 }
 
@@ -26,6 +33,8 @@
     width: 250px;
     box-sizing: border-box;
   }
+
+
 
   h3 {
     width: 250px;
