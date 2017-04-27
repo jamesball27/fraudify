@@ -1,10 +1,8 @@
 .collections-index {
-  display: flex;
-  justify-content: flex-start;
-  padding: 0 50px;
   overflow: auto;
   height: 100%;
-
+  margin: 0 auto;
+  padding-left: 50px;
   ul {
     margin: 0;
     display: flex;
