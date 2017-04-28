@@ -1,17 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPlaylists, createPlaylist, receiveUserPlaylists } from '../../actions/playlist_actions';
+import {  createPlaylist } from '../../actions/playlist_actions';
 import MusicNavbar from '../shared/music_navbar';
-import { fetchSongs } from '../../actions/song_actions';
-import { fetchFollows } from '../../actions/follow_actions';
 
 class MyMusic extends React.Component {
-
-  componentWillMount() {
-    this.props.fetchPlaylists()
-      .then(() => this.props.fetchFollows())
-      .then(() => this.props.fetchSongs());
-  }
 
   componentDidUpdate() {
     if (!this.props.currentUser) {
@@ -38,11 +30,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPlaylists: () => dispatch(fetchPlaylists()),
   createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
-  fetchSongs: () => dispatch(fetchSongs()),
-  fetchFollows: () => dispatch(fetchFollows()),
-  receiveUserPlaylists: (playlists) => dispatch(receiveUserPlaylists(playlists))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyMusic);
