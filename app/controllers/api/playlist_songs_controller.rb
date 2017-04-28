@@ -1,6 +1,6 @@
 class Api::PlaylistSongsController < ApplicationController
   before_action :redirect_unless_logged_in
-  
+
   def create
     @playlist_song = PlaylistSong.new(playlist_song_params)
     @playlist_song.set_ord

@@ -25,6 +25,10 @@ class PlaylistSong < ActiveRecord::Base
   end
 
   def set_ord
-    self.ord = self.playlist.playlist_songs.order(:ord).last.ord + 1
+    if self.playlist.playlist_songs.empty?
+      self.ord = 1
+    else
+      self.ord = self.playlist.playlist_songs.order(:ord).last.ord + 1
+    end
   end
 end
