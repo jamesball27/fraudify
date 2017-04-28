@@ -8,9 +8,11 @@ import { addSongToTopOfQueue } from '../../actions/play_queue_actions';
 
 class SongsIndex extends React.Component {
 
-  // componentDidMount() {
-  //   this.props.fetchSongs();
-  // }
+  componentDidMount() {
+    if (!this.props.collectionPage && !this.props.search) {
+      this.props.fetchSongs();
+    }
+  }
 
   render() {
     if (this.props.fetching) {

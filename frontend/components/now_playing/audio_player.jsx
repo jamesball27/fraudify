@@ -31,7 +31,7 @@ class AudioPlayer extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.playQueue.length >= 1 && !this.props.playing && this.state.elapsed === 0) {
+    if (this.props.playQueue.length >= 1 && this.state.elapsed === 0) {
       this.props.receiveCurrentSong(this.props.playQueue[this.state.playQueuePosition]);
       this.togglePlay();
     }
