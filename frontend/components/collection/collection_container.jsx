@@ -12,33 +12,43 @@ class CollectionContainer extends React.Component {
   componentWillMount() {
     if (!this.props.fetching) {
       if (this.props.collectionType === 'playlist') {
-        this.props.fetchSongs(this.props.params.playlistId);
+        this.props.fetchPlaylist(this.props.params.playlistId)
+          .then(() => {
+            this.props.fetchSongs(this.props.params.playlistId);
+          });
       } else {
-        this.props.fetchSongs(this.props.params.albumId);
+        this.props.fetchAlbum(this.props.params.albumId)
+          .then(() => {
+            this.props.fetchSongs(this.props.params.albumId);
+          });
       }
     }
   }
 
 
   render() {
-    return(
-      <main className="collection-container">
-        <CollectionDetail
-          collectionType={ this.props.collectionType }
-          collectionItem={ this.props.collectionItem }
-          updatePlaylist={ this.props.updatePlaylist }
-          deletePlaylist={ this.props.deletePlaylist }
-          createdByCurrentUser={ this.props.createdByCurrentUser }
-          playCollection={ this.props.playCollection }
-          songsInState={ this.props.songs }
-          clearPlayQueue={ this.props.clearPlayQueue }
-          />
-        <SongsIndex
-          collectionPage="true"
-          songs={ this.props.collectionItem.songs }
-          playlistByCurrentUser={ this.props.createdByCurrentUser }/>
-      </main>
-    );
+    if (this.props.collectionItem) {
+      return(
+        <main className="collection-container">
+          <CollectionDetail
+            collectionType={ this.props.collectionType }
+            collectionItem={ this.props.collectionItem }
+            updatePlaylist={ this.props.updatePlaylist }
+            deletePlaylist={ this.props.deletePlaylist }
+            createdByCurrentUser={ this.props.createdByCurrentUser }
+            playCollection={ this.props.playCollection }
+            songsInState={ this.props.songs }
+            clearPlayQueue={ this.props.clearPlayQueue }
+            />
+          <SongsIndex
+            collectionPage="true"
+            songs={ this.props.collectionItem.songs }
+            playlistByCurrentUser={ this.props.createdByCurrentUser }/>
+        </main>
+      );
+    } else {
+      return <div></div>;
+    }
   }
 }
 
@@ -83,7 +93,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
       }
     },
   playCollection: (collection) => dispatch(addCollectionToQueue(collection)),
-  clearPlayQueue: () => dispatch(clearPlayQueue())
+  clearPlayQueue: () => dispatch(clearPlayQueue()),
+  fetchPlaylist: (playlistId) => dispatch(fetchPlaylist(playlistId)),
+  fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CollectionContainer);
