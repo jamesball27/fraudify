@@ -250,7 +250,10 @@ PlaylistSong.destroy_all
 playlists.each do |playlist|
   num = rand(3..8)
   num.times do |i|
-    PlaylistSong.create!(playlist_id: playlist.id, song_id: songs.sample.id, ord: i)
+    song = songs.sample
+    unless playlist.songs.include?(song)
+      PlaylistSong.create!(playlist_id: playlist.id, song_id: songs.sample.id, ord: i)
+    end
   end
 end
 
