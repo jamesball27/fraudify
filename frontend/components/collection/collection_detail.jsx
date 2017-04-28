@@ -11,7 +11,10 @@ const CollectionDetail = props => {
         <PlaylistModal modalSubmit={ props.deletePlaylist } modalType="deletePlaylist" />
       </div>;
   } else {
-    userSpecific = <FollowButton followableType="Playlist" />;
+    userSpecific =
+      <div className="follow-div">
+        <FollowButton followableType="Playlist" />
+      </div>;
   }
 
   const playCollection = (e) => {
