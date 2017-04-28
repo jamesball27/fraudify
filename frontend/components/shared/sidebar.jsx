@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router';
 import { logOut } from '../../actions/session_actions';
+import { pauseSong } from '../../actions/now_playing_actions';
 
 const Sidebar = ({ currentUser, logOut, router }) => {
   const username = currentUser ? currentUser.username : '';

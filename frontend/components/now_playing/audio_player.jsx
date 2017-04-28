@@ -1,6 +1,7 @@
 // HOW DOES THIS WORK???????
 
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class AudioPlayer extends React.Component {
   constructor(props) {
@@ -21,6 +22,10 @@ class AudioPlayer extends React.Component {
     if (this.props.playQueue !== newProps.playQueue) {
       this.props.receiveCurrentSong(newProps.playQueue[0]);
       this.setState({ playQueuePosition: 0 });
+      this.togglePlay();
+    }
+
+    if (this.props.router.location.pathname === '/home' && this.props.playing) {
       this.togglePlay();
     }
   }
@@ -164,4 +169,4 @@ class AudioPlayer extends React.Component {
   }
 }
 
-export default AudioPlayer;
+export default withRouter(AudioPlayer);
