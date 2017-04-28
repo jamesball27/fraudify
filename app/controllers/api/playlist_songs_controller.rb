@@ -2,10 +2,7 @@ class Api::PlaylistSongsController < ApplicationController
 
   def create
     @playlist_song = PlaylistSong.new(playlist_song_params)
-    # @playlist_song.ord = @playlist_song.playlist.songs.length + 1
-    # debugger
-    @playlist_song.ord = @playlist_song.playlist.playlist_songs.order(:ord).last.ord + 1
-
+    @playlist_song.set_ord
 
     if @playlist_song.save
       render :show
