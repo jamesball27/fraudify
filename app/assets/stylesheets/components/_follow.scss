@@ -2,8 +2,26 @@
   border: none;
   opacity: 1;
   width: 50%;
-
+  overflow: visible;
   &:focus {
     outline: none;
+  }
+}
+
+.follow-div {
+  height: 50px;
+  width: 50%;
+  margin: 13px;
+
+  .follow {
+    opacity: 1;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin: 0;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
