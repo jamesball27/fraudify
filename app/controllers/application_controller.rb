@@ -26,4 +26,8 @@ class ApplicationController < ActionController::Base
   def redirect_if_logged_in
     render json: {}, status: 404 if current_user
   end
+
+  def redirect_unless_logged_in
+    render json: {}, status: 401 unless current_user
+  end
 end

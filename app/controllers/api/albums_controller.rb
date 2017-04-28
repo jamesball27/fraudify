@@ -1,4 +1,6 @@
 class Api::AlbumsController < ApplicationController
+  before_action :redirect_unless_logged_in
+  
   def index
     if params[:artist_id]
       @albums = Album.artist_albums(params[:artist_id])

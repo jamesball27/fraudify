@@ -1,5 +1,6 @@
 class Api::FollowsController < ApplicationController
-
+  before_action :redirect_unless_logged_in
+  
   def index
     @follows = Follow.where(user: current_user)
     @playlist_follows = @follows.where(followable_type: "Playlist").pluck(:followable_id)

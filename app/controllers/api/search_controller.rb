@@ -1,5 +1,6 @@
 class Api::SearchController < ApplicationController
-
+  before_action :redirect_unless_logged_in
+  
   def index
     # search_results = PgSearch.multisearch(search_params[:search_term])
     #
