@@ -23,5 +23,7 @@ export const fetchArtists = () => dispatch => {
 export const fetchArtist = artistId => dispatch => {
   dispatch({ type: FETCHING });
   return ArtistApiUtil.fetchArtist(artistId)
-    .then(artist => dispatch(receiveArtist(artist)));
+    .then(artist => {
+      dispatch(receiveArtist(artist));
+    });
 };
