@@ -5,6 +5,8 @@ import CollectionsIndexItem from './collections_index_item';
 import { fetchPlaylists } from '../../actions/playlist_actions';
 import { fetchAlbums } from '../../actions/album_actions';
 import { fetchArtists } from '../../actions/artist_actions';
+import { fetchFollows } from '../../actions/follow_actions';
+import { fetchSongs } from '../../actions/song_actions';
 
 class CollectionsIndex extends React.Component {
   constructor(props) {
@@ -30,7 +32,9 @@ class CollectionsIndex extends React.Component {
   fetchData(indexType) {
     switch(indexType) {
       case 'playlists':
-        this.props.fetchPlaylists();
+        this.props.fetchPlaylists()
+          .then(() => this.props.fetchSongs())
+          .then(() => this.props.fetchFollows());
         break;
       case 'albums':
         this.props.fetchAlbums();
@@ -140,7 +144,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchPlaylists: () => dispatch(fetchPlaylists()),
   fetchAlbums: () => dispatch(fetchAlbums()),
-  fetchArtists: () => dispatch(fetchArtists())
+  fetchArtists: () => dispatch(fetchArtists()),
+  fetchFollows: () => dispatch(fetchFollows()),
+  fetchSongs: () => dispatch(fetchSongs())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CollectionsIndex);

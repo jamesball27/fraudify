@@ -23,4 +23,8 @@ class PlaylistSong < ActiveRecord::Base
       self.playlist.save!
     end
   end
+
+  def set_ord
+    self.ord = self.playlist.playlist_songs.order(:ord).last.ord + 1
+  end
 end

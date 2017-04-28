@@ -24,6 +24,7 @@ class CollectionContainer extends React.Component {
     return(
       <main className="collection-container">
         <CollectionDetail
+          collectionType={ this.props.collectionType }
           collectionItem={ this.props.collectionItem }
           updatePlaylist={ this.props.updatePlaylist }
           deletePlaylist={ this.props.deletePlaylist }
@@ -32,14 +33,18 @@ class CollectionContainer extends React.Component {
           songsInState={ this.props.songs }
           clearPlayQueue={ this.props.clearPlayQueue }
           />
-        <SongsIndex collectionPage="true" songs={ this.props.collectionItem.songs }/>
+        <SongsIndex
+          collectionPage="true"
+          songs={ this.props.collectionItem.songs }
+          playlistByCurrentUser={ this.props.createdByCurrentUser }/>
       </main>
     );
   }
 }
 
 const mapStateToProps = (store, ownProps) => {
-  let collectionType, collectionItem, createdByCurrentUser;
+  let collectionType, collectionItem;
+  let createdByCurrentUser = false;
   const { currentUser } = store.session;
 
   if (ownProps.route.path.startsWith('playlists')) {

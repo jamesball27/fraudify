@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { arrayAllSongs, playlistsByCurrentUser, currentUserSongs } from '../../reducers/selectors';
 import { fetchSongs } from '../../actions/song_actions';
-import { createPlaylistSong } from '../../actions/playlist_song_actions';
+import { createPlaylistSong, deletePlaylistSong } from '../../actions/playlist_song_actions';
 import SongIndexItem from './song_index_item';
 import { addSongToTopOfQueue } from '../../actions/play_queue_actions';
 
@@ -37,7 +37,9 @@ class SongsIndex extends React.Component {
                 fetching={ this.props.fetching }
                 playlists={ this.props.playlists }
                 createPlaylistSong={ this.props.createPlaylistSong }
+                deletePlaylistSong={ this.props.deletePlaylistSong }
                 addSongToTopOfQueue={ this.props.addSongToTopOfQueue }
+                playlistByCurrentUser={ this.props.playlistByCurrentUser }
               />
             )
           )
@@ -45,7 +47,6 @@ class SongsIndex extends React.Component {
       </ol>
     );
   }
-
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -76,6 +77,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchSongs: () => dispatch(fetchSongs()),
   createPlaylistSong: (playlistSong) => dispatch(createPlaylistSong(playlistSong)),
+  deletePlaylistSong: (playlistSong) => dispatch(deletePlaylistSong(playlistSong)),
   addSongToTopOfQueue: (song) => dispatch(addSongToTopOfQueue(song))
 });
 

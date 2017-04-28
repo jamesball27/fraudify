@@ -5,10 +5,11 @@ import {
   RECEIVE_USER_PLAYLISTS
 } from '../actions/playlist_actions';
 
-import { RECEIVE_PLAYLIST_SONG } from '../actions/playlist_song_actions';
+import { RECEIVE_PLAYLIST_SONG, REMOVE_PLAYLIST_SONG } from '../actions/playlist_song_actions';
 
 const PlaylistsReducer = (state = {}, action) => {
   Object.freeze(state);
+  let playlist;
 
   switch(action.type) {
     case RECEIVE_PLAYLISTS:
@@ -22,8 +23,13 @@ const PlaylistsReducer = (state = {}, action) => {
       delete newState[action.playlistId];
       return newState;
     case RECEIVE_PLAYLIST_SONG:
-      const playlist = state[action.playlistSong.playlist_id];
-      playlist.songs.push(action.playlistSong.song_id);
+      playlist = state[action.playlistSong.playlistId];
+      playlist.songs.push(action.playlistSong.songId);
+      return Object.assign({}, state, { [playlist.id]: playlist });
+    case REMOVE_PLAYLIST_SONG:
+      playlist = state[action.playlistSong.playlistId];
+      const index = playlist.songs.indexOf(action.playlistSong.songId);
+      playlist.songs.splice(index, 1);
       return Object.assign({}, state, { [playlist.id]: playlist });
     default:
       return state;
