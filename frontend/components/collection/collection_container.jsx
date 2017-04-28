@@ -32,7 +32,10 @@ class CollectionContainer extends React.Component {
           songsInState={ this.props.songs }
           clearPlayQueue={ this.props.clearPlayQueue }
           />
-        <SongsIndex collectionPage="true" songs={ this.props.collectionItem.songs }/>
+        <SongsIndex
+          collectionPage="true"
+          songs={ this.props.collectionItem.songs }
+          playlistByCurrentUser={ this.props.createdByCurrentUser }/>
       </main>
     );
   }
