@@ -8,6 +8,7 @@ import SearchResults from './search_results';
 import { receivePlaylists } from '../../actions/playlist_actions';
 import { receiveAlbums } from '../../actions/album_actions';
 import { receiveArtists } from '../../actions/artist_actions';
+import { fetchFollows } from '../../actions/follow_actions';
 
 class Search extends React.Component {
   constructor(props) {
@@ -15,6 +16,10 @@ class Search extends React.Component {
 
     this.state = { searchTerm: '' };
     this.handleInput = this.handleInput.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchFollows();
   }
 
   componentWillUnmount() {
@@ -73,7 +78,8 @@ const mapDispatchToProps = dispatch => ({
   clearSearchResults: () => dispatch(clearSearchResults()),
   receivePlaylists: (playlists) => dispatch(receivePlaylists(playlists)),
   receiveAlbums: (albums) => dispatch(receiveAlbums(albums)),
-  receiveArtists: (artists) => dispatch(receiveArtists(artists))
+  receiveArtists: (artists) => dispatch(receiveArtists(artists)),
+  fetchFollows: () => dispatch(fetchFollows())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
