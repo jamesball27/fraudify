@@ -15,7 +15,7 @@ class Artist < ActiveRecord::Base
   has_many :songs
   has_many :playlists, through: :songs, source: :playlists
   has_many :follows, as: :followable
-  
+
   # include PgSearch
   # multisearchable against: :name,
   # using: [

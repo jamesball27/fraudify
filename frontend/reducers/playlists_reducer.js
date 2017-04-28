@@ -1,7 +1,8 @@
 import {
   RECEIVE_PLAYLISTS,
   RECEIVE_PLAYLIST,
-  REMOVE_PLAYLIST
+  REMOVE_PLAYLIST,
+  RECEIVE_USER_PLAYLISTS
 } from '../actions/playlist_actions';
 
 import { RECEIVE_PLAYLIST_SONG } from '../actions/playlist_song_actions';
@@ -11,6 +12,8 @@ const PlaylistsReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_PLAYLISTS:
+      return Object.assign({}, state, action.playlists);
+    case RECEIVE_USER_PLAYLISTS:
       return action.playlists;
     case RECEIVE_PLAYLIST:
       return Object.assign({}, state, { [action.playlist.id]: action.playlist });

@@ -1,6 +1,7 @@
 import * as SongApiUtil from '../util/song_api_util';
 
 export const RECEIVE_SONGS = 'RECEIVE_SONGS';
+export const RECEIVE_USER_SONGS = 'RECEIVE_USER_SONGS';
 const FETCHING = 'FETCHING';
 
 const receiveSongs = songs => ({
@@ -8,11 +9,16 @@ const receiveSongs = songs => ({
   songs
 });
 
+const receiveUserSongs = songs => ({
+  type: RECEIVE_USER_SONGS,
+  songs
+});
+
 export const fetchSongs = () => dispatch => {
   dispatch({ type: FETCHING });
   return SongApiUtil.fetchSongs()
     .then(songs => {
-      dispatch(receiveSongs(songs));
+      dispatch(receiveUserSongs(songs));
       return songs;
     });
 };
