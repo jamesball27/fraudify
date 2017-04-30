@@ -1,8 +1,7 @@
 class Api::PlaylistsController < ApplicationController
   before_action :redirect_unless_logged_in
-  
+
   def index
-    # @playlists = Playlist.where(creator: current_user)
     @playlists = current_user.created_playlists + current_user.followed_playlists
     render :index
   end

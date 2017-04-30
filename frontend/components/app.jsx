@@ -5,12 +5,6 @@ import NowPlaying from './now_playing/now_playing';
 
 class App extends React.Component {
 
-  // componentDidMount() {
-  //   if (!this.props.currentUser) {
-  //     this.props.router.push('/home');
-  //   }
-  // }
-
   render() {
     return(
       <div className="app">

@@ -28,7 +28,6 @@ class AuthForm extends React.Component {
   }
 
   clearForm() {
-    // don't clear the username after failed sign up if the only error was in the password
     if (this.props.errors.includes("Password is too short (minimum is 8 characters)")) {
       this.setState({ password: '' });
     } else {

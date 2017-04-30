@@ -28,19 +28,6 @@ class Song < ActiveRecord::Base
       .includes(:artist)
       .includes(:album)
       .distinct
-
-    #
-    # <<-SQL
-    #   SELECT DISTINCT
-    #     songs
-    #   FROM
-    #     songs
-    #     JOIN playlist_songs ON songs.id = playlist_songs.song_id
-    #     JOIN playlists ON playlist_songs.playlist_id = playlists.id
-    #     JOIN follows ON follows.followable_id = playlists.id
-    #   WHERE
-    #     playlists.creator_id = 296 OR follows.user_id = 296
-    # SQL
   end
 
   def self.artist_songs(artist_id)

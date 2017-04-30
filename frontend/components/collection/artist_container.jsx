@@ -20,12 +20,6 @@ class ArtistContainer extends React.Component {
       });
   }
 
-  // componentDidMount() {
-  //   this.props.fetchArtistSongs(this.props.params.artistId);
-  //   this.props.fetchArtistAlbums(this.props.params.artistId);
-  //   debugger
-  // }
-
   render() {
     return(
       <main className="main-content">

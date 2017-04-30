@@ -22,9 +22,6 @@ class SongModal extends React.Component {
 
   handleClick(playlist_id) {
     return (e) => {
-      // for some reason a click on the button to open the modal caused
-      // an infinite loop of creating playlistSongs
-      // e.stopPropagation();
       this.props.createPlaylistSong({ playlist_id, song_id: this.props.songId })
         .then(this.closeModal);
     };
