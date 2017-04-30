@@ -137,13 +137,29 @@ class AudioPlayer extends React.Component {
     return(
       <div className="audio-player">
 
-        <audio id="audio" src={ audioUrl } ref={ audio => { this.audio = audio; } }></audio>
+        <audio
+          id="audio"
+          src={ audioUrl }
+          ref={ audio => { this.audio = audio; } }
+        />
 
         <div className="audio-left">
           <div className="song-controls">
-            <img src={ window.images.prevSong } className="next-song" onClick={ this.prevSong } />
-            <img src={ pButtonUrl } className="p-button" onClick={ this.togglePlay } />
-            <img src={ window.images.nextSong } className="next-song" onClick={ this.nextSong }/>
+            <img
+              src={ window.images.prevSong }
+              className="change-song"
+              onClick={ this.prevSong }
+            />
+            <img
+              src={ pButtonUrl }
+              className="p-button"
+              onClick={ this.togglePlay }
+            />
+            <img
+              src={ window.images.nextSong }
+              className="change-song"
+              onClick={ this.nextSong }
+            />
           </div>
 
           <div className="timeline">
