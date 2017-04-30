@@ -8,14 +8,23 @@ This is a fullstack web application based on the popular music streaming service
 
 ### My Music
 
-Users have access to a My Music page, where they can view their created and followed playlists, along with all songs and albums associated with those playlist. Users can also see their followed artists and link to the artist show page to view that artist's songs and albums.
+Users have access to a My Music page, where they can view their created and followed playlists, along with all songs and albums associated with those playlists. Users can also see their followed artists and link to the artist show page to view that artist's songs and albums.
 
 Playlists can be created from anywhere on a user's My Music page by clicking the 'New Playlist' button. By using a modular `SongsIndex` component, songs can be added to any of the user's created playlists from any location that songs are viewable (playlist or album show pages, user's song index, artist show page, search results).
+
+![My Music Songs Index](docs/screenshots/mymusic-songsindex.png)
+<small>My Music `SongsIndex`</small>
 
 
 ### Continuous Sitewide Music Playback
 
-Users can play their music continuously when navigating around the site, which was achieved by nesting the `NowPlaying` React component under the parent route, so it is rendered on every page. Users can play a collection of music (playlist or album), which will add all of that collection's songs to the play queue, or play a specific song by clicking on the play button in the `SongsIndex`, which it add that song to the top of the play queue and begin playback immediately.
+Users can play music continuously when navigating around the site, which was achieved by nesting the `NowPlaying` React component under the parent route, so it is rendered on every page. Users can add all of a playlist's or album's songs to the play queue for continuous playback and can navigate through the queue using the next song and previous song buttons. It is also possible to add a song to the top of the play queue for immediate playback by clicking on the play button next to a song in any `SongsIndex`.
+
+![Album Show Page](docs/screenshots/album-show-page.png)
+<small>
+Album Show Page using `SongsIndex` to display the album's songs. Users can click the "Play" button on an album or playlist show page to add its songs to the play queue.
+</small>
+
 
 Audio playback is achieved using a custom audio player that manipulates an HTML5 `<audio>` element using React lifecycle methods and event listeners.
 
@@ -39,7 +48,7 @@ Audio playback is achieved using a custom audio player that manipulates an HTML5
 Users can search for playlists, songs, albums, and artists. Using an `onChange` event handler which sends an API request on every keystroke, users can view dynamic search results at the press of a button.
 
 
-#### Future Directions
+### Future Directions
 
 * __Browse:__ users can browse popular songs, artists, playlists, and albums, with suggestions tailored to their preferences
 * __Radio:__ users can create a radio station that will suggest songs based on an album or artist
