@@ -14,6 +14,7 @@ class SongIndexItem extends React.Component {
     e.preventDefault();
     e.stopPropagation();
 
+    this.props.clearPlayQueue();
     this.props.addSongToTopOfQueue(this.props.song);
   }
 

@@ -16,7 +16,7 @@ Playlists can be created from anywhere on a user's My Music page by clicking the
 
 ### Continuous Sitewide Music Playback
 
-Users can play music continuously while navigating around the site, which was achieved by nesting the `NowPlaying` component under the parent `App` route, so it is rendered on every page. Users can add all of a playlist's or album's songs to the play queue for continuous playback and can navigate through the queue using the next song and previous song buttons. It is also possible to add a song to the top of the play queue for immediate playback by clicking on the play button next to a song in any `SongsIndex` component.
+Users can play music continuously while navigating around the site, which was achieved by nesting the `NowPlaying` component under the parent `App` route, so it is rendered on every page. Users can add all of a playlist's or album's songs to the play queue for continuous playback and can navigate through the queue using the next song and previous song buttons. It is also possible to clear the play queue and add a song for immediate playback by clicking on the play button next to a song in any `SongsIndex` component.
 
 ![Album Show Page](docs/screenshots/album-show-page.png)
 
@@ -49,7 +49,7 @@ Audio playback is achieved using a custom audio player that manipulates an HTML5
         onClick={ this.nextSong }
       />
     </div>
-    
+
   ...
 ```
 

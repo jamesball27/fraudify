@@ -70,6 +70,10 @@
   padding: 10px;
   border: none;
 
+  &:hover {
+    background: #1eb524;
+  }
+
   &:focus {
     outline: none;
   }

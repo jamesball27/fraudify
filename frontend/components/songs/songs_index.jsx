@@ -4,7 +4,7 @@ import { arrayAllSongs, playlistsByCurrentUser, currentUserSongs } from '../../r
 import { fetchSongs } from '../../actions/song_actions';
 import { createPlaylistSong, deletePlaylistSong } from '../../actions/playlist_song_actions';
 import SongIndexItem from './song_index_item';
-import { addSongToTopOfQueue } from '../../actions/play_queue_actions';
+import { addSongToTopOfQueue, clearPlayQueue } from '../../actions/play_queue_actions';
 
 class SongsIndex extends React.Component {
 
@@ -40,6 +40,7 @@ class SongsIndex extends React.Component {
                 deletePlaylistSong={ this.props.deletePlaylistSong }
                 addSongToTopOfQueue={ this.props.addSongToTopOfQueue }
                 playlistByCurrentUser={ this.props.playlistByCurrentUser }
+                clearPlayQueue={ this.props.clearPlayQueue }
               />
             )
           )
@@ -78,7 +79,8 @@ const mapDispatchToProps = dispatch => ({
   fetchSongs: () => dispatch(fetchSongs()),
   createPlaylistSong: (playlistSong) => dispatch(createPlaylistSong(playlistSong)),
   deletePlaylistSong: (playlistSong) => dispatch(deletePlaylistSong(playlistSong)),
-  addSongToTopOfQueue: (song) => dispatch(addSongToTopOfQueue(song))
+  addSongToTopOfQueue: (song) => dispatch(addSongToTopOfQueue(song)),
+  clearPlayQueue: () => dispatch(clearPlayQueue())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongsIndex);
