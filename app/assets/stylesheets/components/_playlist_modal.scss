@@ -64,14 +64,14 @@
 }
 
 .modal-entry-button {
-  opacity: 1;
+  opacity: .85;
   font-size: 12px;
   width: 180px;
   padding: 10px;
   border: none;
 
   &:hover {
-    background: #1eb524;
+    opacity: 1;
   }
 
   &:focus {
