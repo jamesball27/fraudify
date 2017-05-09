@@ -22,35 +22,36 @@ Users can play music continuously while navigating around the site, which was ac
 
 Audio playback is achieved using a custom audio player that manipulates an HTML5 `<audio>` element using React lifecycle methods and event listeners.
 
-```jsx
-<div className="audio-player">
+```javascript
+scrollPlayback(e) {
+  e.preventDefault();
+  e.stopPropagation();
 
-  <audio
-    id="audio"
-    src={ audioUrl }
-    ref={ audio => { this.audio = audio; } }
-  />
+  const timelineWidth = this.scrollbar.getBoundingClientRect().width;
+  const timelineLeft = this.scrollbar.getBoundingClientRect().left;
+  const clickPos = (e.clientX - timelineLeft) / timelineWidth;
 
-  <div className="audio-left">
-    <div className="song-controls">
-      <img
-        src={ window.images.prevSong }
-        className="change-song"
-        onClick={ this.prevSong }
-      />
-      <img
-        src={ pButtonUrl }
-        className="p-button"
-        onClick={ this.togglePlay }
-      />
-      <img
-        src={ window.images.nextSong }
-        className="change-song"
-        onClick={ this.nextSong }
-      />
-    </div>
+  this.audio.currentTime = this.duration * clickPos;
+  this.setState({ elapsed: this.audio.currentTime });
+}
 
-  ...
+...
+
+prevSong() {
+  const playQueuePosition = this.state.playQueuePosition - 1;
+
+  if (this.audio.currentTime > 2) {
+    this.audio.currentTime = 0;
+  } else {
+    if (playQueuePosition < 0) {
+      this.setState({ playQueuePosition: 0 });
+    } else {
+      this.props.receiveCurrentSong(this.props.playQueue[playQueuePosition]);
+      this.props.pauseSong();
+      this.setState({ playQueuePosition });
+    }
+  }
+}  
 ```
 
 ### Search
