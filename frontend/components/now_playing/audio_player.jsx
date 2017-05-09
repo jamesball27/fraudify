@@ -116,12 +116,17 @@ class AudioPlayer extends React.Component {
 
   prevSong() {
     const playQueuePosition = this.state.playQueuePosition - 1;
-    if (playQueuePosition < 0) {
-      this.setState({ playQueuePosition: 0 });
+
+    if (this.audio.currentTime > 2) {
+      this.audio.currentTime = 0;
     } else {
-      this.props.receiveCurrentSong(this.props.playQueue[playQueuePosition]);
-      this.props.pauseSong();
-      this.setState({ playQueuePosition });
+      if (playQueuePosition < 0) {
+        this.setState({ playQueuePosition: 0 });
+      } else {
+        this.props.receiveCurrentSong(this.props.playQueue[playQueuePosition]);
+        this.props.pauseSong();
+        this.setState({ playQueuePosition });
+      }
     }
   }
 
