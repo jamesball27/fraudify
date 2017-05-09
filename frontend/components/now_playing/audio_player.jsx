@@ -163,9 +163,7 @@ class AudioPlayer extends React.Component {
           <div className="timeline">
             <p>{ this.parseTime(this.state.elapsed) }</p>
             <div id="scrollbar" onClick={ this.scrollPlayback } ref={ scrollbar => { this.scrollbar = scrollbar; } }>
-              <div className="progress" style={{ width: this.playPercent + "%" }}>
-                <span>●</span>
-              </div>
+              <div className="progress" style={{ width: this.playPercent + "%" }}></div>
             </div>
             <p>{ this.parseTime(this.duration) }</p>
           </div>
@@ -174,9 +172,7 @@ class AudioPlayer extends React.Component {
         <div className="audio-right">
           <img src={ window.images.volume } />
           <div id="volume" ref={ volume => { this.volume = volume; } } onClick={ this.changeVolume }>
-            <div className="progress" style={{ width: this.volPercent + "%" }}>
-              <span>●</span>
-            </div>
+            <div className="progress" style={{ width: this.volPercent + "%" }}></div>
           </div>
         </div>
       </div>

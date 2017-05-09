@@ -3,7 +3,6 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  // padding: auto;
 }
 
 .p-button {
@@ -30,28 +29,6 @@
   background: #a0a0a0;
   border-radius: 5px;
   height: 5px;
-  position: relative;
-
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  span {
-    font-size: 20px;
-    position: absolute;
-    right: -10px;
-    user-select: none;
-    &:active {
-      cursor: pointer;
-    }
-  }
-}
-
-#playhead {
-  height: 5px;
-  width: 5px;
-  border-radius: 50%;
-  background: white;
 }
 
 .timeline {
