@@ -24,7 +24,27 @@
   border-radius: 5px;
   margin: 0 10px;
   cursor: pointer;
+}
 
+.progress {
+  background: #a0a0a0;
+  border-radius: 5px;
+  height: 5px;
+  position: relative;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  span {
+    font-size: 20px;
+    position: absolute;
+    right: -10px;
+    user-select: none;
+    &:active {
+      cursor: pointer;
+    }
+  }
 }
 
 #playhead {
@@ -32,10 +52,6 @@
   width: 5px;
   border-radius: 50%;
   background: white;
-
-  // &:hover {
-  //   transform: scale(2.5);
-  // }
 }
 
 .timeline {
@@ -82,10 +98,6 @@
   border-radius: 50%;
   background: white;
   margin-left: 100%;
-
-  // &:hover {
-  //   transform: scale(2.5);
-  // }
 }
 
 .audio-left {

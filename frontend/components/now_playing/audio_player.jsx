@@ -9,7 +9,6 @@ class AudioPlayer extends React.Component {
     this.duration = 0;
     this.togglePlay = this.togglePlay.bind(this);
     this.updateTimeline = this.updateTimeline.bind(this);
-    this.movePlayhead = this.movePlayhead.bind(this);
     this.scrollPlayback = this.scrollPlayback.bind(this);
     this.nextSong = this.nextSong.bind(this);
     this.prevSong = this.prevSong.bind(this);
@@ -57,13 +56,7 @@ class AudioPlayer extends React.Component {
   updateTimeline() {
     this.audio.ontimeupdate = () => {
       this.setState({ elapsed: this.audio.currentTime });
-      this.movePlayhead();
     };
-  }
-
-  movePlayhead() {
-    const playPercent = (this.state.elapsed / this.duration) * 100;
-    this.playhead.style.marginLeft = playPercent + '%';
   }
 
   scrollPlayback(e) {
@@ -88,8 +81,7 @@ class AudioPlayer extends React.Component {
 
     this.audio.volume = clickPos;
 
-    const volPercent = this.audio.volume * 100;
-    this.volumeHead.style.marginLeft = volPercent + '%';
+    this.volPercent = this.audio.volume * 100;
   }
 
   parseTime(time) {
@@ -138,6 +130,8 @@ class AudioPlayer extends React.Component {
       audioUrl = this.props.playQueue[this.state.playQueuePosition].audioUrl;
     }
 
+    this.playPercent = ((this.state.elapsed / this.duration) * 100) || 0;
+
     return(
       <div className="audio-player">
 
@@ -169,7 +163,9 @@ class AudioPlayer extends React.Component {
           <div className="timeline">
             <p>{ this.parseTime(this.state.elapsed) }</p>
             <div id="scrollbar" onClick={ this.scrollPlayback } ref={ scrollbar => { this.scrollbar = scrollbar; } }>
-              <div id="playhead" ref={ playhead => { this.playhead = playhead; } }></div>
+              <div className="progress" style={{ width: this.playPercent + "%" }}>
+                <span>●</span>
+              </div>
             </div>
             <p>{ this.parseTime(this.duration) }</p>
           </div>
@@ -178,9 +174,10 @@ class AudioPlayer extends React.Component {
         <div className="audio-right">
           <img src={ window.images.volume } />
           <div id="volume" ref={ volume => { this.volume = volume; } } onClick={ this.changeVolume }>
-            <div id="volume-head" ref={ volumeHead => { this.volumeHead = volumeHead; }}></div>
+            <div className="progress" style={{ width: this.volPercent + "%" }}>
+              <span>●</span>
+            </div>
           </div>
-
         </div>
       </div>
     );
