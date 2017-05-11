@@ -96,14 +96,18 @@ class AudioPlayer extends React.Component {
   }
 
   nextSong() {
+    if (this.state.playQueuePosition === this.props.playQueue.length - 1) {
+      return;
+    }
+
     const playQueuePosition = this.state.playQueuePosition + 1;
-    if (playQueuePosition >= this.props.playQueue.length) {
-      this.setState({ playQueuePosition: 0 });
-    } else {
+    // if (playQueuePosition >= this.props.playQueue.length) {
+    //   this.setState({ playQueuePosition: 0 });
+    // } else {
       this.props.receiveCurrentSong(this.props.playQueue[playQueuePosition]);
       this.props.pauseSong();
       this.setState({ playQueuePosition });
-    }
+    // }
   }
 
   prevSong() {
@@ -132,6 +136,11 @@ class AudioPlayer extends React.Component {
 
     this.playPercent = ((this.state.elapsed / this.duration) * 100) || 0;
 
+    let nextSongClass = 'change-song';
+    if (this.state.playQueuePosition === this.props.playQueue.length - 1) {
+      nextSongClass += ' disabled';
+    }
+
     return(
       <div className="audio-player">
 
@@ -155,7 +164,7 @@ class AudioPlayer extends React.Component {
             />
             <img
               src={ window.images.nextSong }
-              className="change-song"
+              className={ nextSongClass }
               onClick={ this.nextSong }
             />
           </div>

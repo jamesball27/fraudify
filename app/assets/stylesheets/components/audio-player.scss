@@ -59,6 +59,14 @@
   }
 }
 
+.change-song.disabled {
+  opacity: .2;
+
+  &:hover {
+    transform: none;
+  }
+}
+
 #volume {
   float: right;
   height: 5px;
