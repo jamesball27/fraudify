@@ -16,6 +16,7 @@ class Search extends React.Component {
 
     this.state = { searchTerm: '' };
     this.handleInput = this.handleInput.bind(this);
+    this.renderResults = this.renderResults.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +47,23 @@ class Search extends React.Component {
     this.setState({ searchTerm: e.target.value });
   }
 
+  renderResults() {
+    if (this.props.fetching) {
+      return(
+        <div className="spinner"></div>
+      );
+    }
+
+    return(
+      <div className="search-results">
+        <SearchResults
+          indexType={ this.props.router.path }
+          searchResults={ this.props.searchResults }
+          fetching={ this.props.fetching }
+        />
+      </div>
+    );
+  }
   render() {
     return(
       <main className="search">
@@ -60,17 +78,16 @@ class Search extends React.Component {
           />
         </div>
         <MusicNavbar path="search"/>
-        <div className="search-results">
-          <SearchResults indexType={ this.props.router.path } searchResults={ this.props.searchResults }/>
-        </div>
+        { this.renderResults() }
       </main>
     );
   }
 }
 
 
-const mapStateToProps = ({ searchResults }) => ({
-  searchResults
+const mapStateToProps = ({ searchResults, fetching }) => ({
+  searchResults,
+  fetching
 });
 
 const mapDispatchToProps = dispatch => ({

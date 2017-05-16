@@ -11,7 +11,7 @@
   margin: 20px 20px 15px 20px;
   transition: transform .25s;
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     cursor: pointer;
   }
 }
@@ -52,6 +52,7 @@
 .change-song {
   height: 15px;
   width: 15px;
+  transition: transform .25s;
 
   &:hover {
     cursor: pointer;
