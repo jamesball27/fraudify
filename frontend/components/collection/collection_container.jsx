@@ -25,8 +25,13 @@ class CollectionContainer extends React.Component {
     }
   }
 
-
   render() {
+    if (this.props.fetching) {
+      return(
+        <div className="spinner"></div>
+      );
+    }
+    
     if (this.props.collectionItem) {
       return(
         <main className="collection-container">
