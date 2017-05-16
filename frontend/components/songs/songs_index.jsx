@@ -16,7 +16,7 @@ class SongsIndex extends React.Component {
 
   render() {
     if (this.props.fetching) {
-      return <div></div>;
+      return <div className="spinner"></div>;
     }
 
     if (this.props.songs.length === 0) {

@@ -78,8 +78,9 @@ class CollectionsIndex extends React.Component {
     }
 
     if (this.props.fetching) {
-      return <div></div>;
+      return <div className="spinner"></div>;
     }
+    
     if (Object.keys(indexItems).length === 0) {
       return(
         <section className="collections-index">
