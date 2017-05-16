@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, hashHistory, IndexRoute, IndexRedirect } from 'react-router';
+import { Router, Route, hashHistory, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
 import App from './app';
 import AuthForm from './home/auth_form';
 import HomePage from './home/home_page';
@@ -26,7 +26,7 @@ const Root = ({ store }) => {
 
   return(
     <Provider store={ store }>
-      <Router history={ hashHistory }>
+      <Router history={ browserHistory }>
         <Route path="/" component={ App } >
           <IndexRedirect to="home" />
           <Route path="home" component={ HomePage } onEnter={ _redirectIfLoggedIn } />
@@ -44,7 +44,7 @@ const Root = ({ store }) => {
           <Route path="playlists/:playlistId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>
           <Route path="albums/:albumId" component={ CollectionContainer } onEnter={ _ensureLoggedIn }/>
           <Route path="artists/:artistId" component={ ArtistContainer } onEnter={ _ensureLoggedIn } />
-          
+
           <Route path="search" component={ SearchContainer } onEnter={ _ensureLoggedIn }>
             <IndexRedirect to="playlists" />
             <Route path="playlists" component={ CollectionsIndex } onEnter={ _ensureLoggedIn }/>

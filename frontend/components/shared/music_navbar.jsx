@@ -25,10 +25,10 @@ class MusicNavbar extends React.Component {
     return(
       <nav className="music-nav">
         <ul>
-          <li><Link to={ path + '/playlists' } className={ this.isActive(`${path}/playlists`)}>Playlists</Link></li>
-          <li><Link to={ path + '/songs' } className={ this.isActive(`${path}/songs`)}>Songs</Link></li>
-          <li><Link to={ path + '/albums' } className={ this.isActive(`${path}/albums`)}>Albums</Link></li>
-          <li><Link to={ path + '/artists' } className={ this.isActive(`${path}/artists`)}>Artists</Link></li>
+          <li><Link to={ '/' + path + '/playlists' } className={ this.isActive(`${path}/playlists`)}>Playlists</Link></li>
+          <li><Link to={ '/' + path + '/songs' } className={ this.isActive(`${path}/songs`)}>Songs</Link></li>
+          <li><Link to={ '/' + path + '/albums' } className={ this.isActive(`${path}/albums`)}>Albums</Link></li>
+          <li><Link to={ '/' + path + '/artists' } className={ this.isActive(`${path}/artists`)}>Artists</Link></li>
         </ul>
         { newPlaylist }
       </nav>

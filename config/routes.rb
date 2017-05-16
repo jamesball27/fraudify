@@ -29,4 +29,6 @@ Rails.application.routes.draw do
 
     resources :follows, only: [:index]
   end
+
+  get "/*path", to: "static_pages#root"
 end
