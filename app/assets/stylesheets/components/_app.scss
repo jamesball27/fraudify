@@ -23,13 +23,17 @@
   width: 80%;
   margin: 20px;
   text-transform: uppercase;
-  opacity: .85;
+  opacity: 1;
 
   &:hover {
     text-decoration: none;
-    opacity: 1;
+    opacity: .85;
     transition: opacity .25s;
     cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 

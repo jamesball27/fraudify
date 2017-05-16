@@ -55,35 +55,19 @@
     .button {
       width: 10%;
       border: none;
-
-      &:focus {
-        outline: none;
-      }
     }
   }
 }
 
 .modal-entry-button {
-  opacity: .85;
   font-size: 12px;
   width: 180px;
   padding: 10px;
   border: none;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  &:focus {
-    outline: none;
-  }
 }
 
 .modal-button {
-  opacity: 1;
-  transition: transform .5s;
-
-  &:hover {
-    transform: scale(1.1);
-  }
+  font-size: 12px;
+  border: none;
+  padding: 10px;
 }

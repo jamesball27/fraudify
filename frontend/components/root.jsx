@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, hashHistory, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
 import App from './app';
 import AuthForm from './home/auth_form';
 import HomePage from './home/home_page';

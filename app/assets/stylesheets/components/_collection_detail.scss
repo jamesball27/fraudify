@@ -48,27 +48,14 @@
   }
 
   .play {
-    opacity: .85;
     width: 100%;
     padding: 10px;
     border: none;
     margin: 0;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:hover {
-      opacity: 1;
-    }
   }
 
   .modal-entry-button {
-    opacity: .85;
     margin: 10px;
     width: 100px;
-    &:hover {
-      opacity: 1;
-    }
   }
 }

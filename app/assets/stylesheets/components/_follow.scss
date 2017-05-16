@@ -19,18 +19,9 @@
   margin: 13px;
 
   .follow {
-    opacity: .85;
     width: 100%;
     padding: 10px;
     border: none;
     margin: 0;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:hover {
-      opacity: 1;
-    }
   }
 }
