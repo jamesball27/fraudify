@@ -13,13 +13,22 @@
 class PlaylistSong < ActiveRecord::Base
   validates :playlist, :song, :ord, presence: true
 
-  before_save :update_playlist_image
+  before_save :add_playlist_image
+  after_destroy :remove_playlist_image
+
   belongs_to :song
   belongs_to :playlist
 
-  def update_playlist_image
-    if self.playlist.image_url == 'music.png'
+  def add_playlist_image
+    if self.playlist.image_url == "music.png"
       self.playlist.image_url = self.song.album.image_url
+      self.playlist.save!
+    end
+  end
+
+  def remove_playlist_image
+    if self.playlist.songs.empty?
+      self.playlist.image_url = "music.png"
       self.playlist.save!
     end
   end
