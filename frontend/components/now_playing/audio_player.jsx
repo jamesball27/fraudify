@@ -102,7 +102,6 @@ class AudioPlayer extends React.Component {
 
     const playQueuePosition = this.state.playQueuePosition + 1;
     this.props.receiveCurrentSong(this.props.playQueue[playQueuePosition]);
-    this.props.pauseSong();
     this.setState({ playQueuePosition });
   }
 
@@ -116,7 +115,6 @@ class AudioPlayer extends React.Component {
         this.setState({ playQueuePosition: 0 });
       } else {
         this.props.receiveCurrentSong(this.props.playQueue[playQueuePosition]);
-        this.props.pauseSong();
         this.setState({ playQueuePosition });
       }
     }
