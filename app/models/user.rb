@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   has_many :created_playlists,
     primary_key: :id,
     foreign_key: :creator_id,
-    class_name: "Playlist"
+    class_name: "Playlist",
+    dependent: :destroy
 
   has_many :follows, inverse_of: :user
 
