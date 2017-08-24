@@ -35,6 +35,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'figaro'
 gem 'aws-sdk', '>= 2.0'
 # gem 'pg_search'
+gem 'graphql'
 
 group :production do
   gem 'rails_12factor'
@@ -54,4 +55,5 @@ group :development do
   gem 'annotate'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'graphiql-rails'
 end
