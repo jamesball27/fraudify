@@ -12,5 +12,10 @@ PlaylistType = GraphQL::ObjectType.define do
     description "Playlist's songs in order"
     resolve ->(playlist, args, ctx) { playlist.songs_in_order }
   end
-  # field :creator, !types.UserType
+
+  field :creator do
+    type !UserType
+    description "Playlist's creator"
+    resolve ->(playlist, args, ctx) { playlist.creator }
+  end
 end
