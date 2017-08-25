@@ -19,7 +19,6 @@ class Playlist < ActiveRecord::Base
   has_many :follows, as: :followable
 
   def songs_in_order
-    order = self.playlist_songs.order(:ord).includes(:song)
-    order.map(&:song)
+    songs.includes(:playlist_songs).order('playlist_songs.ord')
   end
 end
