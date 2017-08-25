@@ -41,5 +41,9 @@ module Fraudify
         s3_region: ENV["s3_region"]
       }
     }
+
+
+    config.autoload_paths << Rails.root.join('app', 'graphql')
+    config.autoload_paths << Rails.root.join('app', 'graphql', 'types')
   end
 end
