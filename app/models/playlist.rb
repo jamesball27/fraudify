@@ -19,6 +19,7 @@ class Playlist < ActiveRecord::Base
   has_many :follows, as: :followable
 
   def songs_in_order
-    self.playlist_songs.joins(:song).order(:ord).pluck("songs.id")
+    order = self.playlist_songs.order(:ord).includes(:song)
+    order.map(&:song)
   end
 end
