@@ -7,7 +7,7 @@ UserType = GraphQL::ObjectType.define do
   field :playlists do
     type !types[PlaylistType]
     description "User's created and followed playlists"
-    resolve -> (user, args, ctx) do
+    resolve ->(user, args, ctx) do
       user.created_playlists + user.followed_playlists
     end
   end
