@@ -1,7 +1,5 @@
 # Fraudify
 
-[Fraudify live!](https://fraudify.herokuapp.com/#/home)
-
 Fraudify is a full stack web application based on the popular music streaming service Spotify, built using Ruby on Rails and React/Redux.
 
 ## Features and Implementation
